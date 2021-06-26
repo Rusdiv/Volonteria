@@ -7,6 +7,12 @@
   align-items: center;
 }
 
+.post {
+  margin-top: 15px;
+  border: 1px solid rgb(53, 113, 153);
+  padding: 10px;
+}
+
 .main {
   padding: 5rem 0;
   flex: 1;
