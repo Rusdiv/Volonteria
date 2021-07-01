@@ -1,7 +1,16 @@
-import '../styles/globals.css'
+import React from "react";
+
+import Header from "../components/Header/Header";
+
+import "../styles/globals.css";
 
 function MyApp({ Component, pageProps }) {
-  return <Component {...pageProps} />
+  return (
+    <React.Fragment>
+      <Header />
+      <Component {...pageProps} />
+    </React.Fragment>
+  );
 }
 
-export default MyApp
+export default MyApp;

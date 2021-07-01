@@ -1,0 +1,12 @@
+.newsItem {
+  border: 1px solid black;
+  text-align: center;
+  margin-top: 15px;
+  border-radius: 15px;
+  padding: 10px;
+}
+
+.content img {
+  width: 100%;
+  object-fit: contain;
+}
