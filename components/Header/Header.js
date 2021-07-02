@@ -13,6 +13,10 @@ export default function Header() {
       name: "News",
       url: "/news",
     },
+    {
+      name: "Profile",
+      url: "/profile",
+    },
   ];
 
   return (
