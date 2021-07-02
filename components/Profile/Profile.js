@@ -1,17 +1,8 @@
-import React, { useEffect, useState } from "react";
-import axios from "axios";
+import React from "react";
 import _get from "lodash/get";
 
-export default function Profile() {
-  const [userData, setUserData] = useState({});
-  useEffect(() => {
-    const getUser = async () => {
-      const response = await axios.get("/api/getUser");
-      setUserData(response.data);
-    };
-    getUser();
-  }, []);
-
+function Profile(props) {
+  const { userData } = props;
   return (
     <div>
       <h2>{userData.name}</h2>
@@ -20,3 +11,5 @@ export default function Profile() {
     </div>
   );
 }
+
+export default Profile;
