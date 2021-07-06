@@ -17,6 +17,10 @@ export default function Header() {
       name: "Profile",
       url: "/profile",
     },
+    {
+      name: "Achievements",
+      url: "/achievements",
+    },
   ];
 
   return (

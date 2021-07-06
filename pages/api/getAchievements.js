@@ -3,7 +3,7 @@ import axios from "axios";
 
 export default async (req, res) => {
   const response = await axios
-    .get(`${process.env.WP_API_URL}/posts`)
+    .get(`${process.env.CUSTOM_WP_API_URL}/achives`)
     .then((response) => {
       return response.data;
     });
