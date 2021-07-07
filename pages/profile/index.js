@@ -1,10 +1,15 @@
 import React from "react";
 import axios from "axios";
+import _get from "lodash/get";
 
-import Profile from "../../components/Profile/Profile";
-
-export default function ProfilePage(props) {
-  return <Profile userData={props} />;
+export default function ProfilePage({ user }) {
+  return (
+    <div>
+      <h2>{user.name}</h2>
+      <img src={user.avatar_urls[96]} alt="avatar" />
+      <div>id: {user.id}</div>
+    </div>
+  );
 }
 
 export const getServerSideProps = async (context) => {
@@ -12,6 +17,6 @@ export const getServerSideProps = async (context) => {
   const { data } = await axios.get(`http://${req.headers.host}/api/getUser`);
 
   return {
-    props: data,
+    props: { user: data },
   };
 };

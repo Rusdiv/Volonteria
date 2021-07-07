@@ -1,12 +1,22 @@
 import React from "react";
 import axios from "axios";
 
-import Achievements from "../../components/Achievements/Achievements";
+import Achieve from "../../components/Achievements/Achieve";
 
-export default function AchievementsPage(props) {
-  return <Achievements achievementsData={props} />;
+export default function Achievements({ achievements = [] }) {
+  return (
+    <ul>
+      {achievements.map((achieve, index) => (
+        <Achieve
+          key={index}
+          id={achieve.id}
+          title={achieve.title}
+          content={achieve.content}
+        />
+      ))}
+    </ul>
+  );
 }
-
 export const getServerSideProps = async (context) => {
   const { req } = context;
   const { data } = await axios.get(
@@ -14,6 +24,6 @@ export const getServerSideProps = async (context) => {
   );
 
   return {
-    props: { data },
+    props: { achievements: data },
   };
 };

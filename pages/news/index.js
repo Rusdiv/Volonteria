@@ -1,10 +1,10 @@
 import React from "react";
 import axios from "axios";
 
-import News from "../../components/News/News";
+import NewsList from "../../components/News/NewsList/NewsList";
 
-export default function NewsPage(props) {
-  return <News newsData={props.data} />;
+export default function News({ news = [] }) {
+  return <NewsList news={news} />;
 }
 
 export const getServerSideProps = async (context) => {
@@ -12,6 +12,6 @@ export const getServerSideProps = async (context) => {
   const { data } = await axios.get(`http://${req.headers.host}/api/getNews`);
 
   return {
-    props: { data },
+    props: { news: data },
   };
 };

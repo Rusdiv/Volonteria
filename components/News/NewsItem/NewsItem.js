@@ -2,9 +2,7 @@ import React from "react";
 
 import classes from "./NewsItem.module.css";
 
-export default function NewsItem(props) {
-  const { title, content, date } = props;
-
+export default function NewsItem({ title, content, date }) {
   return (
     <li className={classes.newsItem}>
       <h3>{title.rendered}</h3>

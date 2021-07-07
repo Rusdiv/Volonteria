@@ -6,19 +6,19 @@ import classes from "./Header.module.css";
 export default function Header() {
   const PAGES = [
     {
-      name: "Home",
+      name: "Главная",
       url: "/",
     },
     {
-      name: "News",
+      name: "Новости",
       url: "/news",
     },
     {
-      name: "Profile",
+      name: "Профиль",
       url: "/profile",
     },
     {
-      name: "Achievements",
+      name: "Достижения",
       url: "/achievements",
     },
   ];
