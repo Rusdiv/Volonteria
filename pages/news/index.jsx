@@ -1,9 +1,9 @@
-import React from "react";
-import axios from "axios";
+import React from 'react';
+import axios from 'axios';
 
-import NewsList from "../../components/News/NewsList/NewsList";
+import NewsList from '../../components/News/NewsList/NewsList';
 
-export default function News({ news = [] }) {
+export default function NewsPage({ news = [] }) {
   return <NewsList news={news} />;
 }
 

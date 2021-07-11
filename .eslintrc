@@ -1,0 +1,7 @@
+{
+  "extends": ["airbnb", "airbnb/hooks"],
+  "rules": {
+    "linebreak-style": ["error", "windows"],
+    "react/jsx-props-no-spreading": "off"
+  }
+}
