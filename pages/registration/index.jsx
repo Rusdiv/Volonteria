@@ -32,18 +32,21 @@ export default function RegistrationPage() {
     <form onSubmit={onSubmitForm}>
       <input
         type="text"
+        placeholder="Логин"
         onChange={enteredLoginHandler}
         value={enteredLogin}
         required
       />
       <input
         type="email"
+        placeholder="Email"
         onChange={enteredEmailHandler}
         value={enteredEmail}
         required
       />
       <input
         type="password"
+        placeholder="Пароль"
         onChange={enteredPasswordHandler}
         value={enteredPassword}
         required

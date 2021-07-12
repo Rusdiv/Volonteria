@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import axios from 'axios';
+import Link from 'next/link';
 
 export default function ProfilePage({ user }) {
   return (
@@ -11,6 +12,8 @@ export default function ProfilePage({ user }) {
         id:
         {user.id}
       </div>
+      <br />
+      <Link href="/profile/change">Поменять данные профиля</Link>
     </div>
   );
 }

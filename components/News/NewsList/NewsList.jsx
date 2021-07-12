@@ -7,10 +7,15 @@ import styles from './NewsList.module.css';
 export default function NewsList({ news = [] }) {
   return (
     <ul className={styles.newsList}>
-      {news.map(({
-        title, content, date, id,
-      }) => (
-        <NewsItem key={id} date={date} content={content} title={title} />
+      {news.map((event) => (
+        <NewsItem
+          key={event.post_id}
+          date={event.time_value}
+          content={event.description_value}
+          title={event.name_value}
+          count={event.volunteers_value}
+          tgId={event.telegram_id_value}
+        />
       ))}
     </ul>
   );
