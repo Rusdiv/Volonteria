@@ -9,7 +9,7 @@ export default function NewsPage({ news = [] }) {
 
 export const getServerSideProps = async (context) => {
   const { req } = context;
-  const { data } = await axios.get(`http://${req.headers.host}/api/getNews`);
+  const { data } = await axios.get(`http://${req.headers.host}/api/news`);
 
   return {
     props: { news: data },
