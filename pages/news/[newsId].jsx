@@ -2,7 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import PropTypes from 'prop-types';
 
-export default function NewsIdItem({
+export default function NewsItemPage({
   id,
   time,
   description,
@@ -40,7 +40,7 @@ export default function NewsIdItem({
   );
 }
 
-NewsIdItem.propTypes = {
+NewsItemPage.propTypes = {
   id: PropTypes.number.isRequired,
   name: PropTypes.string.isRequired,
   volCount: PropTypes.number.isRequired,

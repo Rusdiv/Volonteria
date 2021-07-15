@@ -21,6 +21,10 @@ export default function Header() {
       name: 'Достижения',
       url: '/achievements',
     },
+    {
+      name: 'Настройки',
+      url: '/settings',
+    },
   ];
 
   return (

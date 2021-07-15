@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import axios from 'axios';
-import Link from 'next/link';
 
 export default function ProfilePage({ user }) {
   return (
@@ -13,7 +12,6 @@ export default function ProfilePage({ user }) {
         {user.id}
       </div>
       <br />
-      <Link href="/profile/change">Поменять данные профиля</Link>
     </div>
   );
 }
@@ -28,7 +26,7 @@ ProfilePage.propTypes = {
 
 export const getServerSideProps = async (context) => {
   const { req } = context;
-  const { data } = await axios.get(`http://${req.headers.host}/api/getUser`);
+  const { data } = await axios.get(`http://${req.headers.host}/api/user`);
 
   return {
     props: { user: data },

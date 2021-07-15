@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 
-export default function ChangeProfileDataPage() {
+export default function SetingsPage() {
   const [enteredName, setEnteredName] = useState('');
   const [enteredEmail, setEnteredEmail] = useState('');
 
@@ -14,7 +14,7 @@ export default function ChangeProfileDataPage() {
   };
 
   const onSubmitForm = async (event) => {
-    await axios.post('api/changeUserData', {
+    await axios.post('api/settings', {
       name: enteredName,
     });
 
