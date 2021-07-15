@@ -8,9 +8,10 @@ export default function Achievements({ achievements = [] }) {
     <ul>
       {achievements.map((achieve) => (
         <Achieve
-          key={achieve.id}
-          title={achieve.title}
-          content={achieve.content}
+          key={achieve.post_id}
+          title={achieve.name_value}
+          description={achieve.description_value}
+          points={achieve.points_value}
         />
       ))}
     </ul>
@@ -18,9 +19,7 @@ export default function Achievements({ achievements = [] }) {
 }
 export const getServerSideProps = async (context) => {
   const { req } = context;
-  const { data } = await axios.get(
-    `http://${req.headers.host}/api/getAchievements`,
-  );
+  const { data } = await axios.get(`http://${req.headers.host}/api/achieves`);
 
   return {
     props: { achievements: data },

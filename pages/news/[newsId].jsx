@@ -13,27 +13,27 @@ export default function NewsIdItem({
   return (
     <div>
       <p>
-        name
+        <p>name:</p>
         {name}
       </p>
       <p>
-        description
+        <p>description:</p>
         {description}
       </p>
       <p>
-        id:
+        <p>id:</p>
         {id}
       </p>
       <p>
-        volCount
+        <p>volCount:</p>
         {volCount}
       </p>
       <p>
-        tgId
-        {tgId}
+        <p>tgId:</p>
+        <a href={tgId}>{tgId}</a>
       </p>
       <p>
-        time
+        <p>time:</p>
         {time}
       </p>
     </div>
