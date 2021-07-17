@@ -1,7 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 
-import classes from './Header.module.css';
+import styles from './Header.module.css';
 
 export default function Header() {
   const PAGES = [
@@ -28,12 +28,14 @@ export default function Header() {
   ];
 
   return (
-    <header>
-      {PAGES.map((item) => (
-        <span key={item.name} className={classes.item}>
-          <Link href={item.url}>{item.name}</Link>
-        </span>
-      ))}
+    <header className={styles.header}>
+      <ul className={styles.navigation}>
+        {PAGES.map((item) => (
+          <li key={item.name} className={styles.item}>
+            <Link href={item.url}>{item.name}</Link>
+          </li>
+        ))}
+      </ul>
     </header>
   );
 }

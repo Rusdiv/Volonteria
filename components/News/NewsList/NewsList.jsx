@@ -1,5 +1,4 @@
 import React from 'react';
-import Link from 'next/link';
 
 import NewsItem from '../NewsItem/NewsItem';
 
@@ -17,8 +16,8 @@ export default function NewsList({ news = [] }) {
             title={event.name_value}
             count={event.volunteers_value}
             tgId={event.telegram_id_value}
+            href={`/news/${event.post_id}`}
           />
-          <Link href={`/news/${event.post_id}`}>Подробнее</Link>
         </div>
       ))}
     </ul>

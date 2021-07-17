@@ -1,6 +1,11 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 
+import Input from '../../components/common/Input/Input';
+import Button from '../../components/common/Button/Button';
+
+import styles from '../../styles/settings.module.css';
+
 export default function SetingsPage() {
   const [enteredName, setEnteredName] = useState('');
   const [enteredEmail, setEnteredEmail] = useState('');
@@ -22,22 +27,22 @@ export default function SetingsPage() {
   };
 
   return (
-    <form onSubmit={onSubmitForm}>
-      <input
+    <form className={styles.settings} onSubmit={onSubmitForm}>
+      <Input
         type="text"
         placeholder="Логин"
         onChange={enteredLoginHandler}
         value={enteredName}
         required
       />
-      <input
+      <Input
         type="email"
         placeholder="Email"
         onChange={enteredEmailHandler}
         value={enteredEmail}
         required
       />
-      <button type="submit">Изменить данные</button>
+      <Button type="submit">Изменить данные</Button>
     </form>
   );
 }

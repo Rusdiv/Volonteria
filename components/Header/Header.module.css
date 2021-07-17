@@ -1,4 +1,20 @@
+.header {
+  padding: 15px;
+  background-color: blueviolet;
+}
+.navigation {
+  display: flex;
+  justify-content: space-around;
+}
+
 .item {
+  transition: 0.5s;
+  color: antiquewhite;
   display: inline-block;
   margin-left: 10px;
+}
+
+.item:hover {
+  transition: 0.5s;
+  color: rgb(255, 136, 0);
 }
