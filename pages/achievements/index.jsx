@@ -3,9 +3,11 @@ import axios from 'axios';
 
 import Achieve from '../../components/Achievements/Achieve';
 
+import styles from '../../styles/achievementsPage.module.css';
+
 export default function Achievements({ achievements = [] }) {
   return (
-    <ul>
+    <ul className={styles.achievements}>
       {achievements.map((achieve) => (
         <Achieve
           key={achieve.post_id}

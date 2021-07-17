@@ -2,6 +2,8 @@ import React from 'react';
 import axios from 'axios';
 import PropTypes from 'prop-types';
 
+import styles from '../../styles/newsItemPage.module.css';
+
 export default function NewsItemPage({
   id,
   time,
@@ -11,29 +13,23 @@ export default function NewsItemPage({
   volCount,
 }) {
   return (
-    <div>
+    <div className={styles.item}>
+      <h2 className={styles.title}>{name}</h2>
+      <p>{description}</p>
       <p>
-        <p>name:</p>
-        {name}
-      </p>
-      <p>
-        <p>description:</p>
-        {description}
-      </p>
-      <p>
-        <p>id:</p>
+        id мероприятия:
         {id}
       </p>
       <p>
-        <p>volCount:</p>
+        Требуемое количество волонтеров:
         {volCount}
       </p>
-      <p>
-        <p>tgId:</p>
-        <a href={tgId}>{tgId}</a>
-      </p>
-      <p>
-        <p>time:</p>
+      <span>Присоединиться к чату мероприятия: </span>
+      <a className={styles.link} href={tgId}>
+        {tgId}
+      </a>
+      <p className={styles.time}>
+        Время проведения:
         {time}
       </p>
     </div>

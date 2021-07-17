@@ -4,7 +4,7 @@ import axios from 'axios';
 import Input from '../../components/common/Input/Input';
 import Button from '../../components/common/Button/Button';
 
-import styles from '../../styles/settings.module.css';
+import styles from '../../styles/settingsPage.module.css';
 
 export default function SetingsPage() {
   const [enteredName, setEnteredName] = useState('');

@@ -12,7 +12,7 @@ export default function NewsList({ news = [] }) {
           <NewsItem
             key={event.post_id}
             date={event.time_value}
-            content={event.description_value}
+            description={event.description_value}
             title={event.name_value}
             count={event.volunteers_value}
             tgId={event.telegram_id_value}
