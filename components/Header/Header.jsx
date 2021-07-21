@@ -25,6 +25,10 @@ export default function Header() {
       name: 'Настройки',
       url: '/settings',
     },
+    {
+      name: 'Вход',
+      url: '/login',
+    },
   ];
 
   return (

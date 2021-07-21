@@ -1,34 +1,25 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import axios from 'axios';
+import React, { useContext } from 'react';
 
-export default function ProfilePage({ user }) {
+import AuthContext from '../store/auth-context';
+
+export default function ProfilePage() {
+  const authCtx = useContext(AuthContext);
+  const { name, id } = authCtx.userData;
+  const { isLoggedIn } = authCtx;
   return (
     <div>
-      <h2>{user.name}</h2>
-      <img src={user.avatar_urls[96]} alt="avatar" />
-      <div>
-        id:
-        {user.id}
-      </div>
-      <br />
+      {isLoggedIn ? (
+        <div>
+          <h2>{name}</h2>
+          <img src={authCtx.userData.avatar_urls[96]} alt="avatar" />
+          <div>
+            id:
+            {id}
+          </div>
+        </div>
+      ) : (
+        <p>Войдите в аккаунт</p>
+      )}
     </div>
   );
 }
-
-ProfilePage.propTypes = {
-  user: PropTypes.shape({
-    name: PropTypes.string,
-    avatar_urls: PropTypes.string,
-    id: PropTypes.string,
-  }).isRequired,
-};
-
-export const getServerSideProps = async (context) => {
-  const { req } = context;
-  const { data } = await axios.get(`http://${req.headers.host}/api/user`);
-
-  return {
-    props: { user: data },
-  };
-};
