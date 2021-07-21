@@ -1,7 +1,7 @@
 import React from 'react';
 
 import Header from '../components/Header/Header';
-import { AuthContextProvider } from './store/auth-context';
+import { AuthContextProvider } from '../store/auth-context';
 
 import '../styles/globals.css';
 

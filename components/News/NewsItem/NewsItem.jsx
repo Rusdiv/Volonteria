@@ -6,16 +6,12 @@ import Button from '../../common/Button/Button';
 
 import styles from './NewsItem.module.css';
 
-export default function NewsItem({
-  title,
-  description,
-  href,
-}) {
+export default function NewsItem({ title, description, href }) {
   return (
     <li className={styles.newsItem}>
       <h3 className={styles.title}>{title}</h3>
       <p className={styles.description}>{description}</p>
-      <Button>
+      <Button type="button" onClick={() => {}}>
         <Link href={href}>Подробнее</Link>
       </Button>
     </li>

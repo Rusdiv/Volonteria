@@ -1,15 +1,23 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
+import { useRouter } from 'next/router';
 
 import Input from '../../components/common/Input/Input';
 import Button from '../../components/common/Button/Button';
-import AuthContext from '../store/auth-context';
+import AuthContext from '../../store/auth-context';
 
 import styles from '../../styles/loginPage.module.css';
 
 export default function LoginPage() {
   const authCtx = useContext(AuthContext);
+  const router = useRouter();
   const [enteredLogin, setEnteredLogin] = useState('');
   const [enteredPassword, setEnteredPassword] = useState('');
+
+  useEffect(() => {
+    if (authCtx.isLoggedIn) {
+      router.push('/profile');
+    }
+  }, [authCtx.isLoggedIn]);
 
   const enteredLoginHandler = (event) => {
     setEnteredLogin(event.target.value);

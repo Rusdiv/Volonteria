@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 
-import AuthContext from '../store/auth-context';
+import AuthContext from '../../store/auth-context';
 
 export default function ProfilePage() {
   const authCtx = useContext(AuthContext);

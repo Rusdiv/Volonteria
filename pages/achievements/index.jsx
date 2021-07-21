@@ -11,6 +11,7 @@ export default function Achievements({ achievements = [] }) {
       {achievements.map((achieve) => (
         <Achieve
           key={achieve.post_id}
+          id={achieve.post_id}
           title={achieve.name_value}
           description={achieve.description_value}
           points={achieve.points_value}

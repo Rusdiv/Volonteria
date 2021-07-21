@@ -3,7 +3,11 @@ import PropTypes from 'prop-types';
 
 import styles from './button.module.css';
 
-export default function Button({ children, onClick = () => {}, type }) {
+export default function Button({
+  children,
+  onClick = () => {},
+  type = 'button',
+}) {
   return (
     <button className={styles.button} onClick={onClick} type={type}>
       {children}
@@ -12,7 +16,7 @@ export default function Button({ children, onClick = () => {}, type }) {
 }
 
 Button.propTypes = {
-  children: PropTypes.string.isRequired,
+  children: PropTypes.node.isRequired,
   onClick: PropTypes.func.isRequired,
   type: PropTypes.string.isRequired,
 };

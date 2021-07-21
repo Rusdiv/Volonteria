@@ -37,9 +37,9 @@ export default function NewsItemPage({
 }
 
 NewsItemPage.propTypes = {
-  id: PropTypes.number.isRequired,
+  id: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
-  volCount: PropTypes.number.isRequired,
+  volCount: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
   time: PropTypes.string.isRequired,
   tgId: PropTypes.string.isRequired,
