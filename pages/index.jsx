@@ -12,5 +12,6 @@ export default function Home() {
       router.push('/login');
     }
   }, [authCtx.isLoggedIn, router]);
+
   return <div>Главная</div>;
 }

@@ -1,11 +1,22 @@
-import React from 'react';
+import React, { useEffect, useContext } from 'react';
+import { useRouter } from 'next/router';
 import axios from 'axios';
 
 import Achieve from '../../components/Achievements/Achieve';
+import AuthContext from '../../store/auth-context';
 
 import styles from '../../styles/achievementsPage.module.css';
 
 export default function Achievements({ achievements = [] }) {
+  const router = useRouter();
+  const authCtx = useContext(AuthContext);
+
+  useEffect(() => {
+    if (!authCtx.isLoggedIn) {
+      router.push('/login');
+    }
+  }, [authCtx.isLoggedIn, router]);
+
   return (
     <ul className={styles.achievements}>
       {achievements.map((achieve) => (

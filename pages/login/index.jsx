@@ -17,7 +17,7 @@ export default function LoginPage() {
     if (authCtx.isLoggedIn) {
       router.push('/profile');
     }
-  }, [authCtx.isLoggedIn]);
+  }, [authCtx.isLoggedIn, router]);
 
   const enteredLoginHandler = (event) => {
     setEnteredLogin(event.target.value);
