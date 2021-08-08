@@ -1,12 +1,18 @@
 import React from 'react';
+import { Row } from 'antd';
 
 import NewsItem from '../NewsItem/NewsItem';
 
-import styles from './NewsList.module.css';
-
 export default function NewsList({ news = [] }) {
   return (
-    <ul className={styles.newsList}>
+    <Row
+      gutter={{
+        xs: 8,
+        sm: 16,
+        md: 24,
+        lg: 32,
+      }}
+    >
       {news.map((event) => (
         <NewsItem
           key={event.post_id}
@@ -18,6 +24,6 @@ export default function NewsList({ news = [] }) {
           href={`/news/${event.post_id}`}
         />
       ))}
-    </ul>
+    </Row>
   );
 }

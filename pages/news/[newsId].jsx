@@ -1,8 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import PropTypes from 'prop-types';
-
-import Button from '../../components/common/Button/Button';
+import { Card, Button } from 'antd';
 
 import styles from '../../styles/newsItemPage.module.css';
 
@@ -25,8 +24,7 @@ export default function NewsItemPage({
     }
   };
   return (
-    <div className={styles.item}>
-      <h2 className={styles.title}>{name}</h2>
+    <Card title={name}>
       <p>{description}</p>
       <p>
         id мероприятия:
@@ -45,7 +43,7 @@ export default function NewsItemPage({
         {time}
       </p>
       <Button onClick={onRegOnIvent}>Зарегистрироваться</Button>
-    </div>
+    </Card>
   );
 }
 

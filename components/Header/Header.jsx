@@ -1,9 +1,13 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import Link from 'next/link';
+import { Button, Layout, Menu } from 'antd';
 
-import styles from './Header.module.css';
+import authContext from '../../store/auth-context';
 
-export default function Header() {
+const { Header } = Layout;
+
+export default function HeaderComponent() {
+  const { isLoggedIn, onLogout } = useContext(authContext);
   const PAGES = [
     {
       name: 'Главная',
@@ -25,21 +29,28 @@ export default function Header() {
       name: 'Настройки',
       url: '/settings',
     },
-    {
-      name: 'Вход',
-      url: '/login',
-    },
   ];
 
   return (
-    <header className={styles.header}>
-      <ul className={styles.navigation}>
-        {PAGES.map((item) => (
-          <li key={item.name} className={styles.item}>
-            <Link href={item.url}>{item.name}</Link>
-          </li>
-        ))}
-      </ul>
-    </header>
+    <Layout className="layout">
+      <Header>
+        <Menu theme="dark" mode="horizontal" defaultSelectedKeys={['2']}>
+          {PAGES.map((item) => (
+            <Menu.Item key={item.name}>
+              <Link href={item.url}>{item.name}</Link>
+            </Menu.Item>
+          ))}
+          {!isLoggedIn ? (
+            <Menu.Item key="login">
+              <Link href="/login">Вход</Link>
+            </Menu.Item>
+          ) : (
+            <Menu.Item key="login">
+              <Button onClick={onLogout}>Выход</Button>
+            </Menu.Item>
+          )}
+        </Menu>
+      </Header>
+    </Layout>
   );
 }
