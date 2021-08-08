@@ -14,5 +14,29 @@ export default async (req, res) => {
     },
   );
 
-  res.json(data);
+  const response = await axios.post(
+    `${process.env.CUSTOM_WP_API_URL}/points/check`,
+    {
+      user_id: data.id,
+    },
+    {
+      auth: {
+        username: req.body.login,
+        password: req.body.password,
+      },
+    },
+  );
+
+  console.log(response);
+
+  const userData = {
+    name: data.name,
+    id: data.id,
+    email: data.email,
+    nick: data.nickname,
+    points: response.data,
+    avatar: data.avatar_urls[96],
+  };
+
+  res.json(userData);
 };

@@ -2,6 +2,8 @@ import React from 'react';
 import axios from 'axios';
 import PropTypes from 'prop-types';
 
+import Button from '../../components/common/Button/Button';
+
 import styles from '../../styles/newsItemPage.module.css';
 
 export default function NewsItemPage({
@@ -11,7 +13,17 @@ export default function NewsItemPage({
   name,
   tgId,
   volCount,
+  newsId,
 }) {
+  const onRegOnIvent = async () => {
+    try {
+      await axios.get(
+        `http://t0toro-wordpress.tw1.ru/wp-json/vl/v1/reg/event/${newsId}`,
+      );
+    } catch (err) {
+      console.log(err);
+    }
+  };
   return (
     <div className={styles.item}>
       <h2 className={styles.title}>{name}</h2>
@@ -32,6 +44,7 @@ export default function NewsItemPage({
         Время проведения:
         {time}
       </p>
+      <Button onClick={onRegOnIvent}>Зарегистрироваться</Button>
     </div>
   );
 }
@@ -43,6 +56,7 @@ NewsItemPage.propTypes = {
   description: PropTypes.string.isRequired,
   time: PropTypes.string.isRequired,
   tgId: PropTypes.string.isRequired,
+  newsId: PropTypes.number.isRequired,
 };
 
 export const getServerSideProps = async (context) => {
@@ -60,6 +74,7 @@ export const getServerSideProps = async (context) => {
       volCount: data.volunteers_value,
       tgId: data.telegram_id_value,
       description: data.description_value,
+      newsId,
     },
   };
 };

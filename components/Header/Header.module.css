@@ -18,3 +18,7 @@
   transition: 0.5s;
   color: rgb(255, 136, 0);
 }
+
+.image {
+  border-radius: 50%;
+}
