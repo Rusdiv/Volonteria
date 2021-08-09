@@ -1,14 +1,19 @@
 import React from 'react';
+import { useRouter } from 'next/router';
 import PropTypes from 'prop-types';
-import Link from 'next/link';
 import { Card } from 'antd';
 
 export default function NewsItem({ title, description, href }) {
+  const router = useRouter();
+  const onCardClick = (url) => {
+    router.push(url);
+  };
   return (
     <Card
+      onClick={() => onCardClick(href)}
+      hoverable
       title={title}
-      extra={<Link href={href}>Подробнее</Link>}
-      style={{ width: 300, marginLeft: 25 }}
+      style={{ width: 300, marginLeft: 25, marginTop: 25 }}
     >
       <p>{description}</p>
     </Card>

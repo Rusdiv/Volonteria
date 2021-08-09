@@ -1,5 +1,7 @@
 import React, { useContext, useEffect } from 'react';
 import { useRouter } from 'next/router';
+import { Avatar } from 'antd';
+import { UserOutlined } from '@ant-design/icons';
 
 import AuthContext from '../../store/auth-context';
 
@@ -26,7 +28,10 @@ export default function ProfilePage() {
       {isLoggedIn ? (
         <div>
           <h2>{name}</h2>
-          <img src={avatar} alt="avatar" />
+          <Avatar
+            size={64}
+            icon={avatar ? <img src={avatar} alt="avatar" /> : <UserOutlined />}
+          />
           <div>
             id:
             {id}

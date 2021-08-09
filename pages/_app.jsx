@@ -7,12 +7,25 @@ import { AuthContextProvider } from '../store/auth-context';
 import 'antd/dist/antd.css';
 import '../styles/globals.css';
 
+const { Content } = Layout;
+
 function MyApp({ Component, pageProps }) {
   return (
     <AuthContextProvider>
       <Layout style={{ minHeight: '100vh' }}>
         <Navigation />
-        <Component {...pageProps} />
+        <Layout style={{ padding: '24px' }}>
+          <Content
+            className="site-layout-background"
+            style={{
+              padding: 24,
+              margin: 0,
+              minHeight: 280,
+            }}
+          >
+            <Component {...pageProps} />
+          </Content>
+        </Layout>
       </Layout>
     </AuthContextProvider>
   );

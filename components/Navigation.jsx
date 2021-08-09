@@ -1,7 +1,13 @@
 import React, { useState, useContext } from 'react';
 import { useRouter } from 'next/router';
 import { Layout, Menu } from 'antd';
-import { PieChartOutlined } from '@ant-design/icons';
+import {
+  UserOutlined,
+  LogoutOutlined,
+  HomeOutline,
+  CopyOutlined,
+  BarChartOutlined,
+} from '@ant-design/icons';
 import 'antd/dist/antd.css';
 
 import authContext from '../store/auth-context';
@@ -19,26 +25,31 @@ export default function Navigation() {
       name: 'Главная',
       url: '/',
       onclick: redirect,
+      icon: <HomeOutline />,
     },
     {
       name: 'Новости',
       url: '/news',
       onclick: redirect,
+      icon: <CopyOutlined />,
     },
     {
       name: 'Профиль',
       url: '/profile',
       onclick: redirect,
+      icon: <UserOutlined />,
     },
     {
       name: 'Достижения',
       url: '/achievements',
       onclick: redirect,
+      icon: <BarChartOutlined />,
     },
     {
       name: 'Выход',
       url: '/achievements',
       onclick: onLogout,
+      icon: <LogoutOutlined />,
     },
   ];
 
@@ -47,6 +58,7 @@ export default function Navigation() {
   const onCollapse = (collaps) => {
     setClolapsed(collaps);
   };
+
   return (
     <div>
       {isLoggedIn && (
@@ -61,7 +73,6 @@ export default function Navigation() {
               <Menu.Item
                 onClick={() => menuItem.onclick(menuItem.url)}
                 key={menuItem.name}
-                icon={<PieChartOutlined />}
               >
                 {menuItem.name}
               </Menu.Item>

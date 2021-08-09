@@ -21,3 +21,7 @@ ul {
 * {
   box-sizing: border-box;
 }
+
+.site-layout-background {
+  background: #fff;
+}
