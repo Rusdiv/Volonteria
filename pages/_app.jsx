@@ -1,6 +1,7 @@
 import React from 'react';
+import { Layout } from 'antd';
 
-import Header from '../components/Header/Header';
+import Navigation from '../components/Navigation';
 import { AuthContextProvider } from '../store/auth-context';
 
 import 'antd/dist/antd.css';
@@ -9,8 +10,10 @@ import '../styles/globals.css';
 function MyApp({ Component, pageProps }) {
   return (
     <AuthContextProvider>
-      <Header />
-      <Component {...pageProps} />
+      <Layout style={{ minHeight: '100vh' }}>
+        <Navigation />
+        <Component {...pageProps} />
+      </Layout>
     </AuthContextProvider>
   );
 }
