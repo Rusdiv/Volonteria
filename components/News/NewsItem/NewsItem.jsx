@@ -8,7 +8,7 @@ export default function NewsItem({ title, description, href }) {
     <Card
       title={title}
       extra={<Link href={href}>Подробнее</Link>}
-      style={{ width: 300, marginRight: 25 }}
+      style={{ width: 300, marginLeft: 25 }}
     >
       <p>{description}</p>
     </Card>
