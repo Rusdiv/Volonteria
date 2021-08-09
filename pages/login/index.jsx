@@ -52,6 +52,12 @@ export default function LoginPage() {
       onFinishFailed={onFinishFailed}
     >
       <Form.Item
+        wrapperCol={{
+          offset: 8,
+          span: 16,
+        }}
+      />
+      <Form.Item
         label="Логин"
         name="Логин"
         rules={[

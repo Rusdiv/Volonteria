@@ -25,10 +25,6 @@ export default function HeaderComponent() {
       name: 'Достижения',
       url: '/achievements',
     },
-    {
-      name: 'Настройки',
-      url: '/settings',
-    },
   ];
 
   return (
@@ -40,11 +36,7 @@ export default function HeaderComponent() {
               <Link href={item.url}>{item.name}</Link>
             </Menu.Item>
           ))}
-          {!isLoggedIn ? (
-            <Menu.Item key="login">
-              <Link href="/login">Вход</Link>
-            </Menu.Item>
-          ) : (
+          {isLoggedIn && (
             <Menu.Item key="login">
               <Button onClick={onLogout}>Выход</Button>
             </Menu.Item>
