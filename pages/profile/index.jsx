@@ -93,7 +93,7 @@ export default function ProfilePage() {
               />
             </div>
             <div>
-              <p style={{ textAlign: 'center' }}>Аферист</p>
+              <p style={{ textAlign: 'center' }}>Региональный</p>
               <Progress
                 style={{ margin: '0 auto' }}
                 width={80}
