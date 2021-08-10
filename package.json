@@ -14,6 +14,7 @@
     "dotenv": "^10.0.0",
     "lodash": "^4.17.21",
     "next": "10.x",
+    "node-fetch": "^2.6.1",
     "prop-types": "^15.7.2",
     "react": "17.x",
     "react-dom": "17.x"

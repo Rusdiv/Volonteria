@@ -4,13 +4,10 @@ require('dotenv').config();
 
 export default async (req, res) => {
   const { data } = await axios.post(
-    `${process.env.WP_API_URL}/users/me`,
-    {},
+    `http://t0toro-wordpress.tw1.ru/wp-json/vl/v1/reg/event/${req.body.newsId}`,
     {
-      auth: {
-        username: req.body.login,
-        password: req.body.password,
-      },
+      user_id: req.body.user_id,
+      event_id: req.body.newsId,
     },
   );
 

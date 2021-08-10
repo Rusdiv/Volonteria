@@ -1,7 +1,10 @@
-import React from 'react';
+import React, { useContext, useEffect } from 'react';
+import { useRouter } from 'next/router';
 import axios from 'axios';
 import PropTypes from 'prop-types';
 import { Card, Button } from 'antd';
+
+import AuthContext from '../../store/auth-context';
 
 import styles from '../../styles/newsItemPage.module.css';
 
@@ -13,12 +16,23 @@ export default function NewsItemPage({
   tgId,
   volCount,
   newsId,
+  hostName,
 }) {
+  const authCtx = useContext(AuthContext);
+  const router = useRouter();
+  const userId = authCtx.userData.id;
+
+  useEffect(() => {
+    if (!authCtx.isLoggedIn) {
+      router.push('/login');
+    }
+  }, [authCtx.isLoggedIn, router]);
   const onRegOnIvent = async () => {
     try {
-      await axios.get(
-        `http://t0toro-wordpress.tw1.ru/wp-json/vl/v1/reg/event/${newsId}`,
-      );
+      axios.post(`http://${hostName}/api/news/regOnEvent`, {
+        newsId,
+        user_id: userId,
+      });
     } catch (err) {
       console.log(err);
     }
@@ -55,6 +69,7 @@ NewsItemPage.propTypes = {
   time: PropTypes.string.isRequired,
   tgId: PropTypes.string.isRequired,
   newsId: PropTypes.number.isRequired,
+  hostName: PropTypes.string.isRequired,
 };
 
 export const getServerSideProps = async (context) => {
@@ -73,6 +88,7 @@ export const getServerSideProps = async (context) => {
       tgId: data.telegram_id_value,
       description: data.description_value,
       newsId,
+      hostName: req.headers.host,
     },
   };
 };

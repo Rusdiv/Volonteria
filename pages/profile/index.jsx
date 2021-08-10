@@ -51,7 +51,10 @@ export default function ProfilePage() {
                   id:
                   {id}
                 </p>
-                <p>{points}</p>
+                <p>
+                  Количество очков:
+                  {points}
+                </p>
               </Col>
               <Col span={12}>
                 <p>
