@@ -76,7 +76,7 @@ export const getServerSideProps = async (context) => {
   const { newsId } = context.params;
   const { req } = context;
   const { data } = await axios.get(
-    `http://${req.headers.host}/api/news/${newsId}`,
+    `https://${req.headers.host}/api/news/${newsId}`,
   );
 
   return {
