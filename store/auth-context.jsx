@@ -3,14 +3,14 @@ import PropTypes from 'prop-types';
 import axios from 'axios';
 
 const AuthContext = React.createContext({
-  isLoggedIn: false,
+  isLoggedIn: true,
   userData: {},
   onLogout: () => {},
   onLogin: () => {},
 });
 
 export const AuthContextProvider = ({ children }) => {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(true);
   const [userData, setUserData] = useState({});
 
   const logoutHandler = () => {
@@ -23,6 +23,8 @@ export const AuthContextProvider = ({ children }) => {
       login,
       password,
     });
+
+    console.log(isLoggedIn);
 
     // get user points
     const pointsResponse = await axios.post('/api/user/getPoints', {
@@ -37,7 +39,7 @@ export const AuthContextProvider = ({ children }) => {
       points: pointsResponse.data,
     };
 
-    setUserData(filteredUserData);
+    setUserData(...filteredUserData);
     setIsLoggedIn(true);
   };
 

@@ -1,8 +1,8 @@
 import React, { useContext, useEffect } from 'react';
 import { useRouter } from 'next/router';
-import axios from 'axios';
-import PropTypes from 'prop-types';
 import { Card, Button } from 'antd';
+import PropTypes from 'prop-types';
+import axios from 'axios';
 
 import AuthContext from '../../store/auth-context';
 
@@ -26,7 +26,8 @@ export default function NewsItemPage({
     if (!authCtx.isLoggedIn) {
       router.push('/login');
     }
-  }, [authCtx.isLoggedIn, router]);
+  }, [authCtx.isLoggedIn]);
+
   const onRegOnIvent = async () => {
     try {
       axios.post(`https://${hostName}/api/news/regOnEvent`, {

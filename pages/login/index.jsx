@@ -5,11 +5,12 @@ import { Input, Button, Form } from 'antd';
 import AuthContext from '../../store/auth-context';
 
 export default function LoginPage() {
-  const authCtx = useContext(AuthContext);
-  const router = useRouter();
   const [enteredLogin, setEnteredLogin] = useState('');
   const [enteredPassword, setEnteredPassword] = useState('');
   const [loading, setLoading] = useState('');
+
+  const authCtx = useContext(AuthContext);
+  const router = useRouter();
 
   useEffect(() => {
     if (authCtx.isLoggedIn) {
@@ -17,7 +18,7 @@ export default function LoginPage() {
     } else {
       setLoading(false);
     }
-  }, [authCtx.isLoggedIn, router, enteredLogin, enteredPassword]);
+  }, [authCtx.isLoggedIn, enteredLogin, enteredPassword]);
 
   const enteredLoginHandler = (event) => {
     setEnteredLogin(event.target.value);
@@ -90,6 +91,7 @@ export default function LoginPage() {
           value={enteredPassword}
           onChange={enteredPasswordHandler}
           placeholder="Пароль"
+          id="input_password"
           type="password"
         />
       </Form.Item>

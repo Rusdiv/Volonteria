@@ -15,7 +15,7 @@ export default function Achievements({ achievements = [] }) {
     if (!authCtx.isLoggedIn) {
       router.push('/login');
     }
-  }, [authCtx.isLoggedIn, router]);
+  }, [authCtx.isLoggedIn]);
 
   return (
     <ul className={styles.achievements}>
