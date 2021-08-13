@@ -36,6 +36,8 @@ export default function ProfilePage() {
                     )
                   }
                 />
+                <p>Тест Тестович Тестов</p>
+                <p>Дата рождения: 03.03.2021</p>
                 <p>
                   id:
                   {id}
@@ -44,6 +46,8 @@ export default function ProfilePage() {
                   Количество очков:
                   {points}
                 </p>
+                <p>Телефон: +79991113366</p>
+                <p>email: test@test.com</p>
               </Col>
               <Col span={12}>
                 <p>
