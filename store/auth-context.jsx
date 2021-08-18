@@ -3,7 +3,8 @@ import PropTypes from 'prop-types';
 import axios from 'axios';
 
 const AuthContext = React.createContext({
-  isLoggedIn: true,
+  isLoggedIn: false
+,
   userData: {},
   onLogout: () => {},
   onLogin: () => {},
