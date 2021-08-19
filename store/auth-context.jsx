@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import axios from 'axios';
 
 const AuthContext = React.createContext({
-  isLoggedIn: true,
+  isLoggedIn: false,
   userData: {},
   onLogout: () => {},
   onLogin: () => {},
@@ -24,8 +24,6 @@ export const AuthContextProvider = ({ children }) => {
       password,
     });
 
-    console.log(isLoggedIn);
-
     // get user points
     const pointsResponse = await axios.post('/api/user/getPoints', {
       id: data.id,
@@ -39,11 +37,9 @@ export const AuthContextProvider = ({ children }) => {
       points: pointsResponse.data,
     };
 
-    setUserData({...filteredUserData});
+    setUserData({ ...filteredUserData });
     setIsLoggedIn(true);
   };
-
-  console.log(userData);
 
   return (
     <AuthContext.Provider
