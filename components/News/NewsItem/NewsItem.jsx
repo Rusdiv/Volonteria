@@ -13,7 +13,7 @@ export default function NewsItem({ title, description, href }) {
       onClick={() => onCardClick(href)}
       hoverable
       title={title}
-      style={{ width: 300, marginLeft: 25, marginTop: 25 }}
+      style={{ width: 300, marginLeft: 25, marginTop: 25, backgroundColor: 'rgb(235, 246, 237)' }}
     >
       <p>{description}</p>
     </Card>

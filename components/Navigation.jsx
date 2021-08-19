@@ -29,11 +29,11 @@ export default function Navigation() {
       url: '/profile',
       onclick: redirect,
     },
-    {
-      name: 'Достижения',
-      url: '/achievements',
-      onclick: redirect,
-    },
+    // {
+    //   name: 'Достижения',
+    //   url: '/achievements',
+    //   onclick: redirect,
+    // },
     {
       name: 'Выход',
       url: '/achievements',

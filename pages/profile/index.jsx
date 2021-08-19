@@ -91,6 +91,9 @@ export default function ProfilePage() {
             </Row>
           </Col>
           <Col span={12}>
+            <p className="site-description-item-profile-p">
+              История мероприятий
+            </p>
             <Timeline>
               <Timeline.Item>
                 Выступление на 1 сентября 2021-09-01
@@ -100,13 +103,27 @@ export default function ProfilePage() {
               </Timeline.Item>
               <Timeline.Item>Субботник 2015-09-01</Timeline.Item>
             </Timeline>
-            <p>Мойдодыр</p>
-            <Progress
-              style={{ margin: '0 auto' }}
-              width={80}
-              type="circle"
-              percent={23}
-            />
+            <p className="site-description-item-profile-p">Достижения</p>
+            <div style={{ display: 'flex' }}>
+              <div style={{ marginRight: 15 }}>
+                <p style={{ textAlign: 'center' }}>Дедуля</p>
+                <Progress
+                  style={{ margin: '0 auto' }}
+                  width={80}
+                  type="circle"
+                  percent={100}
+                />
+              </div>
+              <div>
+                <p style={{ textAlign: 'center' }}>Мойдодыр</p>
+                <Progress
+                  style={{ margin: '0 auto' }}
+                  width={80}
+                  type="circle"
+                  percent={23}
+                />
+              </div>
+            </div>
           </Col>
         </Row>
       ) : (
