@@ -28,7 +28,7 @@ export default function NewsItemPage({
     }
   }, [authCtx.isLoggedIn]);
 
-  const onRegOnIvent = async () => {
+  const onRegOnIvent =  async () => {
     try {
       axios.post(`https://${hostName}/api/news/regOnEvent`, {
         newsId,

@@ -5,6 +5,13 @@ import { UserOutlined } from '@ant-design/icons';
 
 import AuthContext from '../../store/auth-context';
 
+const DescriptionItem = ({ title = '', content = '' }) => (
+  <div className="site-description-item-profile-wrapper">
+    <p className="site-description-item-profile-p-label">{title}:</p>
+    {content}
+  </div>
+);
+
 export default function ProfilePage() {
   const authCtx = useContext(AuthContext);
   const { name, id, avatar, points } = authCtx.userData;
@@ -23,41 +30,63 @@ export default function ProfilePage() {
       {isLoggedIn ? (
         <Row>
           <Col span={12}>
+            <Avatar
+              size={64}
+              icon={
+                avatar ? <img src={avatar} alt="avatar" /> : <UserOutlined />
+              }
+            />
+            <p className="site-description-item-profile-p">
+              Персональные данные
+            </p>
             <Row>
               <Col span={12}>
-                <h2>{name}</h2>
-                <Avatar
-                  size={64}
-                  icon={
-                    avatar ? (
-                      <img src={avatar} alt="avatar" />
-                    ) : (
-                      <UserOutlined />
-                    )
-                  }
-                />
-                <p>Тест Тестович Тестов</p>
-                <p>Дата рождения: 03.03.2021</p>
-                <p>
-                  id:
-                  {id}
-                </p>
-                <p>
-                  Количество очков:
-                  {points}
-                </p>
-                <p>Телефон: +79991113366</p>
-                <p>email: test@test.com</p>
+                <DescriptionItem title="Имя" content={name} />
               </Col>
               <Col span={12}>
-                <p>
-                  Карма
-                  <Progress percent={1} status="active" />
-                </p>
-                <p>
-                  Выполнено мероприятий: 3
-                  <Progress percent={100} />
-                </p>
+                <DescriptionItem title="Id" content={id} />
+              </Col>
+            </Row>
+            <Row>
+              <Col span={12}>
+                <DescriptionItem title="Город" content="Нижнекамск" />
+              </Col>
+              <Col span={12}>
+                <DescriptionItem title="Страна" content="Россия" />
+              </Col>
+            </Row>
+            <Row>
+              <Col span={12}>
+                <DescriptionItem
+                  title="Дата рождения"
+                  content="2 февраля, 1994"
+                />
+              </Col>
+              <Col span={12}>
+                <DescriptionItem title="Кол-во очков" content={points} />
+              </Col>
+            </Row>
+            <Row>
+              <Col span={24}>
+                <DescriptionItem
+                  title="Статус"
+                  content="Сказанное слово не может быть сказано тем, кто его не сказал"
+                />
+              </Col>
+            </Row>
+            <p className="site-description-item-profile-p">Контакты</p>
+            <Row>
+              <Col span={12}>
+                <DescriptionItem
+                  title="Email"
+                  content="volonteriaNK@example.com"
+                />
+              </Col>
+              <Col span={12}>
+                <DescriptionItem
+                  title="Номер телефона"
+                  content="+7 999-888-77-66"
+                />
               </Col>
             </Row>
           </Col>
@@ -71,33 +100,14 @@ export default function ProfilePage() {
               </Timeline.Item>
               <Timeline.Item>Субботник 2015-09-01</Timeline.Item>
             </Timeline>
+            <p>Мойдодыр</p>
+            <Progress
+              style={{ margin: '0 auto' }}
+              width={80}
+              type="circle"
+              percent={23}
+            />
           </Col>
-          <div
-            style={{
-              display: 'flex',
-              justifyContent: 'space-between',
-              width: 200,
-            }}
-          >
-            <div>
-              <p style={{ textAlign: 'center' }}>Мойдодыр</p>
-              <Progress
-                style={{ margin: '0 auto' }}
-                width={80}
-                type="circle"
-                percent={23}
-              />
-            </div>
-            <div>
-              <p style={{ textAlign: 'center' }}>Региональный</p>
-              <Progress
-                style={{ margin: '0 auto' }}
-                width={80}
-                type="circle"
-                percent={76}
-              />
-            </div>
-          </div>
         </Row>
       ) : (
         <p>Войдите в аккаунт</p>

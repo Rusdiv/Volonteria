@@ -20,7 +20,7 @@ export default function Navigation() {
       onclick: redirect,
     },
     {
-      name: 'Новости',
+      name: 'Мероприятия',
       url: '/news',
       onclick: redirect,
     },
