@@ -8,8 +8,6 @@ export default function ProtectedRoute({ children, router }) {
 
   const unprotectedRoutes = [
     appRoutes.LOGIN_PAGE,
-    appRoutes.PROFILE_PAGE,
-    appRoutes.NEWS_PAGE,
   ];
 
   const pathIsProtected = unprotectedRoutes.indexOf(router.pathname) === -1;
