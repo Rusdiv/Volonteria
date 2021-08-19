@@ -14,7 +14,7 @@ export default function HeaderComponent() {
       url: '/',
     },
     {
-      name: 'Новости',
+      name: 'Мероприятия',
       url: '/news',
     },
     {

@@ -10,7 +10,7 @@ const AuthContext = React.createContext({
 });
 
 export const AuthContextProvider = ({ children }) => {
-  const [isLoggedIn, setIsLoggedIn] = useState(true);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [userData, setUserData] = useState({});
 
   const logoutHandler = () => {
@@ -39,9 +39,11 @@ export const AuthContextProvider = ({ children }) => {
       points: pointsResponse.data,
     };
 
-    setUserData(...filteredUserData);
+    setUserData({...filteredUserData});
     setIsLoggedIn(true);
   };
+
+  console.log(userData);
 
   return (
     <AuthContext.Provider
