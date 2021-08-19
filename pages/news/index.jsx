@@ -1,20 +1,9 @@
-import React, { useContext, useEffect } from 'react';
-import { useRouter } from 'next/router';
+import React from 'react';
 import axios from 'axios';
 
 import NewsList from '../../components/News/NewsList/NewsList';
-import AuthContext from '../../store/auth-context';
 
 export default function NewsPage({ news = [] }) {
-  const router = useRouter();
-  const authCtx = useContext(AuthContext);
-
-  useEffect(() => {
-    if (!authCtx.isLoggedIn) {
-      router.push('/login');
-    }
-  }, [authCtx.isLoggedIn, router]);
-
   return <NewsList news={news} />;
 }
 

@@ -1,5 +1,4 @@
-import React, { useContext, useEffect } from 'react';
-import { useRouter } from 'next/router';
+import React, { useContext } from 'react';
 import { Avatar, Timeline, Row, Col, Progress } from 'antd';
 import { UserOutlined } from '@ant-design/icons';
 
@@ -16,14 +15,6 @@ export default function ProfilePage() {
   const authCtx = useContext(AuthContext);
   const { name, id, avatar, points } = authCtx.userData;
   const { isLoggedIn } = authCtx;
-
-  const router = useRouter();
-
-  useEffect(() => {
-    if (!authCtx.isLoggedIn) {
-      router.push('/login');
-    }
-  }, [authCtx.isLoggedIn]);
 
   return (
     <div>
