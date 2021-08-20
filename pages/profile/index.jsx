@@ -27,12 +27,16 @@ export default function ProfilePage() {
                 avatar ? <img src={avatar} alt="avatar" /> : <UserOutlined />
               }
             />
+            <h1 style={{ display: 'inline', marginLeft: 25, fontSize: 36 }}>{name}</h1>
             <p className="site-description-item-profile-p">
               Персональные данные
             </p>
             <Row>
               <Col span={12}>
-                <DescriptionItem title="Имя" content={name} />
+                <DescriptionItem
+                  title="ФИО"
+                  content="Мухамменд Абдулович Гений"
+                />
               </Col>
               <Col span={12}>
                 <DescriptionItem title="Id" content={id} />
