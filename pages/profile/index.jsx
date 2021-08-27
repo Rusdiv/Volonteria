@@ -27,7 +27,13 @@ export default function ProfilePage() {
                 avatar ? <img src={avatar} alt="avatar" /> : <UserOutlined />
               }
             />
-            <h1 style={{ display: 'inline', marginLeft: 25, fontSize: 36 }}>{name}</h1>
+            <h1 style={{ display: 'inline', marginLeft: 25, fontSize: 36 }}>
+              {name}
+            </h1>
+            <DescriptionItem
+              title="Статус"
+              content="Сказанное слово не может быть сказано тем, кто его не сказал"
+            />
             <p className="site-description-item-profile-p">
               Персональные данные
             </p>
@@ -59,14 +65,6 @@ export default function ProfilePage() {
               </Col>
               <Col span={12}>
                 <DescriptionItem title="Кол-во очков" content={points} />
-              </Col>
-            </Row>
-            <Row>
-              <Col span={24}>
-                <DescriptionItem
-                  title="Статус"
-                  content="Сказанное слово не может быть сказано тем, кто его не сказал"
-                />
               </Col>
             </Row>
             <p className="site-description-item-profile-p">Контакты</p>
