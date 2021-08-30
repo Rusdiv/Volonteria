@@ -1,37 +1,19 @@
-import React from 'react';
-import { Layout } from 'antd';
+import React, { useContext } from 'react';
 
-import Navigation from '../components/Navigation';
-import { AuthContextProvider } from '../store/auth-context';
+import LoginPage from './login';
+import MyApp from './MyApp';
+import AuthContext from '../store/auth-context';
 
 import 'antd/dist/antd.css';
 import '../styles/globals.css';
-import ProtectedRoute from '../helpers/ProtectedRoute';
 
-const { Content } = Layout;
+function Volonteria() {
+  const authCtx = useContext(AuthContext);
 
-function MyApp({ Component, pageProps, router }) {
-  return (
-    <AuthContextProvider>
-      <ProtectedRoute router={router}>
-        <Layout style={{ minHeight: '100vh' }}>
-          <Navigation />
-          <Layout style={{ padding: '24px' }}>
-            <Content
-              className="site-layout-background"
-              style={{
-                padding: 24,
-                margin: 0,
-                minHeight: 280,
-              }}
-            >
-              <Component {...pageProps} />
-            </Content>
-          </Layout>
-        </Layout>
-      </ProtectedRoute>
-    </AuthContextProvider>
-  );
+  if (authCtx.isLoggedIn) {
+    return <MyApp />;
+  }
+  return <LoginPage />;
 }
 
-export default MyApp;
+export default Volonteria;
