@@ -1,24 +1,19 @@
 import React, { useState, useContext, useEffect } from 'react';
-import { useRouter } from 'next/router';
 import { Input, Button, Form } from 'antd';
+import axios from 'axios';
 
 import AuthContext from '../../store/auth-context';
 
-export default function LoginPage() {
+export default function LoginPage({ onLogin = () => {} }) {
   const [enteredLogin, setEnteredLogin] = useState('');
   const [enteredPassword, setEnteredPassword] = useState('');
   const [loading, setLoading] = useState('');
 
   const authCtx = useContext(AuthContext);
-  const router = useRouter();
 
   useEffect(() => {
-    if (authCtx.isLoggedIn) {
-      router.push('/profile');
-    } else {
-      setLoading(false);
-    }
-  }, [authCtx.isLoggedIn, enteredLogin, enteredPassword]);
+    setLoading(false);
+  }, [enteredLogin, enteredPassword]);
 
   const enteredLoginHandler = (event) => {
     setEnteredLogin(event.target.value);
@@ -30,6 +25,7 @@ export default function LoginPage() {
 
   const onFinish = async () => {
     setLoading(true);
+    // get user data
     authCtx.onLogin(enteredLogin, enteredPassword);
   };
 

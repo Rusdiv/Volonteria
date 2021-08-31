@@ -8,7 +8,7 @@ import authContext from '../store/auth-context';
 const { Sider } = Layout;
 
 export default function Navigation() {
-  const { isLoggedIn, onLogout } = useContext(authContext);
+  const { onLogout } = useContext(authContext);
   const router = useRouter();
   const redirect = (url) => {
     router.push(url);
@@ -49,25 +49,23 @@ export default function Navigation() {
 
   return (
     <div>
-      {isLoggedIn && (
-        <Sider
-          style={{ height: '100%' }}
-          collapsible
-          collapsed={collapsed}
-          onCollapse={onCollapse}
-        >
-          <Menu theme="dark" defaultSelectedKeys={['Профиль']} mode="inline">
-            {PAGES.map((menuItem) => (
-              <Menu.Item
-                onClick={() => menuItem.onclick(menuItem.url)}
-                key={menuItem.name}
-              >
-                {menuItem.name}
-              </Menu.Item>
-            ))}
-          </Menu>
-        </Sider>
-      )}
+      <Sider
+        style={{ height: '100%' }}
+        collapsible
+        collapsed={collapsed}
+        onCollapse={onCollapse}
+      >
+        <Menu theme="dark" defaultSelectedKeys={['Профиль']} mode="inline">
+          {PAGES.map((menuItem) => (
+            <Menu.Item
+              onClick={() => menuItem.onclick(menuItem.url)}
+              key={menuItem.name}
+            >
+              {menuItem.name}
+            </Menu.Item>
+          ))}
+        </Menu>
+      </Sider>
     </div>
   );
 }
