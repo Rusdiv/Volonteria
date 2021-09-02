@@ -1,15 +1,16 @@
 import React, { useState, useContext, useEffect } from 'react';
 import { Input, Button, Form } from 'antd';
-import axios from 'axios';
+import { useRouter } from 'next/router';
 
 import AuthContext from '../../store/auth-context';
 
-export default function LoginPage({ onLogin = () => {} }) {
+export default function LoginPage() {
   const [enteredLogin, setEnteredLogin] = useState('');
   const [enteredPassword, setEnteredPassword] = useState('');
   const [loading, setLoading] = useState('');
 
   const authCtx = useContext(AuthContext);
+  const router = useRouter();
 
   useEffect(() => {
     setLoading(false);
@@ -27,6 +28,7 @@ export default function LoginPage({ onLogin = () => {} }) {
     setLoading(true);
     // get user data
     authCtx.onLogin(enteredLogin, enteredPassword);
+    router.push('/profile');
   };
 
   const onFinishFailed = (errorInfo) => {

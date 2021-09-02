@@ -17,27 +17,22 @@ export default function Navigation() {
     {
       name: 'Главная',
       url: '/',
-      onclick: redirect,
+      onСlick: redirect,
     },
     {
       name: 'Мероприятия',
       url: '/news',
-      onclick: redirect,
+      onСlick: redirect,
     },
     {
       name: 'Профиль',
       url: '/profile',
-      onclick: redirect,
+      onСlick: redirect,
     },
-    // {
-    //   name: 'Достижения',
-    //   url: '/achievements',
-    //   onclick: redirect,
-    // },
     {
       name: 'Выход',
-      url: '/achievements',
-      onclick: onLogout,
+      url: '/',
+      onСlick: onLogout,
     },
   ];
 
@@ -58,7 +53,7 @@ export default function Navigation() {
         <Menu theme="dark" defaultSelectedKeys={['Профиль']} mode="inline">
           {PAGES.map((menuItem) => (
             <Menu.Item
-              onClick={() => menuItem.onclick(menuItem.url)}
+              onClick={() => menuItem.onСlick(menuItem.url)}
               key={menuItem.name}
             >
               {menuItem.name}
