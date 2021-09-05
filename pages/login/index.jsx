@@ -1,6 +1,5 @@
 import React, { useState, useContext, useEffect } from 'react';
 import { Input, Button, Form } from 'antd';
-import { useRouter } from 'next/router';
 
 import AuthContext from '../../store/auth-context';
 
@@ -10,7 +9,6 @@ export default function LoginPage() {
   const [loading, setLoading] = useState('');
 
   const authCtx = useContext(AuthContext);
-  const router = useRouter();
 
   useEffect(() => {
     setLoading(false);
