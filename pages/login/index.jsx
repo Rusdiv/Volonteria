@@ -28,7 +28,6 @@ export default function LoginPage() {
     setLoading(true);
     // get user data
     authCtx.onLogin(enteredLogin, enteredPassword);
-    router.push('/profile');
   };
 
   const onFinishFailed = (errorInfo) => {

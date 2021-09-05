@@ -50,7 +50,7 @@ export default function Navigation() {
         collapsed={collapsed}
         onCollapse={onCollapse}
       >
-        <Menu theme="dark" defaultSelectedKeys={['Профиль']} mode="inline">
+        <Menu theme="dark" mode="inline">
           {PAGES.map((menuItem) => (
             <Menu.Item
               onClick={() => menuItem.onСlick(menuItem.url)}
