@@ -13,7 +13,11 @@ const DescriptionItem = ({ title = '', content = '' }) => (
 
 export default function ProfilePage() {
   const authCtx = useContext(AuthContext);
-  const { name, id, avatar, points, history } = authCtx.userData;
+  const { name, id, avatar, points, history, lastname, surname, date } = authCtx.userData;
+
+  const year = date[0] + date[1] + date[2] + date[3];
+  const month = date[4] + date[5];
+  const day = date[6] + date[7];
 
   return (
     <div>
@@ -26,16 +30,12 @@ export default function ProfilePage() {
           <h1 style={{ display: 'inline', marginLeft: 25, fontSize: 36 }}>
             {name}
           </h1>
-          <DescriptionItem
-            title="Статус"
-            content="Сказанное слово не может быть сказано тем, кто его не сказал"
-          />
           <p className="site-description-item-profile-p">Персональные данные</p>
           <Row>
             <Col span={12}>
               <DescriptionItem
                 title="ФИО"
-                content="Мухамменд Абдулович Гений"
+                content={`${surname} ${name} ${lastname}`}
               />
             </Col>
             <Col span={12}>
@@ -54,7 +54,7 @@ export default function ProfilePage() {
             <Col span={12}>
               <DescriptionItem
                 title="Дата рождения"
-                content="2 февраля, 1994"
+                content={`${day} ${month} ${year} `}
               />
             </Col>
             <Col span={12}>

@@ -24,8 +24,8 @@ export const AuthContextProvider = ({ children }) => {
       password,
     });
 
-    // get user points
-    const pointsResponse = await axios.post('/api/user/getPoints', {
+    // get secondary user data
+    const secondaryUserData = await axios.post('/api/user/getPoints', {
       id: data.id,
     });
 
@@ -34,11 +34,14 @@ export const AuthContextProvider = ({ children }) => {
     });
 
     const filteredUserData = {
-      name: data.name,
+      name: secondaryUserData.data.name,
       id: data.id,
       nick: data.nickname,
       avatar: data.avatar_urls[96],
-      points: pointsResponse.data,
+      points: secondaryUserData.data.mycred_default,
+      lastname: secondaryUserData.data.lastname,
+      date: secondaryUserData.data.Dateof_birth,
+      surname: secondaryUserData.data.surname,
       history: history.data,
     };
     setUserData({ ...filteredUserData });
