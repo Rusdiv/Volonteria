@@ -9,7 +9,7 @@ export default function NewsPage({ host = '' }) {
 
   // getting news
   useEffect(async () => {
-    const { data } = await axios.get(`https://${host}/api/news`);
+    const { data } = await axios.get(`http://${host}/api/news`);
     setNews(data);
   }, []);
 
