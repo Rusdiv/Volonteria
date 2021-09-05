@@ -23,7 +23,7 @@ export default function NewsItemPage({
   const onRegOnIvent = async () => {
     try {
       axios.post(`https://${hostName}/api/news/regOnEvent`, {
-        newsId,
+        newsId: Number(newsId),
         user_id: userId,
       });
     } catch (err) {
