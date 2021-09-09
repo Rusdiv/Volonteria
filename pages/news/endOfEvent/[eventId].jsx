@@ -2,21 +2,24 @@ import React, { useContext, useEffect, useState } from 'react';
 import axios from 'axios';
 import AuthContext from '../../../store/auth-context';
 
-export default function endOfEvent({ eventId }) {
+export default function endOfEvent({ eventId, hostName }) {
   const { userData } = useContext(AuthContext);
   const [data, setData] = useState('');
 
   useEffect(() => {
     const fetchData = async () => {
-      setData(
-        await axios.post(
-          `http://t0toro-wordpress.tw1.ru/wp-json/vl/v1/end/event/${eventId}`,
+      try {
+        const eventData = axios.post(
+          `https://${hostName}/api/news/regOnEvent`,
           {
-            event_id: eventId,
+            newsId: Number(eventId),
             user_id: userData.id,
           },
-        ).data,
-      );
+        );
+        setData(eventData.data);
+      } catch (err) {
+        console.log(err);
+      }
     };
 
     fetchData();
@@ -37,10 +40,12 @@ export default function endOfEvent({ eventId }) {
 
 export const getServerSideProps = async (context) => {
   const { eventId } = context.params;
+  const { req } = context;
 
   return {
     props: {
       eventId,
+      hostName: req.headers.host,
     },
   };
 };
