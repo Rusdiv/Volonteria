@@ -10,7 +10,7 @@ export default function endOfEvent({ eventId, hostName }) {
     const fetchData = async () => {
       try {
         const eventData = axios.post(
-          `https://${hostName}/api/news/regOnEvent`,
+          `https://${hostName}/api/news/endOfEvent`,
           {
             newsId: Number(eventId),
             user_id: userData.id,
