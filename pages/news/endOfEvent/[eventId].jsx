@@ -1,22 +1,17 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext, useEffect } from 'react';
 import axios from 'axios';
 import AuthContext from '../../../store/auth-context';
 
 export default function endOfEvent({ eventId, hostName }) {
   const { userData } = useContext(AuthContext);
-  const [data, setData] = useState('');
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const eventData = axios.post(
-          `https://${hostName}/api/news/endOfEvent`,
-          {
-            newsId: Number(eventId),
-            user_id: userData.id,
-          },
-        );
-        setData(eventData.data);
+        axios.post(`https://${hostName}/api/news/endOnEvent`, {
+          newsId: Number(eventId),
+          user_id: userData.id,
+        });
       } catch (err) {
         console.log(err);
       }
@@ -24,18 +19,7 @@ export default function endOfEvent({ eventId, hostName }) {
 
     fetchData();
   }, []);
-  return (
-    <div>
-      {eventId}
-      <p>
-        {data === 'U were not registrated on this event' ? (
-          <div>Вы не зарегестрированны</div>
-        ) : (
-          <div>Смотреть нетворк</div>
-        )}
-      </p>
-    </div>
-  );
+  return <div>{eventId}</div>;
 }
 
 export const getServerSideProps = async (context) => {
