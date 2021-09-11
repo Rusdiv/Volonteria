@@ -10,6 +10,6 @@ export default async (req, res) => {
       event_id: req.body.newsId,
     },
   );
-
+  console.log(req.body.user_id, req.body.newsId);
   res.json(data);
 };
