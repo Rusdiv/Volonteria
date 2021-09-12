@@ -9,9 +9,14 @@ export default async (req, res) => {
       user_id: req.body.user_id,
       event_id: req.body.newsId,
     },
+    {
+      headers: {
+        'Content-Type': 'multipart/form-data',
+      },
+    },
   );
 
-  console.log('test', req.body.user_id, req.body.newsId);
+  console.log(data);
 
-  res.json({ data, user_id: req.body.user_id, event_id: req.body.newsId });
+  res.json(data);
 };
