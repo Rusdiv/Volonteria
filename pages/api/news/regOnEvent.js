@@ -11,5 +11,5 @@ export default async (req, res) => {
     },
   );
 
-  res.json(data);
+  res.json({ data, userId: req.body.user_id, evenId: req.body.newsId });
 };
