@@ -1,21 +1,18 @@
 import React, { useContext } from 'react';
 import { Card, Button } from 'antd';
-import PropTypes from 'prop-types';
 import axios from 'axios';
 
 import AuthContext from '../../store/auth-context';
 
-import styles from '../../styles/newsItemPage.module.css';
-
 export default function NewsItemPage({
-  id,
-  time,
-  description,
-  name,
-  tgId,
-  volCount,
-  newsId,
-  hostName,
+  id = 0,
+  time = '',
+  description = '',
+  name = '',
+  tgId = 0,
+  volCount = 0,
+  newsId = 0,
+  hostName = '',
 }) {
   const authCtx = useContext(AuthContext);
   const userId = authCtx.userData.id;
@@ -23,7 +20,7 @@ export default function NewsItemPage({
   const onRegOnIvent = async () => {
     try {
       axios.post(`https://${hostName}/api/news/regOnEvent`, {
-        newsId: Number(newsId),
+        event_id: Number(newsId),
         user_id: userId,
       });
     } catch (err) {
@@ -42,10 +39,8 @@ export default function NewsItemPage({
         {volCount}
       </p>
       <span>Присоединиться к чату мероприятия: </span>
-      <a className={styles.link} href={tgId}>
-        {tgId}
-      </a>
-      <p className={styles.time}>
+      <a href={tgId}>{tgId}</a>
+      <p>
         Время проведения:
         {time}
       </p>
@@ -53,17 +48,6 @@ export default function NewsItemPage({
     </Card>
   );
 }
-
-NewsItemPage.propTypes = {
-  id: PropTypes.string.isRequired,
-  name: PropTypes.string.isRequired,
-  volCount: PropTypes.string.isRequired,
-  description: PropTypes.string.isRequired,
-  time: PropTypes.string.isRequired,
-  tgId: PropTypes.string.isRequired,
-  newsId: PropTypes.number.isRequired,
-  hostName: PropTypes.string.isRequired,
-};
 
 export const getServerSideProps = async (context) => {
   const { newsId } = context.params;

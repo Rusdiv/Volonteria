@@ -1,5 +1,6 @@
 import React, { useContext, useEffect } from 'react';
 import axios from 'axios';
+
 import AuthContext from '../../../store/auth-context';
 
 export default function endOfEvent({ eventId, hostName }) {

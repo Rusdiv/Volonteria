@@ -1,9 +1,14 @@
 import React, { useState, useContext, useEffect } from 'react';
 import { Input, Button, Form } from 'antd';
+import * as pino from 'pino';
 
 import AuthContext from '../../store/auth-context';
 
 export default function LoginPage() {
+  const logger = pino({
+    prettyPrint: true,
+  });
+
   const [enteredLogin, setEnteredLogin] = useState('');
   const [enteredPassword, setEnteredPassword] = useState('');
   const [loading, setLoading] = useState('');
@@ -24,6 +29,7 @@ export default function LoginPage() {
 
   const onFinish = async () => {
     setLoading(true);
+    logger.info('start getting user data');
     // get user data
     authCtx.onLogin(enteredLogin, enteredPassword);
   };

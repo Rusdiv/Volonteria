@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Spin } from 'antd';
 import axios from 'axios';
+import logger from 'pino';
 
 import NewsList from '../../components/News/NewsList/NewsList';
 
@@ -8,9 +9,20 @@ export default function NewsPage({ host = '' }) {
   const [news, setNews] = useState([]);
 
   // getting news
-  useEffect(async () => {
-    const { data } = await axios.get(`https://${host}/api/news`);
-    setNews(data);
+  useEffect(() => {
+    const fetchNewsData = async () => {
+      try {
+        logger.info('try to get news');
+
+        const { data } = await axios.get(`https://${host}/api/news`);
+        setNews(data);
+
+        logger.info('succses get news');
+      } catch (err) {
+        logger.error(`error with getting news: ${err}`);
+      }
+    };
+    fetchNewsData();
   }, []);
 
   return (
