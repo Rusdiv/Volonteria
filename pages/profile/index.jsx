@@ -9,7 +9,7 @@ import HistoryBlock from '../../components/Profile/HistoryBlock';
 
 import AuthContext from '../../store/auth-context';
 
-import styles from './profile.module.scss';
+import styles from '../../components/Profile/profile.module.css';
 
 export default function ProfilePage() {
   const authCtx = useContext(AuthContext);
@@ -23,11 +23,7 @@ export default function ProfilePage() {
             size={64}
             icon={avatar ? <img src={avatar} alt="avatar" /> : <UserOutlined />}
           />
-          <h1
-            className={styles.avatar}
-          >
-            {name}
-          </h1>
+          <h1 className={styles.avatar}>{name}</h1>
           <PersonalBlock />
           <ContactsBlock />
         </Col>
