@@ -9,7 +9,7 @@ import HistoryBlock from '../../components/Profile/HistoryBlock';
 
 import AuthContext from '../../store/auth-context';
 
-import styles from '../../components/Profile/profile.module.css';
+import styles from '../../components/Profile/profile.module.scss';
 
 export default function ProfilePage() {
   const authCtx = useContext(AuthContext);
