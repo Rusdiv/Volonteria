@@ -19,7 +19,7 @@ export default function NewsPage({ host = '' }) {
 
         logger.info('succses get news');
       } catch (err) {
-        logger.error(`error with getting news: ${err}`);
+        logger.info(`error with getting news: ${err}`);
       }
     };
     fetchNewsData();
