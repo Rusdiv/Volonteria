@@ -1,8 +1,6 @@
 import axios from 'axios';
 import FormData from 'form-data';
 
-const fetch = require('node-fetch');
-
 require('dotenv').config();
 
 export default async (req, res) => {
@@ -12,14 +10,7 @@ export default async (req, res) => {
   const request = await axios.post(
     `${process.env.CUSTOM_WP_API_URL}/prereg/event/${req.body.newsId}`,
     formData,
-    { headers: form.getHeaders() }
+    { headers: res.getHeaders() },
   );
-
-//   const request = await axios.post(
-//     `${process.env.CUSTOM_WP_API_URL}/prereg/event/${req.body.newsId}`,
-//     formData,
-//     headers: {
-//       Accept: 'application/json',
-//       'Content-Type': 'multipart/form-data',
-//     },
-//   );
+  res.json(request);
+};
