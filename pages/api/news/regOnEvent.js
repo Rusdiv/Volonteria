@@ -13,6 +13,6 @@ export default async (req, res) => {
     formData,
     { headers: formData.getHeaders() },
   );
-  console.log(data);
-  res.json(1);
+
+  res.json(data);
 };
