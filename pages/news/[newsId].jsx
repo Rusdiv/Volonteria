@@ -19,12 +19,13 @@ export default function NewsItemPage({
 
   const onRegOnIvent = async () => {
     try {
+      console.log('start registration on event');
       axios.post(`https://${hostName}/api/news/regOnEvent`, {
         event_id: Number(newsId),
         user_id: userId,
       });
     } catch (err) {
-      console.log(err);
+      console.log('fail to registration on event', err);
     }
   };
   return (
