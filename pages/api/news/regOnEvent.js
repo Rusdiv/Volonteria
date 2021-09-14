@@ -9,7 +9,7 @@ export default async (req, res) => {
   formData.append('user_id', req.body.user_id);
   formData.append('event_id', req.body.event_id);
   const { data } = await axios.post(
-    `${process.env.CUSTOM_WP_API_URL}/prereg/event/${req.body.newsId}`,
+    `${process.env.CUSTOM_WP_API_URL}/prereg/event/${req.body.event_id}`,
     formData,
     { headers: formData.getHeaders() },
   );
