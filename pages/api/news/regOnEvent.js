@@ -13,5 +13,5 @@ export default async (req, res) => {
     formData,
     { headers: res.getHeaders() },
   );
-  res.json(data);
+  res.json({ one: 1, data });
 };
