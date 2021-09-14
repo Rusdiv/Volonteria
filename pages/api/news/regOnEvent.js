@@ -11,7 +11,7 @@ export default async (req, res) => {
   const { data } = await axios.post(
     `${process.env.CUSTOM_WP_API_URL}/prereg/event/${req.body.newsId}`,
     formData,
-    { headers: res.getHeaders() },
+    { headers: formData.getHeaders() },
   );
-  res.json({ one: 1, data });
+  res.json({ data });
 };
