@@ -1,8 +1,9 @@
 // import axios from 'axios';
 
 import fetch from 'node-fetch';
+import dotenv from 'dotenv';
 
-require('dotenv').config();
+dotenv.config();
 
 export default (req, res) => {
   fetch(`${process.env.CUSTOM_WP_API_URL}/history`, {

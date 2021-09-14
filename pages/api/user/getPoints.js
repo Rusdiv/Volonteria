@@ -1,8 +1,9 @@
 // import axios from 'axios';
 
 import fetch from 'node-fetch';
+import dotenv from 'dotenv';
 
-require('dotenv').config();
+dotenv.config();
 
 export default (req, res) => {
   // const { data } = await axios.post(
