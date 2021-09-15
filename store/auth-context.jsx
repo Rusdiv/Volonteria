@@ -10,7 +10,7 @@ const AuthContext = React.createContext({
 });
 
 export const AuthContextProvider = ({ children }) => {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(true);
   const [userData, setUserData] = useState({});
 
   const logoutHandler = () => {

@@ -1,0 +1,28 @@
+.navigation {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  background-color: #fdfafa;
+  height: 100vh;
+  width: 237px;
+
+  button {
+    width: 160px;
+    padding: 15px 34px 15px 16px;
+    display: flex;
+    align-items: center;
+    border-radius: 8px;
+    background-color: transparent;
+    border: none;
+    transition: 0.2s ease-in-out;
+    margin-bottom: 30px;
+
+    span { 
+      margin-left: 17px;
+    }
+
+    &:hover {
+      background-color: rgba(170, 19, 155, 0.15);
+    }
+  }
+}

@@ -66,7 +66,9 @@ export default function LoginPage() {
         </label>
         <p>Забыли пароль?</p>
       </div>
-      <LoginButton onClick={onFinish}>Войти</LoginButton>
+      <LoginButton disabled={loading} onClick={onFinish}>
+        Войти
+      </LoginButton>
       <p className={styles.footer}>
         Нет аккаунта?
         <span>Регистрация</span>

@@ -1,11 +1,11 @@
 import React, { useContext } from 'react';
-import { Layout } from 'antd';
 
-import Navigation from '../components/Navigation';
+import Navigation from '../components/Navigation/Navigation';
 import AuthContext from '../store/auth-context';
 import LoginPage from './login';
 
-const { Content } = Layout;
+import styles from '../styles/Main.module.scss';
+import Header from '../components/Header/Header';
 
 function MyApp({ Component, pageProps }) {
   const authCtx = useContext(AuthContext);
@@ -15,21 +15,13 @@ function MyApp({ Component, pageProps }) {
   }
 
   return (
-    <Layout style={{ minHeight: '100vh' }}>
-      <Navigation />
-      <Layout style={{ padding: '24px' }}>
-        <Content
-          className="site-layout-background"
-          style={{
-            padding: 24,
-            margin: 0,
-            minHeight: 280,
-          }}
-        >
-          <Component {...pageProps} />
-        </Content>
-      </Layout>
-    </Layout>
+    <div className={styles.mainPage}>
+      <Header />
+      <div className={styles.navAndContent}>
+        <Navigation />
+        <Component {...pageProps} />
+      </div>
+    </div>
   );
 }
 

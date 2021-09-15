@@ -13,10 +13,15 @@
   color: #ffffff;
   padding: 15px;
   cursor: pointer;
-  transition: 0.4s;
+  transition: 0.2s ease-in-out;
 
-  *:hover {
-    transition: 0.4s;
-    background-color: #ffffff;
+  &:hover {
+    transition: 0.2s;
+    background-color: #d126c0;
+  }
+
+  &:disabled {
+    cursor: auto;
+    background-color: #501f4b;
   }
 }

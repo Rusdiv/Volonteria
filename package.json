@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "@ant-design/icons": "^4.6.2",
+    "@svgr/webpack": "^5.5.0",
     "antd": "^4.16.11",
     "axios": "^0.21.1",
     "dotenv": "^10.0.0",
