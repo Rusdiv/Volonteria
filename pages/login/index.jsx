@@ -1,8 +1,11 @@
 import React, { useState, useContext, useEffect } from 'react';
-import { Input, Button, Form } from 'antd';
 import * as pino from 'pino';
 
+import Input from '../../components/Common/Input';
 import AuthContext from '../../store/auth-context';
+
+import styles from '../../components/Login/Login.module.scss';
+import LoginButton from '../../components/Login/LoginButton/LoginButton';
 
 export default function LoginPage() {
   const logger = pino({
@@ -34,83 +37,40 @@ export default function LoginPage() {
     authCtx.onLogin(enteredLogin, enteredPassword);
   };
 
-  const onFinishFailed = (errorInfo) => {
-    console.log('Failed:', errorInfo);
-  };
-
   return (
-    <Form
-      name="basic"
-      labelCol={{
-        span: 8,
-      }}
-      wrapperCol={{
-        span: 16,
-      }}
-      initialValues={{
-        remember: true,
-      }}
-      onFinish={onFinish}
-      onFinishFailed={onFinishFailed}
-    >
-      <Form.Item
-        wrapperCol={{
-          offset: 8,
-          span: 16,
-        }}
+    <form className={styles.login}>
+      <div className={styles.header}>
+        <h1>Добро пожаловать на сайт</h1>
+        <span>Волонтерия</span>
+      </div>
+      <Input
+        required
+        name="Адрес электронной почты"
+        type="email"
+        placeholder="Введите ваш e-mail"
+        onChange={enteredLoginHandler}
+        value={enteredLogin}
       />
-      <Form.Item
-        label="Логин"
-        name="Логин"
-        rules={[
-          {
-            required: true,
-            message: 'Пожалуйста введите ваш логин!',
-          },
-        ]}
-      >
-        <Input
-          style={{ width: 400 }}
-          value={enteredLogin}
-          onChange={enteredLoginHandler}
-          placeholder="Логин"
-          type="text"
-        />
-      </Form.Item>
-      <Form.Item
-        label="Пароль"
+      <Input
+        required
         name="Пароль"
-        rules={[
-          {
-            required: true,
-            message: 'Пожалуйста введите ваш пароль!',
-          },
-        ]}
-      >
-        <Input
-          style={{ width: 400 }}
-          value={enteredPassword}
-          onChange={enteredPasswordHandler}
-          placeholder="Пароль"
-          id="input_password"
-          type="password"
-        />
-      </Form.Item>
-      <Form.Item
-        wrapperCol={{
-          offset: 8,
-          span: 16,
-        }}
-      >
-        <Button
-          htmlType="submit"
-          loading={loading}
-          style={{ width: 400 }}
-          type="primary"
-        >
-          Войти
-        </Button>
-      </Form.Item>
-    </Form>
+        type="password"
+        placeholder="********"
+        onChange={enteredPasswordHandler}
+        value={enteredPassword}
+      />
+      <div className={styles.checkboxPassword}>
+        <label>
+          <input type="checkbox" />
+          Запомнить меня
+        </label>
+        <p>Забыли пароль?</p>
+      </div>
+      <LoginButton onClick={onFinish}>Войти</LoginButton>
+      <p className={styles.footer}>
+        Нет аккаунта?
+        <span>Регистрация</span>
+      </p>
+    </form>
   );
 }
