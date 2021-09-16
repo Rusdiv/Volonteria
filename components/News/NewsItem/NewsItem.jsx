@@ -1,6 +1,8 @@
 import React from 'react';
 import { useRouter } from 'next/router';
 
+import PhotoSVG from '../../../public/images/photo.svg';
+
 import styles from './NewsItem.module.scss';
 
 export default function NewsItem({
@@ -19,9 +21,10 @@ export default function NewsItem({
       onClick={() => onCardClick(href)}
       type="button"
     >
+      <PhotoSVG />
       <h2>{title}</h2>
-      <p>{date}</p>
-      <p>{pos}</p>
+      <p>18 сентября 2021{date}</p>
+      <p>ул. Юности, 14-б{pos}</p>
     </button>
   );
 }
