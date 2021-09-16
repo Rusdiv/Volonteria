@@ -1,25 +1,27 @@
 import React from 'react';
 import { useRouter } from 'next/router';
-import { Card } from 'antd';
 
-export default function NewsItem({ title = '', description = '', href = '' }) {
+import styles from './NewsItem.module.scss';
+
+export default function NewsItem({
+  title = '',
+  href = '',
+  date = '',
+  pos = '',
+}) {
   const router = useRouter();
   const onCardClick = (url) => {
     router.push(url);
   };
   return (
-    <Card
+    <button
+      className={styles.card}
       onClick={() => onCardClick(href)}
-      hoverable
-      title={title}
-      style={{
-        width: 300,
-        marginLeft: 25,
-        marginTop: 25,
-        backgroundColor: 'rgb(235, 246, 237)',
-      }}
+      type="button"
     >
-      <p>{description}</p>
-    </Card>
+      <h2>{title}</h2>
+      <p>{date}</p>
+      <p>{pos}</p>
+    </button>
   );
 }
