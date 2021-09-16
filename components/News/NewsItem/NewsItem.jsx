@@ -17,6 +17,24 @@ export default function NewsItem({
   const onCardClick = (url) => {
     router.push(url);
   };
+
+  const year = date[0] + date[1] + date[2] + date[3];
+  const mounths = [
+    'января',
+    'февраля',
+    'марта',
+    'апреля',
+    'мая',
+    'июня',
+    'июля',
+    'августа',
+    'сентября',
+    'октября',
+    'ноября',
+    'декабря',
+  ];
+
+  const day = date[6] + date[7];
   return (
     <button
       className={styles.card}
@@ -27,7 +45,7 @@ export default function NewsItem({
       <h2>{title}</h2>
       <p>
         <DateSVG />
-        <span>{date}</span>
+        <span>{`${day} ${mounths[Number(date[4] + date[5])]} ${year}`}</span>
       </p>
       <p>
         <LocationSVG />
