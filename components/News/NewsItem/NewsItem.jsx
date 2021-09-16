@@ -11,7 +11,7 @@ export default function NewsItem({
   title = '',
   href = '',
   date = '',
-  pos = '',
+  place = '',
 }) {
   const router = useRouter();
   const onCardClick = (url) => {
@@ -27,13 +27,11 @@ export default function NewsItem({
       <h2>{title}</h2>
       <p>
         <DateSVG />
-        <span>18 сентября 2021</span>
-        {date}
+        <span>{date}</span>
       </p>
       <p>
         <LocationSVG />
-        <span>ул. Юности, 14-б</span>
-        {pos}
+        <span>{place}</span>
       </p>
     </button>
   );

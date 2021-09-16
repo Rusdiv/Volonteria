@@ -13,6 +13,7 @@ export default function NewsList({ news = [] }) {
           title={event.name_value}
           count={event.volunteers_value}
           tgId={event.telegram_id_value}
+          place={event.place_value}
           href={`/news/${event.post_id}`}
         />
       ))}
