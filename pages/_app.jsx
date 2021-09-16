@@ -24,6 +24,10 @@ function Volonteria(props) {
           href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap"
           rel="stylesheet"
         />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Neucha&display=swap"
+          rel="stylesheet"
+        />
       </head>
       <MyApp {...props} />
     </AuthContextProvider>

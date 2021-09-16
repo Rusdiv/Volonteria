@@ -4,6 +4,8 @@ import axios from 'axios';
 
 import NewsList from '../../components/News/NewsList/NewsList';
 
+import styles from '../../components/News/News.module.scss';
+
 export default function NewsPage({ host = '' }) {
   const [news, setNews] = useState([]);
 
@@ -25,8 +27,7 @@ export default function NewsPage({ host = '' }) {
   }, []);
 
   return (
-    <div>
-      <h1>Мероприятия</h1>
+    <div className={styles.news}>
       {news.length > 0 ? <NewsList news={news} /> : <Spin />}
     </div>
   );
