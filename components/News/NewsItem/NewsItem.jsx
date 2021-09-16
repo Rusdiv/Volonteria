@@ -27,11 +27,13 @@ export default function NewsItem({
       <h2>{title}</h2>
       <p>
         <DateSVG />
-        18 сентября 2021{date}
+        <span>18 сентября 2021</span>
+        {date}
       </p>
       <p>
         <LocationSVG />
-        ул. Юности, 14-б{pos}
+        <span>ул. Юности, 14-б</span>
+        {pos}
       </p>
     </button>
   );

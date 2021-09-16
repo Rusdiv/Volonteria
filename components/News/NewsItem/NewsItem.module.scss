@@ -3,9 +3,13 @@
   background: #ffffff;
   border-radius: 8px;
   width: 240px;
-  height: 120px;
+  height: 292px;
   padding: 15px;
   text-align: left;
   margin-left: 40px;
   cursor: pointer;
+
+  span {
+    margin-left: 10px;
+  }
 }
