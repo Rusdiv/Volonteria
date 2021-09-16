@@ -1,8 +1,9 @@
 .card {
+  margin-top: 40px;
   border: none;
   background: #ffffff;
   border-radius: 8px;
-  width: 240px;
+  width: 240px;             
   height: 292px;
   padding: 15px;
   text-align: left;
@@ -11,5 +12,10 @@
 
   span {
     margin-left: 10px;
+  }
+
+  p {
+    display: flex;
+    align-items: center;
   }
 }
