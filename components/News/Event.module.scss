@@ -1,4 +1,6 @@
 .event {
+  display: flex;
+  justify-content: space-between;
   padding: 45px;
   width: 100%;
   height: 100vh;
@@ -17,6 +19,7 @@
 }
 
 .registrationBlock {
+  background: #ffffff;
   display: flex;
   flex-direction: column;
   align-items: center;
