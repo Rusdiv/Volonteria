@@ -1,15 +1,17 @@
 import React, { useContext } from 'react';
-import { Card, Button } from 'antd';
+import { Button } from 'antd';
 import axios from 'axios';
 
+import VolonteerSVG from '../../public/images/events/volonteer.svg';
+import DateSVG from '../../public/images/events/date.svg';
+import LocationSVG from '../../public/images/events/location.svg';
 import AuthContext from '../../store/auth-context';
 
+import styles from '../../components/News/Event.module.scss';
+
 export default function NewsItemPage({
-  id = 0,
   time = '',
   description = '',
-  name = '',
-  tgId = 0,
   volCount = 0,
   newsId = 0,
   hostName = '',
@@ -28,25 +30,68 @@ export default function NewsItemPage({
       console.log('fail to registration on event', err);
     }
   };
+
+  const year = time[0] + time[1] + time[2] + time[3];
+  const mounths = [
+    'января',
+    'февраля',
+    'марта',
+    'апреля',
+    'мая',
+    'июня',
+    'июля',
+    'августа',
+    'сентября',
+    'октября',
+    'ноября',
+    'декабря',
+  ];
+
+  const day = time[6] + time[7];
+
   return (
-    <Card title={name}>
-      <p>{description}</p>
-      <p>
-        id мероприятия:
-        {id}
-      </p>
-      <p>
-        Требуемое количество волонтеров:
-        {volCount}
-      </p>
-      <span>Присоединиться к чату мероприятия: </span>
-      <a href={tgId}>{tgId}</a>
-      <p>
-        Время проведения:
-        {time}
-      </p>
-      <Button onClick={onRegOnIvent}>Зарегистрироваться</Button>
-    </Card>
+    <div className={styles.event}>
+      <div className={styles.card}>
+        <h2>О чем это мероприятие?</h2>
+        <p>{description}</p>
+        <h2>Какая цель у мероприятия?</h2>
+        <h2>Требования к волонтерам</h2>
+        <ul>
+          <li>Воpраст от 16 лет;</li>
+          <li>открытость;</li>
+          <li>коммуникабельность;</li>
+          <li> готовность помогать на улице;</li>
+          <li>
+            отсутствие симптомов ОРВИ/ОРЗ/Covid-19 в дни мероприятия и за 14
+            дней до начала.
+          </li>
+          <li>
+            при необходимости быть готовым предоставить результаты
+            отрицательного ПЦР-теста.
+          </li>
+          <li>
+            Функции волонтёров – навигация, информирование участников, встреча и
+            сопровождения участников, помощь организаторам в сборе подарков для
+            детей.
+          </li>
+        </ul>
+        <h2>График участия</h2>
+      </div>
+      <div className={styles.registrationBlock}>
+        <p>
+          <DateSVG />
+          {`${day} ${mounths[Number(time[4] + time[5])]} ${year}`}
+        </p>
+        <p>
+          <LocationSVG />
+        </p>
+        <p>
+          <VolonteerSVG />
+          {`Требуется ${(<span>{volCount}</span>)} волонтеров`}
+        </p>
+        <Button onClick={onRegOnIvent}>Зарегистрироваться</Button>
+      </div>
+    </div>
   );
 }
 
