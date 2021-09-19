@@ -1,5 +1,4 @@
 import React, { useContext } from 'react';
-import { Button } from 'antd';
 import axios from 'axios';
 
 import VolonteerSVG from '../../public/images/events/volonteer.svg';
@@ -15,6 +14,7 @@ export default function NewsItemPage({
   volCount = 0,
   newsId = 0,
   hostName = '',
+  place = ' ',
 }) {
   const authCtx = useContext(AuthContext);
   const userId = authCtx.userData.id;
@@ -84,6 +84,7 @@ export default function NewsItemPage({
         </p>
         <p>
           <LocationSVG />
+          {place}
         </p>
         <p>
           <VolonteerSVG />
@@ -91,7 +92,9 @@ export default function NewsItemPage({
           <span>{Number(volCount)}</span>
           волонтеров
         </p>
-        <Button onClick={onRegOnIvent}>Зарегистрироваться</Button>
+        <button type="button" onClick={onRegOnIvent}>
+          Зарегистрироваться
+        </button>
       </div>
     </div>
   );
@@ -114,6 +117,7 @@ export const getServerSideProps = async (context) => {
       description: data.description_value,
       newsId,
       hostName: req.headers.host,
+      place: data.place_value,
     },
   };
 };

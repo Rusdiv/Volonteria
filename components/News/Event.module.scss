@@ -16,6 +16,11 @@
   h2 {
     margin-bottom: 25px;
   }
+
+  li::before {
+    content: '';
+    background-image: url('../../public/images/events/ok.svg');
+  }
 }
 
 .registrationBlock {
@@ -28,6 +33,29 @@
   font-weight: normal;
   font-size: 12px;
   line-height: 14px;
+  width: 213px;
+  height: 192px;
+
+  button {
+    padding: 20px;
+    background: #fff;
+    border: 1px solid #aa139b;
+    box-sizing: border-box;
+    border-radius: 5px;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 14px;
+    text-align: center;
+    padding: 53px 15px;
+    color: #aa139b;
+  }
+
+  svg {
+    margin-left: 10px;
+  }
+
   p {
     span {
       color: #aa139b;
