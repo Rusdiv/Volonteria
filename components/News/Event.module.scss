@@ -48,12 +48,17 @@
     font-size: 12px;
     line-height: 14px;
     text-align: center;
-    padding: 53px 15px;
+    padding: 15px 53px;
     color: #aa139b;
   }
 
+  ul {
+    display: flex;
+    align-items: flex-start;
+  }
+
   svg {
-    margin-left: 10px;
+    margin-right: 10px;
   }
 
   p {

@@ -78,22 +78,24 @@ export default function NewsItemPage({
         <h2>График участия</h2>
       </div>
       <div className={styles.registrationBlock}>
-        <p>
-          <DateSVG />
-          {`${day} ${mounths[Number(time[4] + time[5])]} ${year}`}
-        </p>
-        <p>
-          <LocationSVG />
-          {place}
-        </p>
-        <p>
-          <VolonteerSVG />
-          Требуется
-          <span>{Number(volCount)}</span>
-          волонтеров
-        </p>
+        <ul>
+          <p>
+            <DateSVG />
+            {`${day} ${mounths[Number(time[4] + time[5])]} ${year}`}
+          </p>
+          <p>
+            <LocationSVG />
+            {place}
+          </p>
+          <p>
+            <VolonteerSVG />
+            Требуется
+            <span>{Number(volCount)}</span>
+            волонтеров
+          </p>
+        </ul>
         <button type="button" onClick={onRegOnIvent}>
-          Зарегистрироваться
+          Записаться
         </button>
       </div>
     </div>
