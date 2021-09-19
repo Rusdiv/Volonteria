@@ -89,8 +89,8 @@ export default function NewsItemPage({
           </p>
           <p>
             <VolonteerSVG />
-            Требуется 
-            <span>{Number(volCount)}</span> 
+            Требуется
+            <span>{Number(volCount)}</span>
             волонтеров
           </p>
         </ul>

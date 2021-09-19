@@ -17,11 +17,22 @@
     margin-bottom: 25px;
   }
 
+  li {
+    position: relative;
+    padding-left: 20px;
+  }
+
   li::before {
+    position: absolute;
+    left: 0;
+    top: 0;
     width: 20px;
     height: 20px;
     content: '';
     background-image: url('../../public/images/events/ok.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
   }
 }
 
@@ -68,7 +79,8 @@
 
   p {
     span {
-      color: #aa139b;
+      color: #c051b5;
+      margin: 0 5px;
     }
   }
 }
