@@ -57,7 +57,7 @@ export default function NewsItemPage({
         <h2>Какая цель у мероприятия?</h2>
         <h2>Требования к волонтерам</h2>
         <ul>
-          <li>Воpраст от 16 лет;</li>
+          <li>Возраст от 16 лет;</li>
           <li>открытость;</li>
           <li>коммуникабельность;</li>
           <li> готовность помогать на улице;</li>
@@ -89,9 +89,9 @@ export default function NewsItemPage({
           </p>
           <p>
             <VolonteerSVG />
-            Требуется
+            Требуется&nbsp
             <span>{Number(volCount)}</span>
-            волонтеров
+            &nbspволонтеров
           </p>
         </ul>
         <button type="button" onClick={onRegOnIvent}>

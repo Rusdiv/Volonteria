@@ -26,6 +26,7 @@
 }
 
 .registrationBlock {
+  border-radius: 8px;
   background: #ffffff;
   display: flex;
   flex-direction: column;
@@ -37,6 +38,7 @@
   line-height: 14px;
   width: 213px;
   height: 192px;
+  padding: 20px;
 
   button {
     padding: 20px;
