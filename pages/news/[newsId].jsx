@@ -89,9 +89,9 @@ export default function NewsItemPage({
           </p>
           <p>
             <VolonteerSVG />
-            Требуется&nbsp
-            <span>{Number(volCount)}</span>
-            &nbspволонтеров
+            Требуется 
+            <span>{Number(volCount)}</span> 
+            волонтеров
           </p>
         </ul>
         <button type="button" onClick={onRegOnIvent}>
