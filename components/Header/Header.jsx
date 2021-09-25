@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import Link from 'next/link';
 
 import LogoSVG from '../../public/images/Header/logo.svg';
 import SearchSVG from '../../public/images/Header/search.svg';
@@ -15,7 +16,7 @@ export default function Header() {
     <div className={styles.header}>
       <div className={styles.logo}>
         <LogoSVG />
-        Волонтерия
+        <Link href="/">Волонтерия</Link>
       </div>
       <div className={styles.rightBlock}>
         <div className={styles.search}>
@@ -28,7 +29,9 @@ export default function Header() {
             <NotificationSVG />
           </li>
           <li>
-            <img src={avatar} alt="avatar" />
+            <Link href="/profile">
+              <img src={avatar} alt="avatar" />
+            </Link>
           </li>
         </ul>
       </div>

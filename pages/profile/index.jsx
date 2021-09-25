@@ -17,8 +17,8 @@ export default function ProfilePage() {
 
   return (
     <div>
-      <Row>
-        <Col span={12}>
+      <div>
+        <div>
           <Avatar
             size={64}
             icon={avatar ? <img src={avatar} alt="avatar" /> : <UserOutlined />}
@@ -26,12 +26,12 @@ export default function ProfilePage() {
           <h1 className={styles.avatar}>{name}</h1>
           <PersonalBlock />
           <ContactsBlock />
-        </Col>
-        <Col span={12}>
+        </div>
+        <div>
           <HistoryBlock />
           <AchievesBlock />
-        </Col>
-      </Row>
+        </div>
+      </div>
     </div>
   );
 }
