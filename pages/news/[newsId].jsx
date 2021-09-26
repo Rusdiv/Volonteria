@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import axios from 'axios';
 
 import VolonteerSVG from '../../public/images/events/volonteer.svg';
@@ -15,7 +15,9 @@ export default function NewsItemPage({
   newsId = 0,
   hostName = '',
   place = ' ',
+  tgId = '',
 }) {
+  const [alert, setAlert] = useState(false);
   const authCtx = useContext(AuthContext);
   const userId = authCtx.userData.id;
 
@@ -26,6 +28,7 @@ export default function NewsItemPage({
         event_id: Number(newsId),
         user_id: userId,
       });
+      setAlert(true);
     } catch (err) {
       console.log('fail to registration on event', err);
     }
@@ -98,6 +101,17 @@ export default function NewsItemPage({
           Записаться
         </button>
       </div>
+      {alert ? (
+        <div className={styles.alert}>
+          Вы успешно записались
+          <p>
+            Телеграмм:
+            <a href={tgId}>{tgId}</a>
+          </p>
+        </div>
+      ) : (
+        <></>
+      )}
     </div>
   );
 }

@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { Avatar, Row, Col } from 'antd';
+import { Avatar } from 'antd';
 import { UserOutlined } from '@ant-design/icons';
 
 import PersonalBlock from '../../components/Profile/PersonalBlock';
