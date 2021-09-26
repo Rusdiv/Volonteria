@@ -16,21 +16,19 @@ export default function ProfilePage() {
   const { name, avatar } = authCtx.userData;
 
   return (
-    <div>
+    <div style={{ width: '100%' }}>
       <div>
-        <div>
-          <Avatar
-            size={64}
-            icon={avatar ? <img src={avatar} alt="avatar" /> : <UserOutlined />}
-          />
-          <h1 className={styles.avatar}>{name}</h1>
-          <PersonalBlock />
-          <ContactsBlock />
-        </div>
-        <div>
-          <HistoryBlock />
-          <AchievesBlock />
-        </div>
+        <Avatar
+          size={64}
+          icon={avatar ? <img src={avatar} alt="avatar" /> : <UserOutlined />}
+        />
+        <h1 className={styles.avatar}>{name}</h1>
+        <PersonalBlock />
+        <ContactsBlock />
+      </div>
+      <div>
+        <HistoryBlock />
+        <AchievesBlock />
       </div>
     </div>
   );
