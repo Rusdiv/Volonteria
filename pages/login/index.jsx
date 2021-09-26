@@ -1,5 +1,6 @@
 import React, { useState, useContext, useEffect } from 'react';
 import * as pino from 'pino';
+import Link from 'next/link';
 
 import Input from '../../components/Common/Input';
 import AuthContext from '../../store/auth-context';
@@ -71,7 +72,9 @@ export default function LoginPage() {
       </LoginButton>
       <p className={styles.footer}>
         Нет аккаунта?
-        <span>Регистрация</span>
+        <Link href="http://t0toro-wordpress.tw1.ru/wp-login.php?action=register">
+          Регистрация
+        </Link>
       </p>
     </form>
   );
