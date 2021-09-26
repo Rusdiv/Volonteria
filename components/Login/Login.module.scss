@@ -16,7 +16,7 @@
       color: #032d23;
       margin: 0;
     }
-    a {
+    span {
       color: #aa139b;
       font-family: 'Montserrat';
       font-style: normal;
@@ -24,10 +24,6 @@
       font-size: 30px;
       line-height: 44px;
       letter-spacing: -0.64px;
-
-      &:hover {
-        color: #aa139b;
-      }
     }
   }
 
@@ -65,10 +61,14 @@
     letter-spacing: -0.33px;
     color: #032d23;
 
-    span {
+    a {
       margin-left: 20px;
       font-weight: 600;
       color: #aa139b;
+
+      &:hover {
+        color: #aa139b;
+      }
     }
   }
 }
