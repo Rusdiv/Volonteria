@@ -13,6 +13,7 @@ export default function LoginPage() {
     prettyPrint: true,
   });
 
+  const [inputType, setInputType] = useState('password');
   const [enteredLogin, setEnteredLogin] = useState('');
   const [enteredPassword, setEnteredPassword] = useState('');
   const [loading, setLoading] = useState('');
@@ -29,6 +30,10 @@ export default function LoginPage() {
 
   const enteredPasswordHandler = (event) => {
     setEnteredPassword(event.target.value);
+  };
+
+  const onShowPassword = () => {
+    setInputType(inputType === 'text' ? 'password' : 'text');
   };
 
   const onFinish = async () => {
@@ -55,10 +60,12 @@ export default function LoginPage() {
       <Input
         required
         name="Пароль"
-        type="password"
+        type={inputType}
         placeholder="********"
         onChange={enteredPasswordHandler}
         value={enteredPassword}
+        onClick={onShowPassword}
+        endlessType="password"
       />
       <div className={styles.checkboxPassword}>
         <label>

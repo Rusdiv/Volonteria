@@ -3,7 +3,9 @@ import styles from './Input.module.scss';
 
 export default function Input({
   placeholder = '',
+  endlessType = '',
   onChange = () => {},
+  onClick = () => {},
   value = null,
   name = null,
   required = false,
@@ -20,7 +22,11 @@ export default function Input({
         onChange={onChange}
         value={value}
       />
-      {type === 'password' ? <button type="button" /> : <></>}
+      {endlessType === 'password' ? (
+        <button onClick={onClick} type="button" />
+      ) : (
+        <></>
+      )}
     </div>
   );
 }
