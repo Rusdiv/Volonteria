@@ -19,6 +19,12 @@
     display: flex;
     align-items: center;
     color: #000000;
+
+    a {
+      &:hover {
+        color: #aa139b;
+      }
+    }
   }
 
   .rightBlock {
