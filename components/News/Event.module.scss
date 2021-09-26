@@ -7,6 +7,15 @@
   background-color: #e5e5e5;
 }
 
+.alert {
+  width: 300px;
+  height: 100px;
+  background-color: violet;
+  position: fixed;
+  top: 50px;
+  right: 50px;
+}
+
 .card {
   width: 759px;
   padding: 35px;
@@ -53,6 +62,7 @@
 
   button {
     padding: 20px;
+    cursor: pointer;
     background: #fff;
     border: 1px solid #aa139b;
     box-sizing: border-box;
