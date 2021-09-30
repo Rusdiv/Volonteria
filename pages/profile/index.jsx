@@ -1,5 +1,4 @@
 import React, { useContext } from 'react';
-import { Avatar } from 'antd';
 import { UserOutlined } from '@ant-design/icons';
 
 import PersonalBlock from '../../components/Profile/PersonalBlock';
@@ -13,16 +12,22 @@ import styles from '../../components/Profile/profile.module.scss';
 
 export default function ProfilePage() {
   const authCtx = useContext(AuthContext);
-  const { name, avatar } = authCtx.userData;
+  const { name, avatar, lastname, email, phone } = authCtx.userData;
 
   return (
     <div style={{ width: '100%' }}>
       <div>
-        <Avatar
-          size={64}
-          icon={avatar ? <img src={avatar} alt="avatar" /> : <UserOutlined />}
-        />
-        <h1 className={styles.avatar}>{name}</h1>
+        <div>
+          {avatar ? (
+            <img className={styles.avatar} src={avatar} alt="avatar" />
+          ) : (
+            <UserOutlined />
+          )}
+          {`${name} ${lastname}`}
+          <div className={styles.points}>152</div>
+          {email}
+          {phone}
+        </div>
         <PersonalBlock />
         <ContactsBlock />
       </div>

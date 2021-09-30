@@ -61,8 +61,8 @@ export default function LoginPage() {
       </div>
       <Input
         required
-        name="Адрес электронной почты"
-        type="email"
+        name="Логин"
+        type="text"
         placeholder="Введите ваш e-mail"
         onChange={enteredLoginHandler}
         value={enteredLogin}

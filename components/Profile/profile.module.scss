@@ -1,7 +1,17 @@
 .avatar {
-  display: 'inline';
-  margin-left: 25;
-  font-size: 36;
+  display: block;
+  margin: 0 auto;
+  width: 115px;
+  height: 115px;
+  border-radius: 50%;
 }
 
-
+.leftBlock {
+  width: 420px;
+  height: 856px;
+  background: #ffffff;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
