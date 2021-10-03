@@ -41,6 +41,11 @@ export default function Navigation() {
       url: '/',
       onСlick: onLogout,
     },
+    {
+      name: 'Связь',
+      url: '/Contacts',
+      onСlick: redirect,
+    },
   ];
 
   return (

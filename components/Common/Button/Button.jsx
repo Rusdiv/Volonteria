@@ -1,6 +1,6 @@
 import React from 'react';
 
-import styles from './LoginButton.module.scss';
+import styles from './Button.module.scss';
 
 export default function LoginButton({
   children = null,

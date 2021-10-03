@@ -2,8 +2,8 @@ import React, { useState, useContext, useEffect } from 'react';
 import * as pino from 'pino';
 import Link from 'next/link';
 
-import Input from '../../components/Common/Input';
-import LoginButton from '../../components/Login/LoginButton/LoginButton';
+import Input from '../../components/Common/Input/Input';
+import Button from '../../components/Common/Button/Button';
 import AuthContext from '../../store/auth-context';
 
 import styles from '../../components/Login/Login.module.scss';
@@ -76,9 +76,9 @@ export default function LoginPage() {
           Забыли пароль?
         </a>
       </div>
-      <LoginButton disabled={loading} onClick={onFinish}>
+      <Button disabled={loading} onClick={onFinish}>
         Войти
-      </LoginButton>
+      </Button>
       <p className={styles.footer}>
         Нет аккаунта?
         <Link href="http://t0toro-wordpress.tw1.ru/wp-login.php?action=register">

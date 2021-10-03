@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import Input from '../components/Common/Input/Input';
 
 export default function Contacts() {
   const [enteredEmail, setEnteredEmail] = useState('');
@@ -21,21 +22,21 @@ export default function Contacts() {
 
   return (
     <form>
-      <input
+      <Input
         type="email"
         value={enteredEmail}
         onChange={(e) => setEnteredEmail(e.target.value)}
         placeholder="email"
         required
       />
-      <input
+      <Input
         type="text"
         value={enteredName}
         onChange={(e) => setEnteredName(e.target.value)}
         placeholder="name"
         required
       />
-      <input
+      <Input
         type="text"
         value={enteredMessage}
         onChange={(e) => setEnteredMessage(e.target.value)}
