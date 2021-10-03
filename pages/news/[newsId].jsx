@@ -11,6 +11,7 @@ import styles from '../../components/News/Event.module.scss';
 export default function NewsItemPage({
   time = '',
   description = '',
+  timeTable = '',
   volCount = 0,
   newsId = 0,
   hostName = '',
@@ -79,6 +80,7 @@ export default function NewsItemPage({
           </li>
         </ul>
         <h2>График участия</h2>
+        {timeTable}
       </div>
       <div className={styles.registrationBlock}>
         <ul>
@@ -125,6 +127,7 @@ export const getServerSideProps = async (context) => {
 
   return {
     props: {
+      timeTable: data.event_timetable,
       id: data.post_id,
       time: data.time_value,
       name: data.name_value,
