@@ -72,7 +72,9 @@ export default function LoginPage() {
           <input type="checkbox" />
           Запомнить меня
         </label>
-        <p>Забыли пароль?</p>
+        <a href="http://t0toro-wordpress.tw1.ru/wp-login.php?action=lostpassword">
+          Забыли пароль?
+        </a>
       </div>
       <LoginButton disabled={loading} onClick={onFinish}>
         Войти
