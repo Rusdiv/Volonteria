@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import Input from '../components/Common/Input/Input';
+import Button from '../components/Common/Button/Button';
 
 export default function Contacts() {
   const [enteredEmail, setEnteredEmail] = useState('');
@@ -21,8 +22,9 @@ export default function Contacts() {
   };
 
   return (
-    <form>
+    <form style={{ margin: '0 auto' }}>
       <Input
+        name="email"
         type="email"
         value={enteredEmail}
         onChange={(e) => setEnteredEmail(e.target.value)}
@@ -30,22 +32,24 @@ export default function Contacts() {
         required
       />
       <Input
+        name="Ваше имя"
         type="text"
         value={enteredName}
         onChange={(e) => setEnteredName(e.target.value)}
-        placeholder="name"
+        placeholder="имя"
         required
       />
       <Input
+        name="Сообщение"
         type="text"
         value={enteredMessage}
         onChange={(e) => setEnteredMessage(e.target.value)}
-        placeholder="message"
+        placeholder="Сообщение"
         required
       />
-      <button type="submit" onClick={handleSubmit}>
+      <Button type="submit" onClick={handleSubmit}>
         Отправить
-      </button>
+      </Button>
     </form>
   );
 }

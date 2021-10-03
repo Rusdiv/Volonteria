@@ -17,6 +17,7 @@ export default function LoginPage() {
   const [enteredLogin, setEnteredLogin] = useState('');
   const [enteredPassword, setEnteredPassword] = useState('');
   const [loading, setLoading] = useState('');
+  const [error, setError] = useState(null);
 
   const authCtx = useContext(AuthContext);
 
@@ -37,10 +38,14 @@ export default function LoginPage() {
   };
 
   const onFinish = async () => {
-    setLoading(true);
-    logger.info('start getting user data');
-    // get user data
-    authCtx.onLogin(enteredLogin, enteredPassword);
+    if (enteredLogin && enteredPassword) {
+      setLoading(true);
+      logger.info('start getting user data');
+      // get user data
+      authCtx.onLogin(enteredLogin, enteredPassword);
+    } else {
+      setError('Заполните поля');
+    }
   };
 
   return (
@@ -67,6 +72,7 @@ export default function LoginPage() {
         onClick={onShowPassword}
         endlessType="password"
       />
+      <p className={styles.error}>{error}</p>
       <div className={styles.checkboxPassword}>
         <label>
           <input type="checkbox" />
