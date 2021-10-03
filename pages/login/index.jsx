@@ -5,7 +5,6 @@ import Link from 'next/link';
 import Input from '../../components/Common/Input';
 import LoginButton from '../../components/Login/LoginButton/LoginButton';
 import AuthContext from '../../store/auth-context';
-import Rules from '../Rules';
 
 import styles from '../../components/Login/Login.module.scss';
 
@@ -18,21 +17,12 @@ export default function LoginPage() {
   const [enteredLogin, setEnteredLogin] = useState('');
   const [enteredPassword, setEnteredPassword] = useState('');
   const [loading, setLoading] = useState('');
-  const [popup, setPopup] = useState(false);
 
   const authCtx = useContext(AuthContext);
 
   useEffect(() => {
     setLoading(false);
   }, [enteredLogin, enteredPassword]);
-
-  const showPopup = () => {
-    setPopup(true);
-  };
-
-  const hidePopup = () => {
-    setPopup(false);
-  };
 
   const enteredLoginHandler = (event) => {
     setEnteredLogin(event.target.value);
@@ -92,18 +82,7 @@ export default function LoginPage() {
         <Link href="http://t0toro-wordpress.tw1.ru/wp-login.php?action=register">
           Регистрация
         </Link>
-        <button type="button" onClick={showPopup}>
-          Оферта
-        </button>
       </p>
-      {popup && (
-        <div className={styles.popup}>
-          <button type="button" onClick={hidePopup}>
-            Закрыть
-          </button>
-          <Rules />
-        </div>
-      )}
     </form>
   );
 }
