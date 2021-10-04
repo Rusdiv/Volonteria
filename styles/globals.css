@@ -14,6 +14,10 @@ a {
   text-decoration: none;
 }
 
+a:hover {
+  color: rgb(211, 64, 174);
+}
+
 ul {
   list-style-type: none;
   padding: 0;

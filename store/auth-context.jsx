@@ -35,6 +35,7 @@ export const AuthContextProvider = ({ children }) => {
 
     const filteredUserData = {
       name: secondaryUserData.data.name,
+      email: data.email,
       id: data.id,
       nick: data.nickname,
       avatar: data.avatar_urls[96],

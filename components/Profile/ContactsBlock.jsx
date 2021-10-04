@@ -1,16 +1,25 @@
 import React from 'react';
-import { Row } from 'antd';
 
-import DescriptionItem from './DescriptionItem';
-
-export default function ContactsData() {
+export default function ContactsData({ email = '', phone = '' }) {
   return (
     <div>
-      <p className="site-description-item-profile-p">Контакты</p>
-      <Row>
-        <DescriptionItem title="Email" content="volonteriaNK@example.com" />
-        <DescriptionItem title="Номер телефона" content="+7 999-888-77-66" />
-      </Row>
+      <h4>Контактные данные</h4>
+      <div>
+        E-mail
+        <p>{email}</p>
+      </div>
+      <div>
+        Телефон
+        <p>{phone}</p>
+      </div>
+      <div>
+        Адрес
+        <p>{phone}</p>
+      </div>
+      <div>
+        Telegram
+        <p>{phone}</p>
+      </div>
     </div>
   );
 }
