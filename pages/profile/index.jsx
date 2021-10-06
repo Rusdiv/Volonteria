@@ -23,7 +23,7 @@ export default function ProfilePage() {
         <h3>{`${name} ${lastname}`}</h3>
         <div className={styles.points}>
           <pointsSVG />
-          points
+          {points}
         </div>
         <ContactsBlock email={email} phone={phone} />
       </div>
