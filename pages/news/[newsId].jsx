@@ -20,7 +20,7 @@ export default function NewsItemPage({
   tgId = '',
 }) {
   const [alert, setAlert] = useState(false);
-  const [eventRegData, setEventRegData] = useState(null);
+  const [isEventReg, setIsEventReg] = useState(false);
 
   const authCtx = useContext(AuthContext);
   const userId = authCtx.userData.id;
@@ -37,11 +37,13 @@ export default function NewsItemPage({
         event_id: Number(newsId),
         user_id: userId,
       });
-      setEventRegData(data);
+      if (data === '') {
+        setIsEventReg(true);
+      } else {
+        setAlert(true);
+      }
 
       console.log(data);
-
-      setAlert(true);
     } catch (err) {
       console.log('fail to registration on event', err);
     }
@@ -124,7 +126,7 @@ export default function NewsItemPage({
               <a href={tgId}>{tgId}</a>
             </p>
 
-            <Button onClick={closeAlert}>Хорошо</Button>
+            <Button className={styles.alertButton} onClick={closeAlert}>Хорошо</Button>
           </div>
         </div>
       ) : (
