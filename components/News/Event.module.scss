@@ -10,13 +10,14 @@
 .alertBG {
   position: absolute;
   margin: -45px;
-  width: 100%;
+  width: calc(100% - 237px);
   height: 100%;
   background: rgba(182, 182, 182, 0.73);
   backdrop-filter: blur(5px);
 }
 
 .alert {
+  padding: 10px;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -32,6 +33,10 @@
   font-size: 12px;
   line-height: 15px;
   color: #2f384f;
+
+  p {
+    padding: 30px;
+  }
 
   h1 {
     font-family: 'Montserrat';

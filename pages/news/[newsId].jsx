@@ -5,6 +5,7 @@ import VolonteerSVG from '../../public/images/events/volonteer.svg';
 import DateSVG from '../../public/images/events/date.svg';
 import LocationSVG from '../../public/images/events/location.svg';
 import AuthContext from '../../store/auth-context';
+import Button from '../../components/Common/Button/Button';
 
 import styles from '../../components/News/Event.module.scss';
 
@@ -19,16 +20,27 @@ export default function NewsItemPage({
   tgId = '',
 }) {
   const [alert, setAlert] = useState(false);
+  const [eventRegData, setEventRegData] = useState(null);
+
   const authCtx = useContext(AuthContext);
   const userId = authCtx.userData.id;
+
+  const closeAlert = () => {
+    setAlert(false);
+  };
 
   const onRegOnIvent = async () => {
     try {
       console.log('start registration on event');
-      axios.post(`https://${hostName}/api/news/regOnEvent`, {
+
+      const { data } = axios.post(`https://${hostName}/api/news/regOnEvent`, {
         event_id: Number(newsId),
         user_id: userId,
       });
+      setEventRegData(data);
+
+      console.log(data);
+
       setAlert(true);
     } catch (err) {
       console.log('fail to registration on event', err);
@@ -107,11 +119,12 @@ export default function NewsItemPage({
         <div className={styles.alertBG}>
           <div className={styles.alert}>
             <h1>Благодарим!</h1>
-            Вы успешно записались на мероприятие!
             <p>
-              Телеграмм:
+              Вы успешно записались на мероприятие!
               <a href={tgId}>{tgId}</a>
             </p>
+
+            <Button onClick={closeAlert}>Хорошо</Button>
           </div>
         </div>
       ) : (
