@@ -6,10 +6,11 @@ export default function LoginButton({
   children = null,
   onClick = () => {},
   disabled = false,
+  className = ''
 }) {
   return (
     <button
-      className={styles.button}
+      className={`${styles.button} ${className}`}
       onClick={onClick}
       disabled={disabled}
       type="button"
