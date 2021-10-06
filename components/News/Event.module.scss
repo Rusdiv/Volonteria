@@ -7,13 +7,36 @@
   background-color: #e5e5e5;
 }
 
+.alertBG {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: rgba(182, 182, 182, 0.73);
+  backdrop-filter: blur(5px);
+}
+
 .alert {
-  width: 300px;
-  height: 100px;
-  background-color: violet;
-  position: fixed;
-  top: 50px;
-  right: 50px;
+  position: absolute;
+  width: 356px;
+  height: 139px;
+  background: #ffffff;
+  box-shadow: 0px 8px 26px 1px rgba(0, 0, 0, 0.3);
+  border-radius: 4px;
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px; 
+  line-height: 15px;
+  color: #2f384f;
+
+  h1 {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 20px;
+    color: #2f384f;
+  }
 }
 
 .card {

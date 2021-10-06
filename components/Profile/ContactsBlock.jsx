@@ -1,23 +1,25 @@
 import React from 'react';
 
+import styles from './profile.module.scss';
+
 export default function ContactsData({ email = '', phone = '' }) {
   return (
-    <div>
+    <div className={styles.contacts}>
       <h4>Контактные данные</h4>
       <div>
-        E-mail
+        <span>E-mail</span>
         <p>{email}</p>
       </div>
       <div>
-        Телефон
+        <span>Телефон</span>
         <p>{phone}</p>
       </div>
       <div>
-        Адрес
+        <span>Адрес</span>
         <p>{phone}</p>
       </div>
       <div>
-        Telegram
+        <span>Telegram</span>
         <p>{phone}</p>
       </div>
     </div>

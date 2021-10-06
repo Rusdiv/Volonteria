@@ -20,7 +20,7 @@ export default function endOfEvent({ eventId, hostName }) {
 
     fetchData();
   }, []);
-  return <div>{eventId}</div>;
+  return <div>Спасибо за участие!</div>;
 }
 
 export const getServerSideProps = async (context) => {

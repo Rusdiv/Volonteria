@@ -3,6 +3,7 @@ import { UserOutlined } from '@ant-design/icons';
 
 import ContactsBlock from '../../components/Profile/ContactsBlock';
 
+import pointSVG from '../../public/images/profile/points.svg';
 import AuthContext from '../../store/auth-context';
 
 import styles from '../../components/Profile/profile.module.scss';
@@ -20,7 +21,10 @@ export default function ProfilePage() {
           <UserOutlined />
         )}
         <h3>{`${name} ${lastname}`}</h3>
-        <div className={styles.points}>152</div>
+        <div className={styles.points}>
+          <pointSVG />
+          152
+        </div>
         <ContactsBlock email={email} phone={phone} />
       </div>
       {/* <div>

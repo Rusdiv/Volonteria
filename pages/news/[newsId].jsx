@@ -104,12 +104,15 @@ export default function NewsItemPage({
         </button>
       </div>
       {alert ? (
-        <div className={styles.alert}>
-          Вы успешно записались
-          <p>
-            Телеграмм:
-            <a href={tgId}>{tgId}</a>
-          </p>
+        <div className={styles.alertBG}>
+          <div className={styles.alert}>
+            <h1>Благодарим!</h1>
+            Вы успешно записались на мероприятие!
+            <p>
+              Телеграмм:
+              <a href={tgId}>{tgId}</a>
+            </p>
+          </div>
         </div>
       ) : (
         <></>
