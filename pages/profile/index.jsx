@@ -3,14 +3,14 @@ import { UserOutlined } from '@ant-design/icons';
 
 import ContactsBlock from '../../components/Profile/ContactsBlock';
 
-import pointSVG from '../../public/images/profile/points.svg';
+import pointsSVG from '../../public/images/profile/points.svg';
 import AuthContext from '../../store/auth-context';
 
 import styles from '../../components/Profile/profile.module.scss';
 
 export default function ProfilePage() {
   const authCtx = useContext(AuthContext);
-  const { name, avatar, lastname, email, phone } = authCtx.userData;
+  const { name, avatar, lastname, email, phone, points } = authCtx.userData;
 
   return (
     <div className={styles.profile}>
@@ -22,8 +22,8 @@ export default function ProfilePage() {
         )}
         <h3>{`${name} ${lastname}`}</h3>
         <div className={styles.points}>
-          <pointSVG />
-          152
+          <pointsSVG />
+          points
         </div>
         <ContactsBlock email={email} phone={phone} />
       </div>
