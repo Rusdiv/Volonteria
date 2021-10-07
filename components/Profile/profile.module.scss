@@ -3,6 +3,11 @@
   width: 100%;
   background: #e5e5e5;
   height: calc(100vh - 120px);
+  display: flex;
+  flex-wrap: wrap;
+  padding: 40px;
+  padding-right: 0;
+  margin-right: 20px;
 
   h3 {
     display: block;
@@ -18,12 +23,73 @@
     text-align: center;
   }
 
+  .rightBlock {
+    margin-left: 20px;
+    max-width: 600px;
+    width: 100%;
+
+    p {
+      font-family: 'Roboto';
+      font-style: normal;
+      font-weight: 500;
+      font-size: 30px;
+      line-height: 35px;
+      margin-left: 10px;
+      color: #1e1e1f;
+    }
+
+    .item {
+      font-family: 'Roboto';
+      font-style: normal;
+      font-weight: bold;
+      font-size: 16px;
+      line-height: 19px;
+      display: flex;
+      align-items: center;
+      padding: 20px;
+      height: 90px;
+      background: #fff;
+      border-radius: 8px;
+      margin-bottom: 15px;
+      max-width: 625px;
+      color: #000000;
+      justify-content: space-between;
+
+      img {
+        width: 70px;
+        height: 45px;
+        border-radius: 2px;
+        margin-right: 20px;
+      }
+
+      .location {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        p {
+          font-family: 'Roboto';
+          font-style: normal;
+          font-weight: normal;
+          font-size: 12px;
+          line-height: 14px;
+          display: flex;
+          align-items: center;
+          color: #000000;
+          margin: 0;
+        }
+
+        p:last-child {
+          margin-top: 10px;
+        }
+      }
+    }
+  }
+
   .leftBlock {
     padding: 40px;
     width: 420px;
     height: 856px;
-    margin-left: 40px;
-    margin-top: 28px;
     background: #ffffff;
     border-radius: 8px;
 
@@ -63,6 +129,41 @@
       color: #000000;
     }
   }
+
+  &::-webkit-scrollbar {
+    width: 3px;
+  }
+
+  &::-webkit-scrollbar-track {
+    width: 1px;
+    border: 1px solid #d9d9d9;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    border: 3px solid #c4c4c4;
+    border-radius: 20px;
+  }
+}
+.contact {
+  display: flex;
+  align-items: center;
+  .infomation {
+    margin-left: 15px;
+    span {
+      margin-bottom: 5px;
+    }
+
+    p {
+      margin: 0;
+    }
+  }
+  height: 47px;
+  margin-top: 20px;
+}
+
+.mainUserData {
+  display: flex;
+  justify-content: space-between;
 }
 
 .contacts {

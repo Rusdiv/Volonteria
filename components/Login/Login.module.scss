@@ -1,7 +1,12 @@
+.background {
+  width: 100vw;
+  height: 100vh;
+  background: #fff;
+  padding-top: 75px;
+}
 .login {
   width: 425px;
   margin: 0 auto;
-  margin-top: 75px;
   .header {
     margin-bottom: 10px;
     h1 {
