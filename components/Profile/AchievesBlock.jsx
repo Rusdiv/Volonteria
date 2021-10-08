@@ -1,13 +1,16 @@
 import React from 'react';
 import Achieve from './Achieve';
 
+import styles from './profile.module.scss';
+
 export default function AchievesBlock() {
   return (
     <div>
-      <p className="site-description-item-profile-p">Достижения</p>
-      <div style={{ display: 'flex' }}>
-        <Achieve name="Программист" progress={1} />
-        <Achieve name="Тупить" progress={100} />
+      <div className={styles.achieves}>
+        <Achieve name="5 посещенных мероприятий" />
+        <Achieve name="10 посещенных мероприятий" />
+        <Achieve name="1 год в организации" />
+        <Achieve name="5 хороших отзывов" />
       </div>
     </div>
   );

@@ -3,6 +3,7 @@ import { UserOutlined } from '@ant-design/icons';
 
 import ContactsBlock from '../../components/Profile/ContactsBlock';
 import HistoryBlock from '../../components/Profile/HistoryBlock';
+import AchievesBlock from '../../components/Profile/AchievesBlock';
 import AuthContext from '../../store/auth-context';
 
 import styles from '../../components/Profile/profile.module.scss';
@@ -71,6 +72,7 @@ export default function ProfilePage() {
         <ContactsBlock email={email} phone={phone} />
       </div>
       <div className={styles.rightBlock}>
+        <AchievesBlock />
         <HistoryBlock />
       </div>
     </div>

@@ -9,7 +9,7 @@ export default function HistoryBlock() {
   const { history } = authCtx.userData;
   return (
     <div>
-      <p className={styles.history}>Посещенные мероприятия</p>
+      <p className={styles.title}>Посещенные мероприятия</p>
       {history.map((item) => (
         <div className={styles.item}>
           <div className={styles.content}>
