@@ -15,9 +15,9 @@ export default async (req, res) => {
 
   const pointData = await axios.post(
     `${process.env.CUSTOM_WP_API_URL}/add/points`,
-    {
+    querystring.stringify({
       user_id: req.body.user_id,
-    },
+    }),
   );
 
   console.log(pointData.data);
