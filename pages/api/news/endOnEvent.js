@@ -19,5 +19,5 @@ export default async (req, res) => {
     },
   );
 
-  res.json({ end: data, points: pointData });
+  res.json({ data });
 };
