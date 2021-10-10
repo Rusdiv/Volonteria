@@ -24,5 +24,5 @@ export default async (req, res) => {
   console.log('END_EVENT', data);
   console.log('POINTS', pointData);
 
-  res.json(data, pointData);
+  res.json('POINTS:', data, 'END_EVENT:', pointData);
 };
