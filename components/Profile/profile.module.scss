@@ -188,3 +188,61 @@
   padding: 40px;
   margin-bottom: 30px;
 }
+
+.inputBlock {
+  width: 600px;
+  height: 470px;
+  background: #fff;
+  margin-bottom: 30px;
+  padding: 50px;
+  label {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 21px;
+    color: #c4c4c4;
+
+    div {
+      display: flex;
+      width: 352px;
+      justify-content: space-between;
+
+      .day {
+        width: 51px;
+        position: relative;
+        svg {
+          position: absolute;
+          left: 0;
+          top: 0;
+        }
+      }
+
+      .birth {
+        width: 100px;
+
+        &:last-child {
+          width: 72px;
+        }
+      }
+    }
+
+    input {
+      outline: none;
+      width: 352px;
+      border: 0;
+      border-bottom: 1px solid #c4c4c4;
+      font-family: 'Roboto';
+      font-style: normal;
+      font-weight: normal;
+      font-size: 18px;
+      line-height: 21px;
+      padding-bottom: 10px;
+      color: #000000;
+      margin-bottom: 20px;
+    }
+  }
+}

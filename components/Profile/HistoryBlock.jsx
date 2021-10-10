@@ -17,7 +17,7 @@ export default function HistoryBlock() {
               src="https://www.zastavki.com/pictures/640x480/2013Sport__037747_29.jpg"
               alt="ball"
             />
-            {item}
+            {item[1]}
           </div>
           <div className={styles.location}>
             <p>
