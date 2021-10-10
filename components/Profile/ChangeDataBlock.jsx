@@ -23,7 +23,7 @@ export default function ChangeDataBlock() {
         <input value={email} />
       </label>
       <label>
-        <span>E-mail</span>
+        <span>Дата рождения</span>
         <div>
           <input className={styles.day} value="12" />
           <input className={styles.birth} value="октября" />

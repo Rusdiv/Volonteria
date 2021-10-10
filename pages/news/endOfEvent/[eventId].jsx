@@ -9,10 +9,11 @@ export default function endOfEvent({ eventId, hostName }) {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        axios.post(`https://${hostName}/api/news/endOnEvent`, {
+        const { data } = axios.post(`https://${hostName}/api/news/endOnEvent`, {
           newsId: Number(eventId),
           user_id: userData.id,
         });
+        console.log(data);
       } catch (err) {
         console.log(err);
       }

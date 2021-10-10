@@ -19,6 +19,9 @@ export default async (req, res) => {
     },
   );
 
+  console.log(data);
+  console.log(pointData);
+
   res.json({
     data,
     user_id: req.body.user_id,
