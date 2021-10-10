@@ -19,13 +19,8 @@ export default async (req, res) => {
     },
   );
 
-  console.log(data);
-  console.log(pointData);
+  console.log('END_EVENT', data);
+  console.log('POINTS', pointData);
 
-  res.json({
-    data,
-    user_id: req.body.user_id,
-    event_id: req.body.newsId,
-    pointData,
-  });
+  res.json(data, pointData);
 };
