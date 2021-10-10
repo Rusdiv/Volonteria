@@ -22,6 +22,7 @@
     "pino": "^6.13.0",
     "pino-pretty": "^7.0.0",
     "prop-types": "^15.7.2",
+    "querystring": "^0.2.1",
     "react": "17.x",
     "react-dom": "17.x"
   },
