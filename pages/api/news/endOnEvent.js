@@ -1,22 +1,24 @@
 import axios from 'axios';
+import FormData from 'form-data';
 import dotenv from 'dotenv';
 
 dotenv.config();
 
 export default async (req, res) => {
+  const formData = new FormData();
+  formData.append('user_id', req.body.user_id);
+  formData.append('event_id', req.body.event_id);
+
   const { data } = await axios.post(
     `${process.env.CUSTOM_WP_API_URL}/end/event/${req.body.newsId}`,
-    {
-      user_id: req.body.user_id,
-      event_id: req.body.newsId,
-    },
+    formData,
+    { headers: formData.getHeaders() },
   );
 
   const pointData = await axios.post(
     `${process.env.CUSTOM_WP_API_URL}/add/points`,
-    {
-      user_id: req.body.user_id,
-    },
+    formData,
+    { headers: formData.getHeaders() },
   );
 
   console.log('END_EVENT', data);
