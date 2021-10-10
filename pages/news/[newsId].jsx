@@ -123,10 +123,13 @@ export default function NewsItemPage({
             <h1>Благодарим!</h1>
             <p>
               Вы успешно записались на мероприятие!
+              <br />
               <a href={tgId}>{tgId}</a>
             </p>
 
-            <Button className={styles.alertButton} onClick={closeAlert}>Хорошо</Button>
+            <Button className={styles.alertButton} onClick={closeAlert}>
+              Хорошо
+            </Button>
           </div>
         </div>
       ) : (

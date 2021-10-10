@@ -7,6 +7,22 @@ import styles from './profile.module.scss';
 export default function HistoryBlock() {
   const authCtx = useContext(AuthContext);
   const { history } = authCtx.userData;
+
+  const mounths = [
+    'января',
+    'февраля',
+    'марта',
+    'апреля',
+    'мая',
+    'июня',
+    'июля',
+    'августа',
+    'сентября',
+    'октября',
+    'ноября',
+    'декабря',
+  ];
+
   return (
     <div>
       <p className={styles.title}>Посещенные мероприятия</p>
@@ -37,7 +53,13 @@ export default function HistoryBlock() {
                   fill="#AA139B"
                 />
               </svg>
-              <span>18 сентября 2021</span>
+              <span>
+                {`
+                ${item[2][6] + item[2][7]}
+                ${mounths[Number(item[2][4] + item[2][5])]}
+                ${item[2][0] + item[2][1] + item[2][2] + item[2][3]}
+              `}
+              </span>
             </p>
             <p>
               <svg
@@ -53,7 +75,7 @@ export default function HistoryBlock() {
                 />
               </svg>
 
-              <span>ул. Юности, 14-б</span>
+              <span>{item[3]}</span>
             </p>
           </div>
         </div>
