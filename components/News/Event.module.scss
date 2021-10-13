@@ -71,14 +71,15 @@
   li {
     position: relative;
     padding-left: 20px;
+    margin-bottom: 5px;
   }
 
   li::before {
     position: absolute;
     left: 0;
     top: 0;
-    width: 20px;
-    height: 20px;
+    width: 10px;
+    height: 10px;
     content: '';
     background-image: url('../../public/images/events/ok.svg');
     background-repeat: no-repeat;

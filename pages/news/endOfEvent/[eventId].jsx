@@ -3,6 +3,8 @@ import axios from 'axios';
 
 import AuthContext from '../../../store/auth-context';
 
+import styles from '../../../components/News/endOfevent.module.scss';
+
 export default function endOfEvent({ eventId, hostName }) {
   const { userData } = useContext(AuthContext);
 
@@ -21,7 +23,11 @@ export default function endOfEvent({ eventId, hostName }) {
 
     fetchData();
   }, []);
-  return <div>Спасибо за участие!</div>;
+  return (
+    <div className={styles.thanks}>
+      <span>Спасибо за участие!</span>
+    </div>
+  );
 }
 
 export const getServerSideProps = async (context) => {

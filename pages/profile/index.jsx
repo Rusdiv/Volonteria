@@ -66,7 +66,7 @@ export default function ProfilePage() {
                 fill="white"
               />
             </svg>
-            25
+            0
           </div>
         </div>
 
