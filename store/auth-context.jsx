@@ -34,7 +34,7 @@ export const AuthContextProvider = ({ children }) => {
       id: data.data.id,
       nick: data.data.nickname,
       avatar: data.data.avatar_urls[96],
-      points: data.data.mycred_default,
+      points: data.userData.mycred_default,
       lastname: data.userData.lastname,
       date: data.userData.Dateof_birth,
       surname: data.userData.surname,
