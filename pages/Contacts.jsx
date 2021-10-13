@@ -14,9 +14,9 @@ export default function Contacts() {
       template_id: 'volonteria',
       user_id: 'user_tEiVSWn2tmbfhXnLFHj0G',
       template_params: {
-        name: { enteredName },
-        email: { enteredEmail },
-        message: { enteredMessage },
+        name: enteredName,
+        email: enteredEmail,
+        message: enteredMessage,
       },
     });
   };
