@@ -12,31 +12,31 @@ export default function ChangeDataBlock() {
     <div className={styles.inputBlock}>
       <label>
         <span>Имя</span>
-        <input value={name} />
+        <input disabled value={name} />
       </label>
       <label>
         <span>Фамилия</span>
-        <input value={lastname} />
+        <input disabled value={lastname} />
       </label>
       <label>
         <span>E-mail</span>
-        <input value={email} />
+        <input disabled value={email} />
       </label>
       <label>
         <span>Дата рождения</span>
         <div>
-          <input className={styles.day} value="12" />
-          <input className={styles.birth} value="октября" />
-          <input className={styles.birth} value="2005" />
+          <input disabled className={styles.day} value="12" />
+          <input disabled className={styles.birth} value="октября" />
+          <input disabled className={styles.birth} value="2005" />
         </div>
       </label>
       <label>
         <span>Пол</span>
-        <input value="Мужской" />
+        <input disabled value="Мужской" />
       </label>
       <label>
         <span>Университет</span>
-        <input />
+        <input disabled />
       </label>
     </div>
   );
