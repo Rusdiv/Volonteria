@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Input from '../components/Common/Input/Input';
 import Button from '../components/Common/Button/Button';
@@ -8,20 +8,29 @@ export default function Contacts() {
   const [enteredName, setEnteredName] = useState('');
   const [enteredMessage, setEnteredMessage] = useState('');
   const [loading, setLoading] = useState('');
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    setLoading(false);
+  }, [enteredName, enteredEmail, enteredMessage]);
 
   const handleSubmit = (e) => {
+    if (enteredName && enteredEmail && enteredMessage) {
+      setLoading(true);
+      axios.post('https://api.emailjs.com/api/v1.0/email/send', {
+        service_id: 'service_c0h57cc',
+        template_id: 'volonteria',
+        user_id: 'user_tEiVSWn2tmbfhXnLFHj0G',
+        template_params: {
+          name: enteredName,
+          email: enteredEmail,
+          message: enteredMessage,
+        },
+      });
+    } else {
+      setError('Заполните поля');
+    }
     e.preventDefault();
-    setLoading(true);
-    axios.post('https://api.emailjs.com/api/v1.0/email/send', {
-      service_id: 'service_c0h57cc',
-      template_id: 'volonteria',
-      user_id: 'user_tEiVSWn2tmbfhXnLFHj0G',
-      template_params: {
-        name: enteredName,
-        email: enteredEmail,
-        message: enteredMessage,
-      },
-    });
   };
 
   return (
@@ -50,6 +59,8 @@ export default function Contacts() {
         placeholder="Сообщение"
         required
       />
+      <p style={{ color: 'red' }}>{error}</p>
+      <br />
       <Button disabled={loading} type="submit" onClick={handleSubmit}>
         Отправить
       </Button>
