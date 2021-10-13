@@ -44,7 +44,7 @@ export default function Navigation() {
       onСlick: onLogout,
     },
     {
-      img: contactSVG,
+      img: null,
       name: 'Связь',
       url: '/Contacts',
       onСlick: redirect,
