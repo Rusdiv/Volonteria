@@ -44,7 +44,7 @@ export default function NewsItemPage({
         setAlert(true);
       }
 
-      console.log(data);
+      console.log(await data);
     } catch (err) {
       console.log('fail to registration on event', err);
     }
