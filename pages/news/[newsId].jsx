@@ -38,7 +38,7 @@ export default function NewsItemPage({
         event_id: Number(newsId),
         user_id: userId,
       });
-      if (data === '') {
+      if (data === 'U were registrated on this event') {
         setIsEventReg(true);
       } else {
         setAlert(true);
@@ -123,12 +123,19 @@ export default function NewsItemPage({
         <div className={styles.alertBG}>
           <div className={styles.alert}>
             <h1>Благодарим!</h1>
-            <p>
-              Вы успешно записались на мероприятие!
-              <br />
-              <a href={tgId}>{tgId}</a>
-            </p>
-
+            {isEventReg ? (
+              <p>
+                Вы уже записаны на данное мероприятие!
+                <br />
+                <a href={tgId}>{tgId}</a>
+              </p>
+            ) : (
+              <p>
+                Вы успешно записались на мероприятие!
+                <br />
+                <a href={tgId}>{tgId}</a>
+              </p>
+            )}
             <Button className={styles.alertButton} onClick={closeAlert}>
               Хорошо
             </Button>
