@@ -18,6 +18,7 @@ export default function NewsItemPage({
   hostName = '',
   place = ' ',
   tgId = '',
+  target = '',
 }) {
   const [alert, setAlert] = useState(false);
   const [isEventReg, setIsEventReg] = useState(false);
@@ -73,6 +74,7 @@ export default function NewsItemPage({
         <h2>О чем это мероприятие?</h2>
         <p>{description}</p>
         <h2>Какая цель у мероприятия?</h2>
+        <p>{target}</p>
         <h2>Требования к волонтерам</h2>
         <ul>
           <li>Возраст от 16 лет;</li>
@@ -158,6 +160,7 @@ export const getServerSideProps = async (context) => {
       newsId,
       hostName: req.headers.host,
       place: data.place_value,
+      target: data.event_target,
     },
   };
 };
