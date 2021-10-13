@@ -34,7 +34,7 @@ export default function NewsItemPage({
     try {
       console.log('start registration on event');
 
-      const { data } = axios.post(`https://${hostName}/api/news/regOnEvent`, {
+      const data = axios.post(`https://${hostName}/api/news/regOnEvent`, {
         event_id: Number(newsId),
         user_id: userId,
       });
