@@ -43,7 +43,7 @@ export default function ProfilePage() {
                 </clipPath>
               </defs>
             </svg>
-            {points}
+            {points ? <span>{points}</span> : 0}
           </div>
           <div className={styles.points}>
             <svg
