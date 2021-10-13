@@ -16,13 +16,14 @@ export default function Navigation() {
   const redirect = (url) => {
     router.push(url);
   };
+
+  // {
+  //   img: HomeSVG,
+  //   name: 'Главная',
+  //   url: '/',
+  //   onСlick: redirect,
+  // },
   const PAGES = [
-    {
-      img: HomeSVG,
-      name: 'Главная',
-      url: '/',
-      onСlick: redirect,
-    },
     {
       img: eventsSVG,
       name: 'События',
