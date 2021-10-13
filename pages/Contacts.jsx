@@ -7,8 +7,11 @@ export default function Contacts() {
   const [enteredEmail, setEnteredEmail] = useState('');
   const [enteredName, setEnteredName] = useState('');
   const [enteredMessage, setEnteredMessage] = useState('');
+  const [loading, setLoading] = useState('');
+
   const handleSubmit = (e) => {
     e.preventDefault();
+    setLoading(true);
     axios.post('https://api.emailjs.com/api/v1.0/email/send', {
       service_id: 'service_c0h57cc',
       template_id: 'volonteria',
@@ -47,7 +50,7 @@ export default function Contacts() {
         placeholder="Сообщение"
         required
       />
-      <Button type="submit" onClick={handleSubmit}>
+      <Button disabled={loading} type="submit" onClick={handleSubmit}>
         Отправить
       </Button>
     </form>
