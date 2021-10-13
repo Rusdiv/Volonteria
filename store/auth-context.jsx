@@ -25,7 +25,7 @@ export const AuthContextProvider = ({ children }) => {
     });
 
     const history = await axios.post('/api/user/getHistory', {
-      id: data.id,
+      id: data.data.id,
     });
 
     const filteredUserData = {
