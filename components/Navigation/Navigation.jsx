@@ -44,10 +44,10 @@ export default function Navigation() {
       onСlick: onLogout,
     },
     {
-      img: HomeSVG,
+      img: contactSVG,
       name: 'Связь',
       url: '/Contacts',
-      onСlick: contactSVG,
+      onСlick: redirect,
     },
   ];
 

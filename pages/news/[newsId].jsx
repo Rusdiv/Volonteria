@@ -102,7 +102,7 @@ export default function NewsItemPage({
         <ul>
           <p>
             <DateSVG />
-            {`${day} ${mounths[Number(time[4] + time[5])]} ${year}`}
+            {`${day} ${mounths[Number(time[4] + time[5] - 1)]} ${year}`}
           </p>
           <p>
             <LocationSVG />
