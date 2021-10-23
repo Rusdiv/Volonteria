@@ -12,7 +12,7 @@ import styles from '../../components/Profile/profile.module.scss';
 export default function ProfilePage({ host = '' }) {
   const authCtx = useContext(AuthContext);
   const [userData, setUserData] = useState({});
-  const { id } = authCtx.userData;
+  const { id, email } = authCtx.userData;
 
   useEffect(() => {
     const fetchUserData = async () => {
@@ -112,8 +112,8 @@ export default function ProfilePage({ host = '' }) {
       <div className={styles.rightBlock}>
         <ChangeDataBlock
           name={userData.name}
-          lastname={userData.astname}
-          email={userData.email}
+          lastname={userData.lastname}
+          email={email}
           date={userData.date}
         />
         <AchievesBlock />
