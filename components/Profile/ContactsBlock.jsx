@@ -2,7 +2,11 @@ import React from 'react';
 
 import styles from './profile.module.scss';
 
-export default function ContactsData({ email = '' }) {
+export default function ContactsData({
+  email = '',
+  telegram = '',
+  phone = '',
+}) {
   return (
     <div className={styles.contacts}>
       <h4>Контактные данные</h4>
@@ -40,7 +44,7 @@ export default function ContactsData({ email = '' }) {
 
         <div className={styles.infomation}>
           <span>Телефон</span>
-          <p>+79123457890</p>
+          <p>{phone}</p>
         </div>
       </div>
       <div className={styles.contact}>
@@ -77,7 +81,7 @@ export default function ContactsData({ email = '' }) {
 
         <div className={styles.infomation}>
           <span>Telegram</span>
-          <p>@example</p>
+          <p>{telegram}</p>
         </div>
       </div>
     </div>

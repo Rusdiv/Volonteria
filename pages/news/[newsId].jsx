@@ -38,7 +38,7 @@ export default function NewsItemPage({
         event_id: Number(newsId),
         user_id: userId,
       });
-      if (await data === 'U were registrated on this event') {
+      if ((await data) === 'U were registrated on this event') {
         setIsEventReg(true);
       } else {
         setAlert(true);

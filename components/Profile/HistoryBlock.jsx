@@ -1,13 +1,8 @@
-import React, { useContext } from 'react';
-
-import AuthContext from '../../store/auth-context';
+import React from 'react';
 
 import styles from './profile.module.scss';
 
-export default function HistoryBlock() {
-  const authCtx = useContext(AuthContext);
-  const { history } = authCtx.userData;
-
+export default function HistoryBlock({ history = [] }) {
   const mounths = [
     'января',
     'февраля',
@@ -56,7 +51,7 @@ export default function HistoryBlock() {
               <span>
                 {`
                 ${item[2][6] + item[2][7]}
-                ${mounths[Number(item[2][4] + item[2][5])]}
+                ${mounths[Number(item[2][4] + item[2][5] - 1)]}
                 ${item[2][0] + item[2][1] + item[2][2] + item[2][3]}
               `}
               </span>

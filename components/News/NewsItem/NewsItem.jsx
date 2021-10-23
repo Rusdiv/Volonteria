@@ -45,7 +45,7 @@ export default function NewsItem({
       <h2>{title}</h2>
       <p>
         <DateSVG />
-        <span>{`${day} ${mounths[Number(date[4] + date[5])]} ${year}`}</span>
+        <span>{`${day} ${mounths[Number(date[4] + date[5] - 1)]} ${year}`}</span>
       </p>
       <p>
         <LocationSVG />

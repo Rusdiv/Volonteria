@@ -1,5 +1,5 @@
-import React, { useContext } from 'react';
-import { UserOutlined } from '@ant-design/icons';
+import React, { useContext, useEffect, useState } from 'react';
+import axios from 'axios';
 
 import ContactsBlock from '../../components/Profile/ContactsBlock';
 import HistoryBlock from '../../components/Profile/HistoryBlock';
@@ -9,19 +9,52 @@ import AuthContext from '../../store/auth-context';
 
 import styles from '../../components/Profile/profile.module.scss';
 
-export default function ProfilePage() {
+export default function ProfilePage({ host = '' }) {
   const authCtx = useContext(AuthContext);
-  const { name, avatar, lastname, email, phone, points } = authCtx.userData;
+  const [userData, setUserData] = useState({});
+  const { id } = authCtx.userData;
+
+  useEffect(() => {
+    const fetchUserData = async () => {
+      const { data } = await axios.post(`https://${host}/api/user/login`, {
+        id,
+      });
+
+      const filteredUserData = {
+        name: data.userInfo.name,
+        lastname: data.userInfo.lastname,
+        surname: data.userInfo.surname,
+
+        avatar: data.userInfo.avatar,
+        date: data.userInfo.Dateof_birth,
+        phone: data.userInfo.Phone_number,
+        telegram: data.userInfo.telegram_id,
+        workPlace: data.userInfo.ed_organization,
+
+        points: data.userPoints.mycred_default,
+        history: data.history,
+        hours: data.hours.mycred_hours,
+      };
+      setUserData(filteredUserData);
+    };
+    fetchUserData();
+  }, []);
 
   return (
     <div className={styles.profile}>
       <div className={styles.leftBlock}>
-        {avatar ? (
-          <img className={styles.avatar} src={avatar} alt="avatar" />
+        {userData.avatar ? (
+          <img className={styles.avatar} src={userData.avatar} alt="avatar" />
         ) : (
-          <UserOutlined />
+          <img
+            className={styles.avatar}
+            src={
+              'https://cdn-icons.flaticon.com/png/512/1144/premium/1144760.png?token=exp=1635018513~hmac=56392d7e4d5900a0cadd2e278f4748bd'
+            }
+            alt="avatar"
+          />
         )}
-        <h3>{`${name} ${lastname}`}</h3>
+        <h3>{`${userData.name} ${userData.lastname}`}</h3>
         <div className={styles.mainUserData}>
           <div className={styles.points}>
             <svg
@@ -43,7 +76,7 @@ export default function ProfilePage() {
                 </clipPath>
               </defs>
             </svg>
-            {points ? <span>{points}</span> : 0}
+            {userData.points ? <span>{userData.points}</span> : 0}
           </div>
           <div className={styles.points}>
             <svg
@@ -66,17 +99,34 @@ export default function ProfilePage() {
                 fill="white"
               />
             </svg>
-            0
+            {userData.hours}
           </div>
         </div>
 
-        <ContactsBlock email={email} phone={phone} />
+        <ContactsBlock
+          email={userData.email}
+          phone={userData.phone}
+          telegram={userData.telegram}
+        />
       </div>
       <div className={styles.rightBlock}>
-        <ChangeDataBlock />
+        <ChangeDataBlock
+          name={userData.name}
+          lastname={userData.astname}
+          email={userData.email}
+          date={userData.date}
+        />
         <AchievesBlock />
-        <HistoryBlock />
+        <HistoryBlock history={userData.history} />
       </div>
     </div>
   );
 }
+
+export const getServerSideProps = async (context) => {
+  const { req } = context;
+
+  return {
+    props: { host: req.headers.host },
+  };
+};

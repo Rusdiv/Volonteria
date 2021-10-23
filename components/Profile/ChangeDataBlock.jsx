@@ -1,12 +1,28 @@
-import React, { useContext } from 'react';
-
-import AuthContext from '../../store/auth-context';
+import React from 'react';
 
 import styles from './profile.module.scss';
 
-export default function ChangeDataBlock() {
-  const authCtx = useContext(AuthContext);
-  const { name, lastname, email } = authCtx.userData;
+export default function ChangeDataBlock({
+  name = '',
+  lastname = '',
+  email = '',
+  date = '',
+}) {
+  const year = date[0] + date[1] + date[2] + date[3];
+  const mounths = [
+    'января',
+    'февраля',
+    'марта',
+    'апреля',
+    'мая',
+    'июня',
+    'июля',
+    'августа',
+    'сентября',
+    'октября',
+    'ноября',
+    'декабря',
+  ];
 
   return (
     <div className={styles.inputBlock}>
@@ -25,9 +41,13 @@ export default function ChangeDataBlock() {
       <label>
         <span>Дата рождения</span>
         <div>
-          <input disabled className={styles.day} value="12" />
-          <input disabled className={styles.birth} value="октября" />
-          <input disabled className={styles.birth} value="2005" />
+          <input disabled className={styles.day} value={date[6] + date[7]} />
+          <input
+            disabled
+            className={styles.birth}
+            value={mounths[Number(date[4] + date[5] - 1)]}
+          />
+          <input disabled className={styles.birth} value={year} />
         </div>
       </label>
       <label>
