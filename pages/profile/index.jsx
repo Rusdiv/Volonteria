@@ -104,7 +104,7 @@ export default function ProfilePage({ host = '' }) {
         </div>
 
         <ContactsBlock
-          email={userData.email}
+          email={email}
           phone={userData.phone}
           telegram={userData.telegram}
         />
