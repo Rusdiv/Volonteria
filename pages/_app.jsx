@@ -1,4 +1,5 @@
 import React from 'react';
+import { YMInitializer } from 'react-yandex-metrika';
 
 import MyApp from './MyApp';
 import { AuthContextProvider } from '../store/auth-context';
@@ -29,6 +30,7 @@ function Volonteria(props) {
           rel="stylesheet"
         />
       </head>
+      <YMInitializer accounts={[86077955]} />
       <MyApp {...props} />
     </AuthContextProvider>
   );
