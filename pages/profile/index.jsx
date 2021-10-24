@@ -46,7 +46,7 @@ export default function ProfilePage({ host = '' }) {
   return (
     <div className={styles.profile}>
       {!isLoading ? (
-        <div>
+        <>
           <div className={styles.leftBlock}>
             {userData.avatar ? (
               <img
@@ -128,7 +128,7 @@ export default function ProfilePage({ host = '' }) {
             <AchievesBlock />
             <HistoryBlock history={userData.history} />
           </div>
-        </div>
+        </>
       ) : (
         <Spin />
       )}
