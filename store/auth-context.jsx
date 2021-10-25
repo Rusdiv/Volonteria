@@ -24,9 +24,9 @@ export const AuthContextProvider = ({ children }) => {
     });
 
     const filteredUserData = {
-      id: importantData.data.id,
-      email: importantData.data.email,
-      avatar: importantData.avatar,
+      id: importantData.data.data.id,
+      email: importantData.data.data.email,
+      avatar: importantData.data.avatar,
     };
     setUserData({ ...filteredUserData });
     setIsLoggedIn(true);

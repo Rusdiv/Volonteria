@@ -30,16 +30,7 @@ export default function Header() {
           </li> */}
           <li>
             <Link href="/profile">
-              {avatar ? (
-                <img src={avatar} alt="avatar" />
-              ) : (
-                <img
-                  src={
-                    'https://cdn-icons.flaticon.com/png/512/1144/premium/1144760.png?token=exp=1635018513~hmac=56392d7e4d5900a0cadd2e278f4748bd'
-                  }
-                  alt="avatar"
-                />
-              )}
+              <img src={avatar} alt="avatar" />
             </Link>
           </li>
         </ul>

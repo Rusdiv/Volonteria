@@ -14,7 +14,7 @@ export default function ProfilePage({ host = '' }) {
   const authCtx = useContext(AuthContext);
   const [userData, setUserData] = useState({});
   const [isLoading, setIsLoading] = useState(true);
-  const { id, email } = authCtx.userData;
+  const { id, email, avatar } = authCtx.userData;
 
   useEffect(() => {
     const fetchUserData = async () => {
@@ -27,7 +27,6 @@ export default function ProfilePage({ host = '' }) {
         lastname: data.userInfo.lastname,
         surname: data.userInfo.surname,
 
-        avatar: data.userInfo.avatar,
         date: data.userInfo.Dateof_birth,
         phone: data.userInfo.Phone_number,
         telegram: data.userInfo.telegram_id,
@@ -48,21 +47,7 @@ export default function ProfilePage({ host = '' }) {
       {!isLoading ? (
         <>
           <div className={styles.leftBlock}>
-            {userData.avatar ? (
-              <img
-                className={styles.avatar}
-                src={userData.avatar}
-                alt="avatar"
-              />
-            ) : (
-              <img
-                className={styles.avatar}
-                src={
-                  'https://cdn-icons.flaticon.com/png/512/1144/premium/1144760.png?token=exp=1635018513~hmac=56392d7e4d5900a0cadd2e278f4748bd'
-                }
-                alt="avatar"
-              />
-            )}
+            <img className={styles.avatar} src={avatar} alt="avatar" />
             <h3>{`${userData.name} ${userData.lastname}`}</h3>
             <div className={styles.mainUserData}>
               <div className={styles.points}>
