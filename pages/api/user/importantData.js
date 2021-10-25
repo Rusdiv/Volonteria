@@ -1,5 +1,5 @@
 import axios from 'axios';
-
+import querystring from 'querystring';
 import dotenv from 'dotenv';
 
 dotenv.config();
@@ -15,6 +15,12 @@ export default async (req, res) => {
       },
     },
   );
+  const imageData = await axios.post(
+    `${process.env.CUSTOM_WP_API_URL}/get/photo`,
+    querystring.stringify({
+      user_id: data.id,
+    }),
+  );
 
-  res.json(data);
+  res.json({ data, avatar: imageData.data });
 };

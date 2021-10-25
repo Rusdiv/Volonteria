@@ -26,6 +26,7 @@ export const AuthContextProvider = ({ children }) => {
     const filteredUserData = {
       id: importantData.data.id,
       email: importantData.data.email,
+      avatar: importantData.avatar,
     };
     setUserData({ ...filteredUserData });
     setIsLoggedIn(true);
