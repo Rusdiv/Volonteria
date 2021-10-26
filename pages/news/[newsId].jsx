@@ -9,7 +9,7 @@ import Button from '../../components/Common/Button/Button';
 
 import styles from '../../components/News/Event.module.scss';
 
-import protocol from '../../protocol.js'
+import protocol from '../../protocol';
 
 export default function NewsItemPage({
   time = '',
@@ -117,9 +117,9 @@ export default function NewsItemPage({
             волонтеров
           </p>
         </ul>
-        <button type="button" onClick={onRegOnIvent}>
+        <Button type="button" onClick={onRegOnIvent}>
           Записаться
-        </button>
+        </Button>
       </div>
       {alert ? (
         <div className={styles.alertBG}>
@@ -146,7 +146,6 @@ export default function NewsItemPage({
                 Хорошо
               </Button>
             </div>
-            
           </div>
         </div>
       ) : (
