@@ -22,7 +22,7 @@ export default function HistoryBlock({ history = [] }) {
     <div>
       <p className={styles.title}>Посещенные мероприятия</p>
       {history.map((item) => (
-        <div className={styles.item}>
+        <div className={styles.item} key={item.id}>
           <div className={styles.content}>
             <img
               src="https://www.zastavki.com/pictures/640x480/2013Sport__037747_29.jpg"

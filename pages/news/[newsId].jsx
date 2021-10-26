@@ -23,8 +23,10 @@ export default function NewsItemPage({
   target = '',
 }) {
   const [alert, setAlert] = useState(false);
-  const [isEventReg, setIsEventReg] = useState(false);
-
+  const [alertText, setAlertText] = useState(
+    'Вы успешно записались на мероприятие!',
+  );
+  const [isActive, setIsActive] = useState(false);
   const authCtx = useContext(AuthContext);
   const userId = authCtx.userData.id;
 
@@ -36,17 +38,30 @@ export default function NewsItemPage({
     try {
       console.log('start registration on event');
 
-      const data = axios.post(`${protocol}${hostName}/api/news/regOnEvent`, {
-        event_id: Number(newsId),
-        user_id: userId,
-      });
-      if ((await data) === 'U were registrated on this event') {
-        setIsEventReg(true);
-      } else {
+      const { data } = await axios.post(
+        `${protocol}${hostName}/api/news/regOnEvent`,
+        {
+          event_id: Number(newsId),
+          user_id: userId,
+        },
+      );
+
+      setIsActive(true);
+
+      if (data === 1) {
+        setAlertText('Вы успешно записались на мероприятие!');
+        setAlert(true);
+      }
+      if (data === 'time is out') {
+        setAlertText('Время на запись уже прошло.');
+        setAlert(true);
+      }
+      if (data === 'U have been registrated on this event yet') {
+        setAlertText('Вы уже записались на мероприятие!');
         setAlert(true);
       }
 
-      console.log(await data);
+      console.log(data);
     } catch (err) {
       console.log('fail to registration on event', err);
     }
@@ -117,7 +132,7 @@ export default function NewsItemPage({
             волонтеров
           </p>
         </ul>
-        <Button type="button" onClick={onRegOnIvent}>
+        <Button disabled={isActive} type="button" onClick={onRegOnIvent}>
           Записаться
         </Button>
       </div>
@@ -125,19 +140,11 @@ export default function NewsItemPage({
         <div className={styles.alertBG}>
           <div className={styles.alert}>
             <h1>Благодарим!</h1>
-            {isEventReg ? (
-              <p>
-                Вы уже записаны на данное мероприятие!
-                <br />
-                <a href={tgId}>{tgId}</a>
-              </p>
-            ) : (
-              <p>
-                Вы успешно записались на мероприятие!
-                <br />
-                <a href={tgId}>{tgId}</a>
-              </p>
-            )}
+            <p>
+              {alertText}
+              <br />
+              <a href={tgId}>{tgId}</a>
+            </p>
             <div className={styles.buttons}>
               <Button className={styles.alertButton} onClick={closeAlert}>
                 К событиям
