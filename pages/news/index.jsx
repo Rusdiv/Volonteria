@@ -6,6 +6,8 @@ import NewsList from '../../components/News/NewsList/NewsList';
 
 import styles from '../../components/News/News.module.scss';
 
+import protocol from '../../protocol.js'
+
 export default function NewsPage({ host = '' }) {
   const [news, setNews] = useState([]);
 
@@ -15,7 +17,7 @@ export default function NewsPage({ host = '' }) {
       try {
         console.info('try to get news');
 
-        const { data } = await axios.get(`https://${host}/api/news`);
+        const { data } = await axios.get(`${protocol}${host}/api/news`);
         setNews(data);
 
         console.info('succses get news');

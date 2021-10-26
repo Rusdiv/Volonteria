@@ -9,6 +9,8 @@ import Button from '../../components/Common/Button/Button';
 
 import styles from '../../components/News/Event.module.scss';
 
+import protocol from '../../protocol.js'
+
 export default function NewsItemPage({
   time = '',
   description = '',
@@ -34,7 +36,7 @@ export default function NewsItemPage({
     try {
       console.log('start registration on event');
 
-      const data = axios.post(`https://${hostName}/api/news/regOnEvent`, {
+      const data = axios.post(`${protocol}${hostName}/api/news/regOnEvent`, {
         event_id: Number(newsId),
         user_id: userId,
       });
@@ -136,9 +138,15 @@ export default function NewsItemPage({
                 <a href={tgId}>{tgId}</a>
               </p>
             )}
-            <Button className={styles.alertButton} onClick={closeAlert}>
-              Хорошо
-            </Button>
+            <div className={styles.buttons}>
+              <Button className={styles.alertButton} onClick={closeAlert}>
+                К событиям
+              </Button>
+              <Button className={styles.alertButton} onClick={closeAlert}>
+                Хорошо
+              </Button>
+            </div>
+            
           </div>
         </div>
       ) : (
@@ -152,7 +160,7 @@ export const getServerSideProps = async (context) => {
   const { newsId } = context.params;
   const { req } = context;
   const { data } = await axios.get(
-    `https://${req.headers.host}/api/news/${newsId}`,
+    `${protocol}${req.headers.host}/api/news/${newsId}`,
   );
 
   return {

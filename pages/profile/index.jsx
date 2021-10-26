@@ -10,6 +10,8 @@ import AuthContext from '../../store/auth-context';
 
 import styles from '../../components/Profile/profile.module.scss';
 
+import protocol from '../../protocol.js'
+
 export default function ProfilePage({ host = '' }) {
   const authCtx = useContext(AuthContext);
   const [userData, setUserData] = useState({});
@@ -18,7 +20,7 @@ export default function ProfilePage({ host = '' }) {
 
   useEffect(() => {
     const fetchUserData = async () => {
-      const { data } = await axios.post(`https://${host}/api/user/login`, {
+      const { data } = await axios.post(`${protocol}${host}/api/user/login`, {
         id,
       });
 

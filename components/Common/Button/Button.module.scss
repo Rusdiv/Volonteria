@@ -1,5 +1,5 @@
 .button {
-  background-color: #aa139b;
+  background-color: #fff;
   border-radius: 6px;
   width: 100%;
   outline: none;
@@ -13,15 +13,20 @@
   color: #ffffff;
   padding: 15px;
   cursor: pointer;
+  color: #aa139b;
   transition: 0.2s ease-in-out;
+  border: 1px solid #aa139b;
 
   &:hover {
     transition: 0.2s;
-    background-color: #d126c0;
+    background-color: #aa139b;
+    color: #fff;
   }
 
   &:disabled {
     cursor: auto;
-    background-color: #501f4b;
+    border: 1px solid #d9d9d9;
+    background-color: #ffffff;
+    color: #d9d9d9;
   }
 }
