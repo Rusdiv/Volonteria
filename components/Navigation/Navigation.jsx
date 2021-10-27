@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { useRouter } from 'next/router';
 
 import authContext from '../../store/auth-context';
@@ -23,26 +23,36 @@ export default function Navigation() {
       name: 'События',
       url: '/news',
       onСlick: redirect,
+      active: false,
     },
     {
       img: profileSVG,
       name: 'Профиль',
       url: '/profile',
       onСlick: redirect,
+      active: false,
     },
     {
       img: exitSVG,
       name: 'Выход',
       url: '/',
       onСlick: onLogout,
+      active: false,
     },
     {
       img: contactSVG,
       name: 'Связь',
       url: '/Contacts',
       onСlick: redirect,
+      active: false,
     },
   ];
+
+  PAGES.forEach((item) => {
+    if (router.pathname === item.url) {
+      item.active = true;
+    }
+  });
 
   return (
     <div className={styles.navigation}>
@@ -51,6 +61,7 @@ export default function Navigation() {
           type="button"
           onClick={() => menuItem.onСlick(menuItem.url)}
           key={menuItem.name}
+          className={menuItem.active ? styles.active : ''}
         >
           <menuItem.img />
           <span>{menuItem.name}</span>

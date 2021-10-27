@@ -50,7 +50,7 @@ export default function ProfilePage({ host = '' }) {
         <>
           <div className={styles.leftBlock}>
             <img className={styles.avatar} src={avatar} alt="avatar" />
-            <h3>{`${userData.name} ${userData.lastname}`}</h3>
+            <h3>{`${userData.name} ${userData.surname}`}</h3>
             <div className={styles.mainUserData}>
               <div className={styles.points}>
                 <svg
@@ -108,7 +108,7 @@ export default function ProfilePage({ host = '' }) {
           <div className={styles.rightBlock}>
             <ChangeDataBlock
               name={userData.name}
-              lastname={userData.lastname}
+              surname={userData.surname}
               email={email}
               date={userData.date}
             />

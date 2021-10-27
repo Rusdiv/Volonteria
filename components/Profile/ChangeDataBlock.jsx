@@ -4,7 +4,7 @@ import styles from './profile.module.scss';
 
 export default function ChangeDataBlock({
   name = '',
-  lastname = '',
+  surname = '',
   email = '',
   date = '',
 }) {
@@ -32,7 +32,7 @@ export default function ChangeDataBlock({
       </label>
       <label>
         <span>Фамилия</span>
-        <input disabled value={lastname} />
+        <input disabled value={surname} />
       </label>
       <label>
         <span>E-mail</span>

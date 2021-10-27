@@ -1,4 +1,5 @@
 import React, { useContext, useState } from 'react';
+import { useRouter } from 'next/router';
 import axios from 'axios';
 
 import VolonteerSVG from '../../public/images/events/volonteer.svg';
@@ -22,6 +23,7 @@ export default function NewsItemPage({
   tgId = '',
   target = '',
 }) {
+  const router = useRouter();
   const [alert, setAlert] = useState(false);
   const [alertText, setAlertText] = useState(
     'Вы успешно записались на мероприятие!',
@@ -32,6 +34,10 @@ export default function NewsItemPage({
 
   const closeAlert = () => {
     setAlert(false);
+  };
+
+  const returnBack = () => {
+    router.push('/news');
   };
 
   const onRegOnIvent = async () => {
@@ -146,7 +152,7 @@ export default function NewsItemPage({
               <a href={tgId}>{tgId}</a>
             </p>
             <div className={styles.buttons}>
-              <Button className={styles.alertButton} onClick={closeAlert}>
+              <Button className={styles.alertButton} onClick={returnBack}>
                 К событиям
               </Button>
               <Button className={styles.alertButton} onClick={closeAlert}>

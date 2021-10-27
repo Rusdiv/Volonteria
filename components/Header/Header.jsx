@@ -2,8 +2,8 @@ import React, { useContext } from 'react';
 import Link from 'next/link';
 
 import LogoSVG from '../../public/images/Header/logo.svg';
-// import SearchSVG from '../../public/images/Header/search.svg';
-// import NotificationSVG from '../../public/images/Header/notification.svg';
+import SearchSVG from '../../public/images/Header/search.svg';
+import NotificationSVG from '../../public/images/Header/notification.svg';
 import AuthContext from '../../store/auth-context';
 
 import styles from './Header.module.scss';
@@ -19,15 +19,15 @@ export default function Header() {
         <Link href="/">Волонтерия</Link>
       </div>
       <div className={styles.rightBlock}>
-        {/* <div className={styles.search}>
+        <div className={styles.search}>
           <SearchSVG />
           <input type="text" />
-        </div> */}
+        </div>
 
         <ul>
-          {/* <li>
+          <li>
             <NotificationSVG />
-          </li> */}
+          </li>
           <li>
             <Link href="/profile">
               <img src={avatar} alt="avatar" />
