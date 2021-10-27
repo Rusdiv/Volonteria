@@ -3,7 +3,6 @@ import { useRouter } from 'next/router';
 
 import authContext from '../../store/auth-context';
 
-import HomeSVG from '../../public/images/Navigation/home.svg';
 import eventsSVG from '../../public/images/Navigation/events.svg';
 import profileSVG from '../../public/images/Navigation/profile.svg';
 import exitSVG from '../../public/images/Navigation/exit.svg';
@@ -18,12 +17,6 @@ export default function Navigation() {
     router.push(url);
   };
 
-  // {
-  //   img: HomeSVG,
-  //   name: 'Главная',
-  //   url: '/',
-  //   onСlick: redirect,
-  // },
   const PAGES = [
     {
       img: eventsSVG,

@@ -17,6 +17,7 @@
     transition: 0.2s ease-in-out;
     margin-bottom: 30px;
     cursor: pointer;
+    border: 1px solid transparent;
     height: 50px;
 
     span {
@@ -24,11 +25,19 @@
     }
 
     &:hover {
+      border: 1px solid #f1d7ec;
+    }
+
+    &:active {
       background-color: rgba(170, 19, 155, 0.15);
     }
 
     &:last-child {
       padding-right: 70px;
     }
+  }
+
+  .active {
+    background-color: rgba(170, 19, 155, 0.15);
   }
 }
