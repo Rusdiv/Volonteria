@@ -18,6 +18,9 @@ export default function NewsItem({
     router.push(url);
   };
 
+  const TITLE = title.slice(0);
+  const PLACE = place.slice(0);
+
   const year = date[0] + date[1] + date[2] + date[3];
   const mounths = [
     'января',
@@ -42,14 +45,28 @@ export default function NewsItem({
       type="button"
     >
       <PhotoSVG />
-      <h2>{title}</h2>
+      <h2>
+        {title.substring(0, 36)}
+        {TITLE.length >= 36 ? '...' : ''}
+      </h2>
       <p>
         <DateSVG />
-        <span>{`${day} ${mounths[Number(date[4] + date[5] - 1)]} ${year}`}</span>
+        <span>
+          {`
+        ${day} 
+        ${mounths[Number(date[4] + date[5] - 1)]} 
+        ${year}
+        `}
+        </span>
       </p>
       <p>
-        <LocationSVG />
-        <span>{place}</span>
+        <div>
+          <LocationSVG />
+        </div>
+        <span>
+          {place.substring(0, 16)}
+          {PLACE.length >= 16 ? '...' : ''}
+        </span>
       </p>
     </button>
   );

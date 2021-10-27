@@ -6,7 +6,7 @@ import NewsList from '../../components/News/NewsList/NewsList';
 
 import styles from '../../components/News/News.module.scss';
 
-import protocol from '../../protocol.js'
+import protocol from '../../protocol';
 
 export default function NewsPage({ host = '' }) {
   const [news, setNews] = useState([]);

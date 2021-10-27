@@ -1,1 +1,1 @@
-export default 'https://';
+export default 'http://';
