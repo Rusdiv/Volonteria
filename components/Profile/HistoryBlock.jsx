@@ -1,3 +1,4 @@
+import MenuItem from 'antd/lib/menu/MenuItem';
 import React from 'react';
 
 import styles from './profile.module.scss';
@@ -28,7 +29,7 @@ export default function HistoryBlock({ history = [] }) {
               src="https://www.zastavki.com/pictures/640x480/2013Sport__037747_29.jpg"
               alt="ball"
             />
-            {item[1]}
+            {item.event_name}
           </div>
           <div className={styles.location}>
             <p>
@@ -50,9 +51,14 @@ export default function HistoryBlock({ history = [] }) {
               </svg>
               <span>
                 {`
-                ${item[2][6] + item[2][7]}
-                ${mounths[Number(item[2][4] + item[2][5] - 1)]}
-                ${item[2][0] + item[2][1] + item[2][2] + item[2][3]}
+                ${item.event_time[6] + item.event_time[7]}
+                ${mounths[Number(item.event_time[4] + item.event_time[5] - 1)]}
+                ${
+                  item.event_time[0] +
+                  item.event_time[1] +
+                  item.event_time[2] +
+                  item.event_time[3]
+                }
               `}
               </span>
             </p>
@@ -70,7 +76,7 @@ export default function HistoryBlock({ history = [] }) {
                 />
               </svg>
 
-              <span>{item[3]}</span>
+              <span>{item.event_table}</span>
             </p>
           </div>
         </div>
