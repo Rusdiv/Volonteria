@@ -1,6 +1,10 @@
 import React from 'react';
+import { Select } from 'antd';
 
 import styles from './profile.module.scss';
+import ProfileSelect from './ProfileSelect';
+
+const { Option } = Select;
 
 export default function ChangeDataBlock({
   name = '',
@@ -41,13 +45,26 @@ export default function ChangeDataBlock({
       <label>
         <span>Дата рождения</span>
         <div>
-          <input disabled className={styles.day} value={date[6] + date[7]} />
+          <ProfileSelect
+            className={`${styles.customSelect} ${styles.day}`}
+            defaultValue={date[6] + date[7]}
+          />
+          <ProfileSelect
+            className={`${styles.customSelect} ${styles.birth}`}
+            defaultValue={mounths[Number(date[4] + date[5] - 1)]}
+            values={mounths}
+          />
+          <ProfileSelect
+            className={`${styles.customSelect} ${styles.birth}`}
+            defaultValue={year}
+          />
+          {/* <input disabled className={styles.day} value={date[6] + date[7]} />
           <input
             disabled
             className={styles.birth}
             value={mounths[Number(date[4] + date[5] - 1)]}
           />
-          <input disabled className={styles.birth} value={year} />
+          <input disabled className={styles.birth} value={year} /> */}
         </div>
       </label>
       <label>

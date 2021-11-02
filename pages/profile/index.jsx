@@ -49,10 +49,16 @@ export default function ProfilePage({ host = '' }) {
       {!isLoading ? (
         <>
           <div className={styles.leftBlock}>
-            <img className={styles.avatar} src={avatar} alt="avatar" />
-            <h3>{`${userData.name} ${userData.surname}`}</h3>
+            <div className={styles.avatarBlock}>
+              <img className={styles.avatar} src={avatar} alt="avatar" />
+              <h3>{`${userData.name} ${userData.surname}`}</h3>
+            </div>
             <div className={styles.mainUserData}>
               <div className={styles.points}>
+                <div className={styles.name}>
+                  {userData.points ? <span>{userData.points}</span> : 0}
+                  <p>Баллы</p>
+                </div>
                 <svg
                   width="24"
                   height="24"
@@ -72,9 +78,12 @@ export default function ProfilePage({ host = '' }) {
                     </clipPath>
                   </defs>
                 </svg>
-                {userData.points ? <span>{userData.points}</span> : 0}
               </div>
               <div className={styles.points}>
+                <div className={styles.name}>
+                  {userData.hours ? <span>{userData.hours}</span> : 0}
+                  <p>Время</p>
+                </div>
                 <svg
                   width="24"
                   height="24"
@@ -95,7 +104,6 @@ export default function ProfilePage({ host = '' }) {
                     fill="white"
                   />
                 </svg>
-                {userData.hours}
               </div>
             </div>
 
