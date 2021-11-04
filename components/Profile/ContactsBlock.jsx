@@ -6,6 +6,7 @@ export default function ContactsData({
   email = '',
   telegram = '',
   phone = '',
+  address = '',
 }) {
   return (
     <div className={styles.contacts}>
@@ -62,7 +63,7 @@ export default function ContactsData({
         </svg>
         <div className={styles.infomation}>
           <span>Адрес</span>
-          <p>ул. Юсупова 23</p>
+          <p>{address}</p>
         </div>
       </div>
       <div className={styles.contact}>

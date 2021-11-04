@@ -33,6 +33,8 @@ export default function ProfilePage({ host = '' }) {
         phone: data.userInfo.Phone_number,
         telegram: data.userInfo.telegram_id,
         workPlace: data.userInfo.ed_organization,
+        gender: data.userInfo.gender,
+        ed: data.userInfo.ed_organization,
 
         points: data.userPoints.mycred_default,
         history: data.history,
@@ -111,6 +113,7 @@ export default function ProfilePage({ host = '' }) {
               email={email}
               phone={userData.phone}
               telegram={userData.telegram}
+              address={userData.address}
             />
           </div>
           <div className={styles.rightBlock}>
@@ -119,6 +122,8 @@ export default function ProfilePage({ host = '' }) {
               surname={userData.surname}
               email={email}
               date={userData.date}
+              ed={userData.ed}
+              gender={userData.gender}
             />
             <AchievesBlock />
             <HistoryBlock history={userData.history} />

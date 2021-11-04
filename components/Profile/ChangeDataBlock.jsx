@@ -1,16 +1,15 @@
 import React from 'react';
-import { Select } from 'antd';
 
 import styles from './profile.module.scss';
 import ProfileSelect from './ProfileSelect';
-
-const { Option } = Select;
 
 export default function ChangeDataBlock({
   name = '',
   surname = '',
   email = '',
   date = '',
+  gender = '',
+  ed = '',
 }) {
   const year = date[0] + date[1] + date[2] + date[3];
   const mounths = [
@@ -69,11 +68,11 @@ export default function ChangeDataBlock({
       </label>
       <label>
         <span>Пол</span>
-        <input disabled value="Мужской" />
+        <input disabled value={gender} />
       </label>
       <label>
         <span>Университет</span>
-        <input disabled />
+        <input disabled value={ed} />
       </label>
     </div>
   );
