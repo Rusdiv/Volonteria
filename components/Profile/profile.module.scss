@@ -96,15 +96,21 @@
     .points {
       margin: 0 auto;
       width: 350px;
-      height: 90px;
+      height: 100%;
       background: #f1d7ec;
       border-radius: 18px;
       display: flex;
       justify-content: space-between;
       padding: 10px 30px;
+      align-items: center;
 
       &:last-child {
         margin-top: 30px;
+      }
+
+      .name {
+        max-width: 200px;
+        line-break: anywhere;
       }
     }
 

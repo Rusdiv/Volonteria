@@ -24,7 +24,9 @@ export default function ProfileSelect({
         onChange={handleChange}
       >
         {values.map((item) => (
-          <Option value={item}>{item}</Option>
+          <Option key={item} value={item}>
+            {item}
+          </Option>
         ))}
       </Select>
     </>

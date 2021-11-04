@@ -45,6 +45,8 @@ export default function ProfilePage({ host = '' }) {
     };
     fetchUserData();
   }, []);
+  const day = Math.floor(userData.hours / 24);
+  const time = `${day} д. ${userData.hours % 24} ч.`;
 
   return (
     <div className={styles.profile}>
@@ -83,7 +85,7 @@ export default function ProfilePage({ host = '' }) {
               </div>
               <div className={styles.points}>
                 <div className={styles.name}>
-                  {userData.hours ? <span>{userData.hours}</span> : 0}
+                  {time ? <span>{time}</span> : 0}
                   <p>Время</p>
                 </div>
                 <svg
