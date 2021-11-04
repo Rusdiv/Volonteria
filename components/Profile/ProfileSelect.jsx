@@ -7,8 +7,6 @@ function handleChange(value) {
   console.log(`selected ${value}`);
 }
 
-const days = [];
-
 export default function ProfileSelect({
   defaultValue = '',
   className = '',
