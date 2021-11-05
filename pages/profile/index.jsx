@@ -45,6 +45,7 @@ export default function ProfilePage({ host = '' }) {
     };
     fetchUserData();
   }, []);
+
   const day = Math.floor(userData.hours / 24);
   const time = `${day} д. ${userData.hours % 24} ч.`;
 

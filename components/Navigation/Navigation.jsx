@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext } from 'react';
 import { useRouter } from 'next/router';
 
 import authContext from '../../store/auth-context';
@@ -33,17 +33,17 @@ export default function Navigation() {
       active: false,
     },
     {
-      img: exitSVG,
-      name: 'Выход',
-      url: '/',
-      onСlick: onLogout,
-      active: false,
-    },
-    {
       img: contactSVG,
       name: 'Связь',
       url: '/Contacts',
       onСlick: redirect,
+      active: false,
+    },
+    {
+      img: exitSVG,
+      name: 'Выход',
+      url: '/',
+      onСlick: onLogout,
       active: false,
     },
   ];

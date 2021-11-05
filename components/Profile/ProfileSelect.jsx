@@ -3,14 +3,11 @@ import { Select } from 'antd';
 
 const { Option } = Select;
 
-function handleChange(value) {
-  console.log(`selected ${value}`);
-}
-
 export default function ProfileSelect({
   defaultValue = '',
   className = '',
   values = [],
+  onChange = () => {},
 }) {
   return (
     <>
@@ -19,7 +16,7 @@ export default function ProfileSelect({
         defaultOpen={false}
         defaultValue={defaultValue}
         className={className}
-        onChange={handleChange}
+        onChange={onChange}
       >
         {values.map((item) => (
           <Option key={item} value={item}>

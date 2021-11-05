@@ -5,6 +5,7 @@ import axios from 'axios';
 import VolonteerSVG from '../../public/images/events/volonteer.svg';
 import DateSVG from '../../public/images/events/date.svg';
 import LocationSVG from '../../public/images/events/location.svg';
+import TimeSVG from '../../public/images/events/time.svg';
 import AuthContext from '../../store/auth-context';
 import Button from '../../components/Common/Button/Button';
 
@@ -41,6 +42,8 @@ export default function NewsItemPage({
   };
 
   const onRegOnIvent = async () => {
+    setIsActive(true);
+
     try {
       console.log('start registration on event');
 
@@ -51,8 +54,6 @@ export default function NewsItemPage({
           user_id: userId,
         },
       );
-
-      setIsActive(true);
 
       if (data === 1) {
         setAlertText('Вы успешно записались на мероприятие!');
@@ -90,6 +91,8 @@ export default function NewsItemPage({
   ];
 
   const day = time[6] + time[7];
+  const PLACE = place.slice(0);
+  const TIMETABLE = timeTable.slice(0);
 
   return (
     <div className={styles.event}>
@@ -129,13 +132,19 @@ export default function NewsItemPage({
           </p>
           <p>
             <LocationSVG />
-            {place}
+            {place.substring(0, 16)}
+            {PLACE.length >= 16 ? '...' : ''}
           </p>
           <p>
             <VolonteerSVG />
             Требуется
             <span>{Number(volCount)}</span>
             волонтеров
+          </p>
+          <p>
+            <TimeSVG />
+            {timeTable.substring(0, 16)}
+            {TIMETABLE.length >= 16 ? '...' : ''}
           </p>
         </ul>
         <Button disabled={isActive} type="button" onClick={onRegOnIvent}>

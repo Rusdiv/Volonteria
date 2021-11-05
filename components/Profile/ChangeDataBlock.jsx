@@ -1,4 +1,6 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import getMonth from 'date-fns/getMonth';
+import getDaysInMonth from 'date-fns/getDaysInMonth';
 
 import styles from './profile.module.scss';
 import ProfileSelect from './ProfileSelect';
@@ -11,8 +13,28 @@ export default function ChangeDataBlock({
   gender = '',
   ed = '',
 }) {
-  const year = date[0] + date[1] + date[2] + date[3];
-  const mounths = [
+  const [year, setYear] = useState(date[0] + date[1] + date[2] + date[3]);
+  const [month, setMonth] = useState(
+    getMonth(new Date(year, Number(date[4] + date[5] - 1), date[6] + date[7])),
+  );
+  const [day, setDay] = useState(date[6] + date[7]);
+
+  let days = [];
+
+  let maxDayInMonth = getDaysInMonth(month);
+  for (let i = 1; i <= maxDayInMonth; i++) {
+    days.push(i);
+  }
+
+  useEffect(() => {
+    maxDayInMonth = getDaysInMonth(month);
+    days = [];
+    for (let i = 1; i <= maxDayInMonth; i++) {
+      days.push(i);
+    }
+  }, [month]);
+
+  const months = [
     'января',
     'февраля',
     'марта',
@@ -26,6 +48,27 @@ export default function ChangeDataBlock({
     'ноября',
     'декабря',
   ];
+
+  const genders = ['Мужской', 'Женский'];
+
+  const DATE = new Date();
+
+  const years = [];
+  for (let i = 1980; i <= DATE.getFullYear() - 18; i++) {
+    years.push(i);
+  }
+
+  const onMonthChange = (value) => {
+    setMonth(new Date(year, months.indexOf(value), day));
+  };
+
+  const onDayChange = (value) => {
+    setMonth(new Date(year, month, value));
+  };
+
+  const onYearChange = (value) => {
+    setMonth(new Date(year, month, value));
+  };
 
   return (
     <div className={styles.inputBlock}>
@@ -46,29 +89,31 @@ export default function ChangeDataBlock({
         <div>
           <ProfileSelect
             className={`${styles.customSelect} ${styles.day}`}
-            defaultValue={date[6] + date[7]}
+            defaultValue={day}
+            values={days}
+            onChange={onDayChange}
           />
           <ProfileSelect
             className={`${styles.customSelect} ${styles.birth}`}
-            defaultValue={mounths[Number(date[4] + date[5] - 1)]}
-            values={mounths}
+            defaultValue={months[month]}
+            values={months}
+            onChange={onMonthChange}
           />
           <ProfileSelect
             className={`${styles.customSelect} ${styles.birth}`}
             defaultValue={year}
+            values={years}
+            onChange={onYearChange}
           />
-          {/* <input disabled className={styles.day} value={date[6] + date[7]} />
-          <input
-            disabled
-            className={styles.birth}
-            value={mounths[Number(date[4] + date[5] - 1)]}
-          />
-          <input disabled className={styles.birth} value={year} /> */}
         </div>
       </label>
       <label>
         <span>Пол</span>
-        <input disabled value={gender} />
+        <ProfileSelect
+          className={`${styles.customSelect} ${styles.birth}`}
+          defaultValue={gender}
+          values={genders}
+        />
       </label>
       <label>
         <span>Университет</span>
