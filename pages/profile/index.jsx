@@ -45,9 +45,17 @@ export default function ProfilePage({ host = '' }) {
     };
     fetchUserData();
   }, []);
-
   const day = Math.floor(userData.hours / 24);
-  const time = `${day} д. ${userData.hours % 24} ч.`;
+  const week = Math.floor(day / 7);
+  let time = `${day} д. ${userData.hours % 24} ч.`;
+
+  if (!day) {
+    time = `${userData.hours % 24} ч.`;
+  }
+
+  if (week) {
+    time = `${week} нед. ${day} д. ${userData.hours % 24} ч.`;
+  }
 
   return (
     <div className={styles.profile}>

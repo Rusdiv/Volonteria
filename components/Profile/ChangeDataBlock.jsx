@@ -32,7 +32,7 @@ export default function ChangeDataBlock({
     for (let i = 1; i <= maxDayInMonth; i++) {
       days.push(i);
     }
-  }, [month]);
+  }, [month, year]);
 
   const months = [
     'января',
