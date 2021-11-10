@@ -60,9 +60,7 @@ export default function NewsItem({
         </span>
       </p>
       <p>
-        <div>
-          <LocationSVG />
-        </div>
+        <LocationSVG />
         <span>
           {place.substring(0, 16)}
           {PLACE.length >= 16 ? '...' : ''}

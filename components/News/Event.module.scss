@@ -63,7 +63,7 @@
 }
 
 .card {
-  width: 759px;
+  width: 78%;
   padding: 35px;
   background: #ffffff;
   border-radius: 8px;
@@ -144,7 +144,87 @@
   }
 }
 
+.event_name {
+  display: none;
+}
+
 .buttons {
   display: flex;
   justify-content: flex-end;
+}
+
+@media (max-width: 1280px) {
+  .event {
+    flex-direction: column-reverse;
+    padding: 0;
+    background-color: #fff;
+    .card {
+      background-color: #fff;
+      width: 100%;
+      height: 100%;
+      padding: 18px;
+      padding-top: 0;
+
+      li {
+        margin: 0;
+      }
+
+      h2 {
+        font-size: 18px;
+        font-weight: bold;
+        margin-bottom: 10px;
+      }
+
+      p {
+        font-family: 'Roboto';
+        font-style: normal;
+        font-weight: normal;
+        line-height: 21px;
+        display: flex;
+        align-items: center;
+      }
+    }
+    .registrationBlock {
+      background-color: #fff;
+      width: 100%;
+      display: block;
+      height: auto;
+      padding-bottom: 15px;
+      ul {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-column-gap: 10px;
+
+        p {
+          display: flex;
+          align-items: center;
+          font-size: 12px;
+        }
+      }
+
+      .event_name {
+        display: block;
+        font-family: 'Roboto';
+        font-style: normal;
+        font-weight: normal;
+        font-size: 30px;
+        line-height: 35px;
+        margin-bottom: 16px;
+      }
+
+      button {
+        width: 186px;
+      }
+    }
+  }
+}
+
+@media (max-width: 380px) {
+  .registrationBlock {
+    ul {
+      p {
+        font-size: 9px !important;
+      }
+    }
+  }
 }

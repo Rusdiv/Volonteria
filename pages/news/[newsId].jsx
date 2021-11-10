@@ -23,6 +23,8 @@ export default function NewsItemPage({
   place = ' ',
   tgId = '',
   target = '',
+  err = '',
+  name = '',
 }) {
   const router = useRouter();
   const [alert, setAlert] = useState(false);
@@ -40,6 +42,8 @@ export default function NewsItemPage({
   const returnBack = () => {
     router.push('/news');
   };
+
+  console.log(err);
 
   const onRegOnIvent = async () => {
     setIsActive(true);
@@ -69,8 +73,8 @@ export default function NewsItemPage({
       }
 
       console.log(data);
-    } catch (err) {
-      console.log('fail to registration on event', err);
+    } catch (err1) {
+      console.log('fail to registration on event', err1);
     }
   };
 
@@ -125,6 +129,7 @@ export default function NewsItemPage({
         {timeTable}
       </div>
       <div className={styles.registrationBlock}>
+        <div className={styles.event_name}>{name}</div>
         <ul>
           <p>
             <DateSVG />
@@ -180,23 +185,30 @@ export default function NewsItemPage({
 export const getServerSideProps = async (context) => {
   const { newsId } = context.params;
   const { req } = context;
-  const { data } = await axios.get(
-    `${protocol}${req.headers.host}/api/news/${newsId}`,
-  );
-
-  return {
-    props: {
-      timeTable: data.event_timetable,
-      id: data.post_id,
-      time: data.time_value,
-      name: data.name_value,
-      volCount: data.volunteers_value,
-      tgId: data.telegram_id_value,
-      description: data.description_value,
-      newsId,
-      hostName: req.headers.host,
-      place: data.place_value,
-      target: data.event_target,
-    },
-  };
+  try {
+    const { data } = await axios.get(
+      `${protocol}${req.headers.host}/api/news/${newsId}`,
+    );
+    return {
+      props: {
+        timeTable: data.event_timetable,
+        id: data.event_id,
+        time: data.event_time,
+        name: data.event_name,
+        volCount: data.event_vol,
+        tgId: data.telegram_id,
+        description: data.event_description,
+        newsId,
+        hostName: req.headers.host,
+        place: data.event_place,
+        target: data.event_target,
+      },
+    };
+  } catch (err) {
+    return {
+      props: {
+        err: JSON.stringify(err),
+      },
+    };
+  }
 };
