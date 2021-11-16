@@ -49,23 +49,25 @@ export default function NewsItem({
         {title.substring(0, 36)}
         {TITLE.length >= 36 ? '...' : ''}
       </h2>
-      <p>
-        <DateSVG />
-        <span>
-          {`
+      <div className={styles.description}>
+        <p>
+          <DateSVG />
+          <span>
+            {`
         ${day} 
         ${mounths[Number(date[4] + date[5] - 1)]} 
         ${year}
         `}
-        </span>
-      </p>
-      <p>
-        <LocationSVG />
-        <span>
-          {place.substring(0, 16)}
-          {PLACE.length >= 16 ? '...' : ''}
-        </span>
-      </p>
+          </span>
+        </p>
+        <p>
+          <LocationSVG />
+          <span>
+            {place.substring(0, 16)}
+            {PLACE.length >= 16 ? '...' : ''}
+          </span>
+        </p>
+      </div>
     </button>
   );
 }

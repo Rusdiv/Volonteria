@@ -1,5 +1,6 @@
-import React, { useContext } from 'react';
+import React, { useState, useContext } from 'react';
 import { useRouter } from 'next/router';
+import { HamburgerSlider } from 'react-animated-burgers';
 
 import authContext from '../../store/auth-context';
 
@@ -13,8 +14,10 @@ import styles from './Navigation.module.scss';
 export default function Navigation() {
   const { onLogout } = useContext(authContext);
   const router = useRouter();
+  const [burger, setBurger] = useState(false);
   const redirect = (url) => {
     router.push(url);
+    setBurger(false);
   };
 
   const PAGES = [
@@ -55,18 +58,25 @@ export default function Navigation() {
   });
 
   return (
-    <div className={styles.navigation}>
-      {PAGES.map((menuItem) => (
-        <button
-          type="button"
-          onClick={() => menuItem.onСlick(menuItem.url)}
-          key={menuItem.name}
-          className={menuItem.active ? styles.active : ''}
-        >
-          <menuItem.img />
-          <span>{menuItem.name}</span>
-        </button>
-      ))}
+    <div className={styles.navBar}>
+      <HamburgerSlider
+        isActive={burger}
+        toggleButton={() => setBurger(!burger)}
+        className={styles.burger}
+      />
+      <div className={`${styles.navigation} ${burger ? styles.activeNav : ''}`}>
+        {PAGES.map((menuItem) => (
+          <button
+            type="button"
+            onClick={() => menuItem.onСlick(menuItem.url)}
+            key={menuItem.name}
+            className={menuItem.active ? styles.active : ''}
+          >
+            <menuItem.img />
+            <span>{menuItem.name}</span>
+          </button>
+        ))}
+      </div>
     </div>
   );
 }
