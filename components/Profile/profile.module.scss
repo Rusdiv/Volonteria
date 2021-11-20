@@ -340,3 +340,23 @@
     }
   }
 }
+
+@media (max-width: 1280px) {
+  .profile {
+    background-color: #fff;
+    padding: 0;
+    justify-content: center;
+    margin: 0;
+
+    .inputBlock {
+      padding: 0;
+      width: auto;
+      label {
+        flex-direction: column;
+        span {
+          padding-right: 50px;
+        }
+      }
+    }
+  }
+}
