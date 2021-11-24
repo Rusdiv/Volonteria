@@ -35,6 +35,7 @@ export default function ProfilePage({ host = '' }) {
         workPlace: data.userInfo.ed_organization,
         gender: data.userInfo.gender,
         ed: data.userInfo.ed_organization,
+        address: data.userInfo.address,
 
         points: data.userPoints.mycred_default,
         history: data.history,
