@@ -1,17 +1,17 @@
 .background {
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
   background: #fff;
   padding-top: 75px;
 }
 .login {
-  width: 425px;
+  max-width: 425px;
   margin: 0 auto;
   .header {
     margin-bottom: 10px;
     h1 {
       display: block;
-      width: 425px;
+      max-width: 425px;
       font-family: 'Montserrat';
       font-style: normal;
       font-weight: normal;
@@ -94,4 +94,20 @@
   overflow-y: scroll;
   background: rgb(185, 185, 185);
   left: 100px;
+}
+
+@media (max-width: 540px) {
+  .login {
+    max-width: 425px;
+    margin: 0 auto;
+    .header {
+      margin-bottom: 10px;
+      h1 {
+        font-size: 23px;
+      }
+      span {
+        font-size: 23px;
+      }
+    }
+  }
 }
