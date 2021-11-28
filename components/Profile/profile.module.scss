@@ -226,7 +226,6 @@
   line-height: 21px;
   color: #000000;
   word-break: break-all;
-
   span {
     color: #c4c4c4;
   }
@@ -339,6 +338,17 @@
     .ant-select-arrow {
       display: none !important;
     }
+  }
+}
+
+.content {
+  display: flex;
+  align-content: center;
+  justify-content: space-between;
+  span {
+    width: 125px;
+    display: flex;
+    align-items: center;
   }
 }
 

@@ -28,8 +28,10 @@ export default function HistoryBlock({ history = [] }) {
               src="https://www.zastavki.com/pictures/640x480/2013Sport__037747_29.jpg"
               alt="ball"
             />
-            {item.event_name.substring(0, 26)}
-            {item.event_name.length >= 26 ? '...' : ''}
+            <span style={{ wordBreak: 'break-all' }}>
+              {item.event_name.substring(0, 26)}
+              {item.event_name.length >= 26 ? '...' : ''}
+            </span>
           </div>
           <div className={styles.location}>
             <p>
