@@ -65,7 +65,10 @@ export default function ProfilePage({ host = '' }) {
           <div className={styles.leftBlock}>
             <div className={styles.avatarBlock}>
               <img className={styles.avatar} src={avatar} alt="avatar" />
-              <h3>{`${userData.name} ${userData.surname}`}</h3>
+              <h3>
+                <div>{`${userData.name} ${userData.surname}`}</div>
+                <p>id: {id}</p>
+              </h3>
             </div>
             <div className={styles.mainUserData}>
               <div className={styles.points}>

@@ -3,6 +3,9 @@ import React from 'react';
 import NewsItem from '../NewsItem/NewsItem';
 
 export default function NewsList({ news = [] }) {
+  if (news.length === 0 || !news) {
+    return <div>Нету кативных мероприятий </div>;
+  }
   return (
     <ul>
       {news.map((event) => (
