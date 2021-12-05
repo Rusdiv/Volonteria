@@ -127,6 +127,8 @@ export default function NewsItemPage({
         </ul>
         <h2>График участия</h2>
         {timeTable}
+        <h2>Адрес</h2>
+        <p>{place}</p>
       </div>
       <div className={styles.registrationBlock}>
         <div className={styles.event_name}>{name}</div>
