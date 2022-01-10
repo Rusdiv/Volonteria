@@ -1,0 +1,23 @@
+.rating {
+  background: #ffffff;
+  border-radius: 8px;
+  width: 100%;
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 22px;
+  padding: 37px;
+  color: #000000;
+  ul {
+    li {
+      display: flex;
+
+      .userData {
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+      }
+    }
+  }
+}
