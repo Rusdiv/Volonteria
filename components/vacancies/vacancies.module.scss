@@ -1,6 +1,10 @@
 .vacancies {
   padding: 20px;
   padding-top: 34px;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 }
 .vacan {
   width: 300px;
@@ -43,6 +47,7 @@
     line-height: 14px;
     display: flex;
     align-items: center;
+    height: 56px;
 
     color: #696f79;
   }
