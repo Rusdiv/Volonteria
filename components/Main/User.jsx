@@ -19,9 +19,13 @@ export default function User({ user = {}, hours = '', id = 0 }) {
       <div className={styles.num}>{id}</div>
       <div className={styles.userData}>
         <div>
-          <img className={styles.image} alt="avatar" src={user.avatar} />
+          <img
+            className={styles.image}
+            alt="avatar"
+            src={user ? user.user_login : 'none'}
+          />
         </div>
-        <div className={styles.name}>{user.user_login}</div>
+        <div className={styles.name}>{user ? user.user_login : 'none'}</div>
         <div className={styles.points}>
           <svg
             width="17"
