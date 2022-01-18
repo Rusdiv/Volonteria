@@ -20,10 +20,7 @@ export default function Rating({ host = '' }) {
           item.volonteers.map((user) => user),
         );
         setUsers(fetchUsers);
-        const a = fetchUsers.map((userR) =>
-          userR.map((userF) => userF.map((user) => user)),
-        );
-        console.log(a);
+        console.log(fetchUsers);
       } catch (err) {
         console.info(`error with getting news: ${err}`);
       }
@@ -34,7 +31,7 @@ export default function Rating({ host = '' }) {
     <div className={styles.rating}>
       <div className={styles.container}>
         <p>Рейтинг волонтеров</p>
-        <ul>{users.length > 0 ? <Users hours={users} /> : <Spin />}</ul>
+        <ul>{users.length > 0 ? <Users users={users} /> : <Spin />}</ul>
       </div>
       <img
         className={styles.ad}
