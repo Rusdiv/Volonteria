@@ -20,6 +20,7 @@ export default function Vacancies() {
         title="Бармен"
         advantages={['Без опыта', 'Полная занятость', 'Сменный график']}
         price="от 22 000 руб"
+        image="https://sun9-8.userapi.com/impg/sTJ5sw3Wle8z4RNuR7hhwjf86lCWr27L8BRKIQ/0l02DRLY_Rs.jpg?size=1280x881&quality=95&sign=93d17be63082dcf011d1d877ebe9f9ff&type=album"
       />
     </div>
   );

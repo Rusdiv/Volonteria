@@ -25,6 +25,11 @@ export default function Rating({ host = '' }) {
   }, []);
   return (
     <div className={styles.rating}>
+      <img
+        className={styles.ad}
+        alt="ad"
+        src="https://sun9-50.userapi.com/impg/0u3UL-XE7qRT95dYuDvLPEQXQRfoNhrTTG_WOQ/dKHjf9edQSI.jpg?size=1600x1600&quality=95&sign=e013d441300431af38f98282908fad0e&type=album"
+      />
       <div className={styles.container}>
         <p>Рейтинг волонтеров</p>
         <ul>{users.length > 0 ? <Users hours={users} /> : <Spin />}</ul>
