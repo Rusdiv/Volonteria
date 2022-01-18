@@ -16,9 +16,12 @@ export default function Rating({ host = '' }) {
         console.info('try to get rating');
 
         const { data } = await axios.get(`${protocol}${host}/api/rating`);
-        const fetchUsers = data.map((item) => item.volonteers.map((user) => user));
+        const fetchUsers = data.map((item) =>
+          item.volonteers.map((user) => user),
+        );
         setUsers(fetchUsers);
-        console.log(fetchUsers);
+        const a = fetchUsers.map((user) => user);
+        console.log(a);
       } catch (err) {
         console.info(`error with getting news: ${err}`);
       }
