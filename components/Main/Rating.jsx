@@ -17,7 +17,7 @@ export default function Rating({ host = '' }) {
 
         const { data } = await axios.get(`${protocol}${host}/api/rating`);
         const fetchUsers = data.map((item) =>
-          item.volonteers.map((user) => user),
+          item.volonteers.map((usersF) => usersF.map((user) => user),
         );
         setUsers(fetchUsers);
         console.log(fetchUsers);
