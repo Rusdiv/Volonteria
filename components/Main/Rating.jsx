@@ -20,7 +20,9 @@ export default function Rating({ host = '' }) {
           item.volonteers.map((user) => user),
         );
         setUsers(fetchUsers);
-        const a = fetchUsers.map((userR) => userR.map((user) => user));
+        const a = fetchUsers.map((userR) =>
+          userR.map((userF) => userF.map((user) => user)),
+        );
         console.log(a);
       } catch (err) {
         console.info(`error with getting news: ${err}`);
