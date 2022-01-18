@@ -16,7 +16,14 @@ export default function Rating({ host = '' }) {
         console.info('try to get rating');
 
         const { data } = await axios.get(`${protocol}${host}/api/rating`);
-        setUsers(data);
+        const fetchUsers = data.map((item) =>
+          item.volonteers.map((user) => user),
+        );
+        setUsers(fetchUsers);
+        const a = fetchUsers.map((userR) =>
+          userR.map((userF) => userF.map((user) => user)),
+        );
+        console.log(a);
       } catch (err) {
         console.info(`error with getting news: ${err}`);
       }
@@ -29,6 +36,11 @@ export default function Rating({ host = '' }) {
         <p>Рейтинг волонтеров</p>
         <ul>{users.length > 0 ? <Users hours={users} /> : <Spin />}</ul>
       </div>
+      <img
+        className={styles.ad}
+        alt="ad"
+        src="https://sun9-50.userapi.com/impg/0u3UL-XE7qRT95dYuDvLPEQXQRfoNhrTTG_WOQ/dKHjf9edQSI.jpg?size=1600x1600&quality=95&sign=e013d441300431af38f98282908fad0e&type=album"
+      />
     </div>
   );
 }
