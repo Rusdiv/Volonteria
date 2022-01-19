@@ -9,8 +9,10 @@
   color: #000000;
 
   .ad {
-    width: 200px;
-    height: 200px;
+    display: block;
+    width: 400px;
+    height: 400px;
+    margin: 20px auto;
   }
   .container {
     background: #ffffff;
