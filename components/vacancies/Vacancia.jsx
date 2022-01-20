@@ -15,8 +15,8 @@ export default function Vacancia({
     <div className={styles.vacan}>
       <div className={styles.header}>
         <div>
-          {!image.length === 0 ? (
-            <img alt="logo" src={image} />
+          {!(image.length === 0) ? (
+            <img alt="logo" className={styles.logo} src={image} />
           ) : (
             <svg
               width="40"

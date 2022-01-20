@@ -4,6 +4,7 @@ import { HamburgerSlider } from 'react-animated-burgers';
 
 import authContext from '../../store/auth-context';
 
+import homeSVG from '../../public/images/Navigation/home.svg';
 import eventsSVG from '../../public/images/Navigation/events.svg';
 import profileSVG from '../../public/images/Navigation/profile.svg';
 import exitSVG from '../../public/images/Navigation/exit.svg';
@@ -22,6 +23,13 @@ export default function Navigation() {
   };
 
   const PAGES = [
+    {
+      img: homeSVG,
+      name: 'Главная',
+      url: '/',
+      onСlick: redirect,
+      active: false,
+    },
     {
       img: eventsSVG,
       name: 'События',
@@ -53,7 +61,7 @@ export default function Navigation() {
     {
       img: exitSVG,
       name: 'Выход',
-      url: '/',
+      url: '/exit',
       onСlick: onLogout,
       active: false,
     },
