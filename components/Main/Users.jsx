@@ -1,10 +1,12 @@
 import React from 'react';
 import User from './User';
 
-export default function Users() {
+export default function Users({ users = [] }) {
   return (
     <ul>
-      <User />
+      {users.map((user, index) => (
+        <User user={user} id={index + 1} />
+      ))}
     </ul>
   );
 }

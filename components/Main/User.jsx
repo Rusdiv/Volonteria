@@ -2,7 +2,8 @@ import React from 'react';
 
 import styles from './Rating.module.scss';
 
-export default function User({ user = {}, hours = '', id = 0 }) {
+export default function User({ user = {}, id = 0 }) {
+  const { hours } = user;
   const day = Math.floor(hours / 24);
   const week = Math.floor(day / 7);
   let time = `${day} д. ${hours % 24} ч.`;
@@ -22,7 +23,7 @@ export default function User({ user = {}, hours = '', id = 0 }) {
           <img
             className={styles.image}
             alt="avatar"
-            src={user ? user.user_login : 'none'}
+            src={user ? user.avatar : 'none'}
           />
         </div>
         <div className={styles.name}>{user ? user.user_login : 'none'}</div>
@@ -51,7 +52,7 @@ export default function User({ user = {}, hours = '', id = 0 }) {
               </clipPath>
             </defs>
           </svg>
-          15555 баллов
+          {user.points}
         </div>
         <div className={styles.time}>
           <svg

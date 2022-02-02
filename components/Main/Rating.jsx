@@ -10,6 +10,7 @@ import protocol from '../../protocol';
 
 export default function Rating({ host = '' }) {
   const [users, setUsers] = useState([]);
+  const usersArr = [];
   useEffect(() => {
     const fetchNewsData = async () => {
       try {
@@ -19,8 +20,13 @@ export default function Rating({ host = '' }) {
         const fetchUsers = data.map((item) =>
           item.volonteers.map((user) => user),
         );
-        setUsers(fetchUsers);
-        console.log(fetchUsers);
+        for (let i = 0; i < fetchUsers.length; i++) {
+          for (let j = 0; j < fetchUsers[i].length; j++) {
+            usersArr.push(fetchUsers[i][j]);
+          }
+        }
+        console.log(usersArr);
+        setUsers(usersArr);
       } catch (err) {
         console.info(`error with getting news: ${err}`);
       }
