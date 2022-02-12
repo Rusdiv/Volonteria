@@ -63,14 +63,25 @@
         align-items: center;
         cursor: pointer;
       }
-      img {
-        width: 40px;
-        height: 40px;
-        border-radius: 50%;
-        margin-left: 30px;
-      }
     }
   }
+}
+
+.user_avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-left: 30px !important;
+}
+
+.avatarBlock {
+  div {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    overflow: visible !important;
+  }
+  width: 70px;
 }
 
 .burger {

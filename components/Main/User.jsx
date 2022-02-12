@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 
 import styles from './Rating.module.scss';
 
@@ -20,8 +21,10 @@ export default function User({ user = {}, id = 0 }) {
       <div className={styles.num}>{id}</div>
       <div className={styles.userData}>
         <div>
-          <img
+          <Image
             className={styles.image}
+            width="40"
+            height="40"
             alt="avatar"
             src={user ? user.avatar : 'none'}
           />

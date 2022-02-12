@@ -1,4 +1,7 @@
 module.exports = {
+  images: {
+    domains: ['localhost', 't0toro-wordpress.tw1.ru'],
+  },
   webpack(config) {
     config.module.rules.push({
       test: /\.svg$/,
