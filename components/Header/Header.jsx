@@ -1,4 +1,5 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext } from 'react';
+import Image from 'next/image';
 import Link from 'next/link';
 
 import LogoSVG from '../../public/images/Header/logo.svg';
@@ -11,7 +12,6 @@ import styles from './Header.module.scss';
 export default function Header() {
   const authCtx = useContext(AuthContext);
   const { avatar } = authCtx.userData;
-
 
   return (
     <div className={styles.header}>
@@ -29,9 +29,15 @@ export default function Header() {
           <li>
             <NotificationSVG />
           </li>
-          <li>
+          <li className={styles.avatarBlock}>
             <Link href="/profile">
-              <img src={avatar} alt="avatar" />
+              <Image
+                className={styles.user_avatar}
+                width={40}
+                height={40}
+                src={avatar}
+                alt="avatar"
+              />
             </Link>
           </li>
         </ul>

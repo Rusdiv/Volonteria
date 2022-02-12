@@ -1,5 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { Spin } from 'antd';
+import Image from 'next/image';
 import axios from 'axios';
 
 import ContactsBlock from '../../components/Profile/ContactsBlock';
@@ -64,7 +65,16 @@ export default function ProfilePage({ host = '' }) {
         <>
           <div className={styles.leftBlock}>
             <div className={styles.avatarBlock}>
-              <img className={styles.avatar} src={avatar} alt="avatar" />
+              <div style={{ width: 130, height: 130 }}>
+                <Image
+                  className={styles.avatar}
+                  width={130}
+                  height={130}
+                  src={avatar}
+                  alt="avatar"
+                />
+              </div>
+
               <h3>
                 <div>{`${userData.name} ${userData.surname}`}</div>
                 <p>id: {id}</p>
