@@ -10,10 +10,8 @@ module.exports = {
         // for webpack 5 use
         // { and: [/\.(js|ts)x?$/] }
       },
-
       use: ['@svgr/webpack'],
     });
-
     return config;
   },
 };
