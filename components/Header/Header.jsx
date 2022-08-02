@@ -1,8 +1,7 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext } from 'react';
 import Link from 'next/link';
 
 import LogoSVG from '../../public/images/Header/logo.svg';
-import SearchSVG from '../../public/images/Header/search.svg';
 import NotificationSVG from '../../public/images/Header/notification.svg';
 import AuthContext from '../../store/auth-context';
 
@@ -12,19 +11,13 @@ export default function Header() {
   const authCtx = useContext(AuthContext);
   const { avatar } = authCtx.userData;
 
-
   return (
     <div className={styles.header}>
       <div className={styles.logo}>
         <LogoSVG />
-        <Link href="/">Волонтерия</Link>
+        <Link href="/">200-300</Link>
       </div>
       <div className={styles.rightBlock}>
-        <div className={styles.search}>
-          <SearchSVG />
-          <input type="text" />
-        </div>
-
         <ul>
           <li>
             <NotificationSVG />

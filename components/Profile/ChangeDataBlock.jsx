@@ -6,18 +6,17 @@ import styles from './profile.module.scss';
 import ProfileSelect from './ProfileSelect';
 
 export default function ChangeDataBlock({
-  name = '',
-  surname = '',
-  email = '',
-  date = '',
-  gender = '',
+  name = 'userName',
+  surname = 'userSurname',
+  email = 'test@mail.ru',
+  date = '111111111',
   ed = '',
 }) {
-  const [year, setYear] = useState(date[0] + date[1] + date[2] + date[3]);
+  const [year] = useState(date[0] + date[1] + date[2] + date[3]);
   const [month, setMonth] = useState(
     getMonth(new Date(year, Number(date[4] + date[5] - 1), date[6] + date[7])),
   );
-  const [day, setDay] = useState(date[6] + date[7]);
+  const [day] = useState(date[6] + date[7]);
 
   let days = [];
 
@@ -48,8 +47,6 @@ export default function ChangeDataBlock({
     'ноября',
     'декабря',
   ];
-
-  const genders = ['Мужской', 'Женский'];
 
   const DATE = new Date();
 
@@ -106,18 +103,6 @@ export default function ChangeDataBlock({
             onChange={onYearChange}
           />
         </div>
-      </label>
-      <label>
-        <span>Пол</span>
-        <ProfileSelect
-          className={`${styles.customSelect} ${styles.birth}`}
-          defaultValue={gender}
-          values={genders}
-        />
-      </label>
-      <label>
-        <span>Университет</span>
-        <input disabled value={ed} />
       </label>
     </div>
   );
