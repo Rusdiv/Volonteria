@@ -15,7 +15,7 @@ export default function Header() {
     <div className={styles.header}>
       <div className={styles.logo}>
         <LogoSVG />
-        <Link href="/">200-300</Link>
+        <Link href="/">Наше будущее</Link>
       </div>
       <div className={styles.rightBlock}>
         <ul>
@@ -24,7 +24,14 @@ export default function Header() {
           </li>
           <li>
             <Link href="/profile">
-              <img src={avatar} alt="avatar" />
+              <img
+                src={
+                  avatar
+                    ? avatar
+                    : 'https://sun9-8.userapi.com/impg/sTJ5sw3Wle8z4RNuR7hhwjf86lCWr27L8BRKIQ/0l02DRLY_Rs.jpg?size=1280x881&quality=95&sign=93d17be63082dcf011d1d877ebe9f9ff&type=album'
+                }
+                alt="avatar"
+              />
             </Link>
           </li>
         </ul>

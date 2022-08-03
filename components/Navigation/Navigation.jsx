@@ -8,6 +8,7 @@ import homeSVG from '../../public/images/Navigation/home.svg';
 import eventsSVG from '../../public/images/Navigation/events.svg';
 import profileSVG from '../../public/images/Navigation/profile.svg';
 import exitSVG from '../../public/images/Navigation/exit.svg';
+import vcansiesSVG from '../../public/images/Navigation/vacansies.svg';
 
 import styles from './Navigation.module.scss';
 
@@ -30,8 +31,15 @@ export default function Navigation() {
     },
     {
       img: eventsSVG,
+      name: 'Отклики',
+      url: '/response',
+      onСlick: redirect,
+      active: false,
+    },
+    {
+      img: vcansiesSVG,
       name: 'Вакансии',
-      url: '/news',
+      url: '/vacancies',
       onСlick: redirect,
       active: false,
     },

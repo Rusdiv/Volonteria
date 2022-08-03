@@ -7,6 +7,7 @@
   align-items: center;
   flex-wrap: wrap;
 }
+
 .vacan {
   margin-top: 10px;
   width: 300px;
@@ -76,6 +77,13 @@
   font-size: 12px;
   line-height: 14px;
   padding: 10px 13px;
+}
+
+.response {
+  transition: 0.2s;
+  background-color: #aa139b;
+  color: #fff;
+  cursor: auto;
 }
 
 .elipses {

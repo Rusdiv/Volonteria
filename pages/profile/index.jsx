@@ -18,55 +18,55 @@ export default function ProfilePage({ host = '' }) {
     lastname: 'userLastname',
     surname: 'userSurname',
   });
+
   const [isLoading, setIsLoading] = useState(true);
   const { id = '0', email, avatar } = authCtx.userData;
 
-  useEffect(() => {
-    const fetchUserData = async () => {
-      const { data } = await axios.post(`${protocol}${host}/api/user/login`, {
-        id,
-      });
+  console.log(avatar);
 
-      const filteredUserData = {
-        name: data.userInfo.name,
-        lastname: data.userInfo.lastname,
-        surname: data.userInfo.surname,
+  // useEffect(() => {
+  //   const fetchUserData = async () => {
+  //     const { data } = await axios.post(`${protocol}${host}/api/user/login`, {
+  //       id,
+  //     });
 
-        date: data.userInfo.Dateof_birth,
-        phone: data.userInfo.Phone_number,
-        telegram: data.userInfo.telegram_id,
-        workPlace: data.userInfo.ed_organization,
-        gender: data.userInfo.gender,
-        ed: data.userInfo.ed_organization,
-        address: data.userInfo.address,
+  //     const filteredUserData = {
+  //       name: data.userInfo.name,
+  //       lastname: data.userInfo.lastname,
+  //       surname: data.userInfo.surname,
 
-        points: data.userPoints.mycred_default,
-        history: data.history,
-        hours: data.hours.mycred_hours,
-      };
-      setUserData(filteredUserData);
-      setIsLoading(false);
-    };
+  //       date: data.userInfo.Dateof_birth,
+  //       phone: data.userInfo.Phone_number,
+  //       telegram: data.userInfo.telegram_id,
+  //       workPlace: data.userInfo.ed_organization,
+  //       gender: data.userInfo.gender,
+  //       ed: data.userInfo.ed_organization,
+  //       address: data.userInfo.address,
 
-    fetchUserData();
-  }, []);
-  const day = Math.floor(userData.hours / 24);
-  const week = Math.floor(day / 7);
-  let time = `${day} д. ${userData.hours % 24} ч.`;
+  //       points: data.userPoints.mycred_default,
+  //       history: data.history,
+  //       hours: data.hours.mycred_hours,
+  //     };
+  //     setUserData(filteredUserData);
+  //     setIsLoading(false);
+  //   };
 
-  if (!day) {
-    time = `${userData.hours % 24} ч.`;
-  }
-
-  if (week) {
-    time = `${week} нед. ${day} д. ${userData.hours % 24} ч.`;
-  }
+  //   fetchUserData();
+  // }, []);
 
   return (
     <div className={styles.profile}>
       <div className={styles.leftBlock}>
         <div className={styles.avatarBlock}>
-          <img className={styles.avatar} src={avatar} alt="avatar" />
+          <img
+            className={styles.avatar}
+            src={
+              avatar
+                ? avatar
+                : 'https://sun9-8.userapi.com/impg/sTJ5sw3Wle8z4RNuR7hhwjf86lCWr27L8BRKIQ/0l02DRLY_Rs.jpg?size=1280x881&quality=95&sign=93d17be63082dcf011d1d877ebe9f9ff&type=album'
+            }
+            alt="avatar"
+          />
           <h3>
             <div>{`${userData.name} ${userData.surname}`}</div>
             <p>

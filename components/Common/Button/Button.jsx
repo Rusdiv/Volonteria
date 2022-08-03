@@ -6,7 +6,7 @@ export default function LoginButton({
   children = null,
   onClick = () => {},
   disabled = false,
-  className = ''
+  className = '',
 }) {
   return (
     <button
