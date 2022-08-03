@@ -53,7 +53,7 @@ export default function LoginPage() {
       <form className={styles.login}>
         <div className={styles.header}>
           <h1>Добро пожаловать на сайт</h1>
-          <span>Волонтерия</span>
+          <span>Наше будущее</span>
         </div>
         <Input
           required

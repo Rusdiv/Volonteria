@@ -18,18 +18,18 @@ export const AuthContextProvider = ({ children }) => {
   };
 
   const loginHandler = async (login, password) => {
-    const importantData = await axios.post('/api/user/importantData', {
-      login,
-      password,
-    });
+    // const importantData = await axios.post('/api/user/importantData', {
+    //   login,
+    //   password,
+    // });
 
-    const filteredUserData = {
-      id: importantData.data.data.id,
-      email: importantData.data.data.email,
-      avatar: importantData.data.avatar,
-    };
+    // const filteredUserData = {
+    //   id: importantData.data.data.id,
+    //   email: importantData.data.data.email,
+    //   avatar: importantData.data.avatar,
+    // };
 
-    setUserData({ ...filteredUserData });
+    // setUserData({ ...filteredUserData });
     setIsLoggedIn(true);
   };
 
