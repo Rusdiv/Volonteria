@@ -2,7 +2,6 @@ import React, { useContext, useEffect, useState } from 'react';
 import axios from 'axios';
 
 import ContactsBlock from '../../components/Profile/ContactsBlock';
-import HistoryBlock from '../../components/Profile/HistoryBlock';
 import AchievesBlock from '../../components/Profile/AchievesBlock';
 import ChangeDataBlock from '../../components/Profile/ChangeDataBlock';
 import AuthContext from '../../store/auth-context';
@@ -22,37 +21,35 @@ export default function ProfilePage({ host = '' }) {
   const [isLoading, setIsLoading] = useState(true);
   const { id = '0', email, avatar } = authCtx.userData;
 
-  console.log(avatar);
+  useEffect(() => {
+    const fetchUserData = async () => {
+      const { data } = await axios.post(`${protocol}${host}/api/user/login`, {
+        id,
+      });
 
-  // useEffect(() => {
-  //   const fetchUserData = async () => {
-  //     const { data } = await axios.post(`${protocol}${host}/api/user/login`, {
-  //       id,
-  //     });
+      const filteredUserData = {
+        name: data.userInfo.name,
+        lastname: data.userInfo.lastname,
+        surname: data.userInfo.surname,
 
-  //     const filteredUserData = {
-  //       name: data.userInfo.name,
-  //       lastname: data.userInfo.lastname,
-  //       surname: data.userInfo.surname,
+        date: data.userInfo.Dateof_birth,
+        phone: data.userInfo.Phone_number,
+        telegram: data.userInfo.telegram_id,
+        workPlace: data.userInfo.ed_organization,
+        gender: data.userInfo.gender,
+        ed: data.userInfo.ed_organization,
+        address: data.userInfo.address,
 
-  //       date: data.userInfo.Dateof_birth,
-  //       phone: data.userInfo.Phone_number,
-  //       telegram: data.userInfo.telegram_id,
-  //       workPlace: data.userInfo.ed_organization,
-  //       gender: data.userInfo.gender,
-  //       ed: data.userInfo.ed_organization,
-  //       address: data.userInfo.address,
+        points: data.userPoints.mycred_default,
+        history: data.history,
+        hours: data.hours.mycred_hours,
+      };
+      setUserData(filteredUserData);
+      setIsLoading(false);
+    };
 
-  //       points: data.userPoints.mycred_default,
-  //       history: data.history,
-  //       hours: data.hours.mycred_hours,
-  //     };
-  //     setUserData(filteredUserData);
-  //     setIsLoading(false);
-  //   };
-
-  //   fetchUserData();
-  // }, []);
+    fetchUserData();
+  }, []);
 
   return (
     <div className={styles.profile}>
@@ -69,10 +66,7 @@ export default function ProfilePage({ host = '' }) {
           />
           <h3>
             <div>{`${userData.name} ${userData.surname}`}</div>
-            <p>
-              id:
-              {id}
-            </p>
+            <p>{`id: ${id}`}</p>
           </h3>
         </div>
 
@@ -119,8 +113,6 @@ export default function ProfilePage({ host = '' }) {
           date={userData.date}
           gender={userData.gender}
         />
-        <AchievesBlock />
-        <HistoryBlock history={userData.history} />
       </div>
     </div>
   );
