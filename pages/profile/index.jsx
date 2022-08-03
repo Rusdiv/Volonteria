@@ -21,35 +21,35 @@ export default function ProfilePage({ host = '' }) {
   const [isLoading, setIsLoading] = useState(true);
   const { id = '0', email, avatar } = authCtx.userData;
 
-  useEffect(() => {
-    const fetchUserData = async () => {
-      const { data } = await axios.post(`${protocol}${host}/api/user/login`, {
-        id,
-      });
+  // useEffect(() => {
+  //   const fetchUserData = async () => {
+  //     const { data } = await axios.post(`${protocol}${host}/api/user/login`, {
+  //       id,
+  //     });
 
-      const filteredUserData = {
-        name: data.userInfo.name,
-        lastname: data.userInfo.lastname,
-        surname: data.userInfo.surname,
+  //     const filteredUserData = {
+  //       name: data.userInfo.name,
+  //       lastname: data.userInfo.lastname,
+  //       surname: data.userInfo.surname,
 
-        date: data.userInfo.Dateof_birth,
-        phone: data.userInfo.Phone_number,
-        telegram: data.userInfo.telegram_id,
-        workPlace: data.userInfo.ed_organization,
-        gender: data.userInfo.gender,
-        ed: data.userInfo.ed_organization,
-        address: data.userInfo.address,
+  //       date: data.userInfo.Dateof_birth,
+  //       phone: data.userInfo.Phone_number,
+  //       telegram: data.userInfo.telegram_id,
+  //       workPlace: data.userInfo.ed_organization,
+  //       gender: data.userInfo.gender,
+  //       ed: data.userInfo.ed_organization,
+  //       address: data.userInfo.address,
 
-        points: data.userPoints.mycred_default,
-        history: data.history,
-        hours: data.hours.mycred_hours,
-      };
-      setUserData(filteredUserData);
-      setIsLoading(false);
-    };
+  //       points: data.userPoints.mycred_default,
+  //       history: data.history,
+  //       hours: data.hours.mycred_hours,
+  //     };
+  //     setUserData(filteredUserData);
+  //     setIsLoading(false);
+  //   };
 
-    fetchUserData();
-  }, []);
+  //   fetchUserData();
+  // }, []);
 
   return (
     <div className={styles.profile}>
