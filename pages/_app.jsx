@@ -6,7 +6,7 @@ import { AuthContextProvider } from '../store/auth-context';
 import * as gtag from '../lib/gtag';
 
 import '../components/all.scss';
-import '../styles/globals.css';
+import '../styles/globals.scss';
 
 function Volonteria(props) {
   const router = useRouter();

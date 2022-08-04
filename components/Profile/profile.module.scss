@@ -1,3 +1,5 @@
+@import '../../styles/variables';
+
 .profile {
   overflow-y: scroll;
   width: 100%;
@@ -96,7 +98,7 @@
       margin: 0 auto;
       width: 350px;
       height: 100%;
-      background: #f1d7ec;
+      background: $profile-bg-color;
       border-radius: 18px;
       display: flex;
       justify-content: space-between;
@@ -365,6 +367,10 @@
     display: flex;
     align-items: center;
   }
+}
+
+.svgColor {
+  fill: $svg-color;
 }
 
 @media (max-width: 1280px) {

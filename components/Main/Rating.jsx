@@ -29,8 +29,10 @@ export default function Rating({ host = '' }) {
   return (
     <div className={styles.rating}>
       <div className={styles.container}>
-        <p>Рейтинг студентов</p>
-        <ul>{users.length > 0 ? <Users users={users} /> : <p>Пользавотелей нет</p>}</ul>
+        <p>Рейтинг компаний</p>
+        <ul>
+          {users.length > 0 ? <Users users={users} /> : <p>Компаний нет</p>}
+        </ul>
       </div>
     </div>
   );

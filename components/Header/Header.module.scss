@@ -1,3 +1,5 @@
+@import '../../styles/variables';
+
 .header {
   width: 100%;
   height: 120px;
@@ -26,7 +28,7 @@
 
     a {
       &:hover {
-        color: #aa139b;
+        color: $link-color-hover;
       }
     }
   }
@@ -75,6 +77,10 @@
 
 .burger {
   display: none !important;
+}
+
+.svgColor {
+  fill: $svg-color;
 }
 
 @media (max-width: 1280px) {
