@@ -1,3 +1,5 @@
+@import '../../styles/variables';
+
 .vacancies {
   padding: 20px;
   padding-top: 34px;
@@ -81,7 +83,7 @@
 
 .response {
   transition: 0.2s;
-  background-color: #aa139b;
+  background-color: $button-bg-hover;
   color: #fff;
   cursor: auto;
 }
@@ -93,9 +95,9 @@
 }
 
 .elipse {
-  background: #f1d7ec;
+  background: $vacan-bg-color;
   border-radius: 15px;
-  color: #aa139b;
+  color: $vacan-text-color;
   padding: 5px;
   font-size: 10px;
   line-height: 12px;

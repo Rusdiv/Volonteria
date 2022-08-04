@@ -1,3 +1,5 @@
+@import '../../styles/variables';
+
 .navigation {
   display: flex;
   align-items: center;
@@ -25,16 +27,16 @@
     }
 
     &:hover {
-      border: 1px solid #f1d7ec;
+      border: 1px solid $nav-text-color;
     }
 
     &:active {
-      background-color: rgba(170, 19, 155, 0.15);
+      background-color: $nav-bg-color;
     }
   }
 
   .active {
-    background-color: rgba(170, 19, 155, 0.15);
+    background-color: $nav-bg-color;
   }
 }
 

@@ -1,3 +1,5 @@
+@import '../../styles/variables';
+
 .rating {
   width: 100%;
   font-family: 'Montserrat';
@@ -50,7 +52,7 @@
     display: flex;
     align-items: center;
 
-    color: #aa139b;
+    color: $text-color;
   }
 
   .name {
