@@ -16,7 +16,7 @@ export default function Header() {
     <div className={styles.header}>
       <div className={styles.logo}>
         <Logo />
-        <Link href="/">Наше будущее</Link>
+        <Link href="/">Production Practice</Link>
       </div>
       <div className={styles.rightBlock}>
         <ul>
