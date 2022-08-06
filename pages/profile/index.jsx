@@ -2,7 +2,6 @@ import React, { useContext, useEffect, useState } from 'react';
 import axios from 'axios';
 
 import ContactsBlock from '../../components/Profile/ContactsBlock';
-import AchievesBlock from '../../components/Profile/AchievesBlock';
 import ChangeDataBlock from '../../components/Profile/ChangeDataBlock';
 import AuthContext from '../../store/auth-context';
 

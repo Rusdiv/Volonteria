@@ -75,10 +75,10 @@
     a {
       margin-left: 20px;
       font-weight: 600;
-      color: $text-color;
+      color: $link-color;
 
       &:hover {
-        color: $text-color;
+        color: $link-color-hover;
       }
     }
   }

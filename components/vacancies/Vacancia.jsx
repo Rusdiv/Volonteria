@@ -10,6 +10,7 @@ export default function Vacancia({
   advantages = [],
   price = '',
   image = '',
+  y = 'n',
 }) {
   return (
     <div className={styles.vacan}>
@@ -66,12 +67,31 @@ export default function Vacancia({
       </div>
       <div className={styles.desc}>{text}</div>
       <div className={styles.buttons}>
-        <Button className={styles.button} type="button">
-          Откликнуться
-        </Button>
-        <Button className={`${styles.button} ${styles.response}`} type="button">
-          Откликнулось: 0
-        </Button>
+        {y === 'y' ? (
+          <>
+            <Button
+              className={`${styles.button} ${styles.response} ${styles.good}`}
+              type="button"
+            >
+              Статус: Приглашение
+            </Button>
+            <Button className={`${styles.button}`} type="button">
+              Контакты
+            </Button>
+          </>
+        ) : (
+          <>
+            <Button className={styles.button} type="button">
+              Откликнуться
+            </Button>
+            <Button
+              className={`${styles.button} ${styles.response}`}
+              type="button"
+            >
+              Откликнулось: 0
+            </Button>
+          </>
+        )}
       </div>
     </div>
   );

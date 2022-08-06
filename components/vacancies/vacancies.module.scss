@@ -88,6 +88,15 @@
   cursor: auto;
 }
 
+.good {
+  background-color: rgb(11, 255, 141);
+  border: none;
+
+  &:hover {
+    background-color: rgb(11, 255, 141);
+  }
+}
+
 .elipses {
   display: flex;
   justify-content: space-between;

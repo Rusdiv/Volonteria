@@ -1,6 +1,5 @@
 import React, { useState, useContext, useEffect } from 'react';
 import * as pino from 'pino';
-import Link from 'next/link';
 
 import Input from '../../components/Common/Input/Input';
 import Button from '../../components/Common/Button/Button';
@@ -53,7 +52,7 @@ export default function LoginPage() {
       <form className={styles.login}>
         <div className={styles.header}>
           <h1>Добро пожаловать на сайт</h1>
-          <span>Наше будущее</span>
+          <span>Production Practice</span>
         </div>
         <Input
           required
@@ -79,18 +78,14 @@ export default function LoginPage() {
             <input type="checkbox" />
             Запомнить меня
           </label>
-          <a href="http://t0toro-wordpress.tw1.ru/wp-login.php?action=lostpassword">
-            Забыли пароль?
-          </a>
+          <a href="/profile">Забыли пароль?</a>
         </div>
         <Button disabled={loading} onClick={onFinish}>
           Войти
         </Button>
         <p className={styles.footer}>
           Нет аккаунта?
-          <Link href="http://t0toro-wordpress.tw1.ru/wp-login.php?action=register">
-            Регистрация
-          </Link>
+          <a href="/profile">Регистрация</a>
         </p>
       </form>
     </div>
