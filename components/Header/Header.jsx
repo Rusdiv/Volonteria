@@ -35,7 +35,7 @@ export default function Header() {
                 className={styles.user_avatar}
                 width={40}
                 height={40}
-                src={avatar}
+                src="/#"
                 alt="avatar"
               />
             </Link>

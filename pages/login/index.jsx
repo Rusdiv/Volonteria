@@ -24,7 +24,7 @@ export default function LoginPage() {
   useEffect(() => {
     setLoading(false);
   }, [enteredLogin, enteredPassword]);
-
+  
   const enteredLoginHandler = (event) => {
     setEnteredLogin(event.target.value);
   };
@@ -48,51 +48,49 @@ export default function LoginPage() {
     }
   };
 
-  return (
-    <div className={styles.background}>
-      <form className={styles.login}>
-        <div className={styles.header}>
-          <h1>Добро пожаловать на сайт</h1>
-          <span>Волонтерия</span>
-        </div>
-        <Input
-          required
-          name="Логин"
-          type="text"
-          placeholder="Введите ваш e-mail"
-          onChange={enteredLoginHandler}
-          value={enteredLogin}
-        />
-        <Input
-          required
-          name="Пароль"
-          type={inputType}
-          placeholder="********"
-          onChange={enteredPasswordHandler}
-          value={enteredPassword}
-          onClick={onShowPassword}
-          endlessType="password"
-        />
-        <p className={styles.error}>{error}</p>
-        <div className={styles.checkboxPassword}>
-          <label>
-            <input type="checkbox" />
-            Запомнить меня
-          </label>
-          <a href="http://t0toro-wordpress.tw1.ru/wp-login.php?action=lostpassword">
-            Забыли пароль?
-          </a>
-        </div>
-        <Button disabled={loading} onClick={onFinish}>
-          Войти
-        </Button>
-        <p className={styles.footer}>
-          Нет аккаунта?
-          <Link href="http://t0toro-wordpress.tw1.ru/wp-login.php?action=register">
-            Регистрация
-          </Link>
-        </p>
-      </form>
-    </div>
-  );
+  return (<div className={styles.background}>
+    <form className={styles.login}>
+      <div className={styles.header}>
+        <h1>Добро пожаловать на сайт</h1>
+        <span>Волонтерия</span>
+      </div>
+      <Input
+        required
+        name="Логин"
+        type="text"
+        placeholder="Введите ваш e-mail"
+        onChange={enteredLoginHandler}
+        value={enteredLogin}
+      />
+      <Input
+        required
+        name="Пароль"
+        type={inputType}
+        placeholder="********"
+        onChange={enteredPasswordHandler}
+        value={enteredPassword}
+        onClick={onShowPassword}
+        endlessType="password"
+      />
+      <p className={styles.error}>{error}</p>
+      <div className={styles.checkboxPassword}>
+        <label>
+          <input type="checkbox" />
+          Запомнить меня
+        </label>
+        <a href="http://t0toro-wordpress.tw1.ru/wp-login.php?action=lostpassword">
+          Забыли пароль?
+        </a>
+      </div>
+      <Button disabled={loading} onClick={onFinish}>
+        Войти
+      </Button>
+      <p className={styles.footer}>
+        Нет аккаунта?
+        <Link href="http://t0toro-wordpress.tw1.ru/wp-login.php?action=register">
+          Регистрация
+        </Link>
+      </p>
+    </form>
+  </div>);
 }

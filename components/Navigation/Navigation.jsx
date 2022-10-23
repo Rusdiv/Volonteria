@@ -45,13 +45,6 @@ export default function Navigation() {
       active: false,
     },
     {
-      img: contactSVG,
-      name: 'Связь',
-      url: '/Contacts',
-      onСlick: redirect,
-      active: false,
-    },
-    {
       img: vacansiesSVG,
       name: 'Вакансии',
       url: '/vacancies',

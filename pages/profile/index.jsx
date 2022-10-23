@@ -17,30 +17,42 @@ export default function ProfilePage({ host = '' }) {
   const authCtx = useContext(AuthContext);
   const [userData, setUserData] = useState({});
   const [isLoading, setIsLoading] = useState(true);
-  const { id, email, avatar } = authCtx.userData;
+  const {
+    id = 5,
+    email = 'test@test.com',
+    avatar = 'https://i.pinimg.com/564x/19/c4/38/19c438a778a060fbbf575a8b4d7a2e89.jpg',
+  } = authCtx.userData;
 
   useEffect(() => {
     const fetchUserData = async () => {
-      const { data } = await axios.post(`${protocol}${host}/api/user/login`, {
-        id,
-      });
+      // const { data } = await axios.post(`${protocol}${host}/api/user/login`, {
+      //   id,
+      // });
 
       const filteredUserData = {
-        name: data.userInfo.name,
-        lastname: data.userInfo.lastname,
-        surname: data.userInfo.surname,
+        name: 'Руслан',
+        lastname: 'Лукоянов',
+        surname: 'Лукоянов',
 
-        date: data.userInfo.Dateof_birth,
-        phone: data.userInfo.Phone_number,
-        telegram: data.userInfo.telegram_id,
-        workPlace: data.userInfo.ed_organization,
-        gender: data.userInfo.gender,
-        ed: data.userInfo.ed_organization,
-        address: data.userInfo.address,
+        date: '20202020',
+        phone: '88005553535',
+        telegram: 'телега',
+        workPlace: 'Пгути',
+        gender: 'Мужской',
+        ed: 'Пгути',
+        address: 'Ерошевского 53а',
 
-        points: data.userPoints.mycred_default,
-        history: data.history,
-        hours: data.hours.mycred_hours,
+        points: 56,
+        history: [
+          {
+            event_id: '386',
+            users_id: '26',
+            event_name: 'qwerty',
+            event_time: '20211102',
+            event_table: 'qwerty',
+          },
+        ],
+        hours: 26,
       };
       setUserData(filteredUserData);
       setIsLoading(false);

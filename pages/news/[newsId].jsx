@@ -14,15 +14,15 @@ import styles from '../../components/News/Event.module.scss';
 import protocol from '../../protocol';
 
 export default function NewsItemPage({
-  time = '',
-  description = '',
-  timeTable = '',
+  time = '20220820',
+  description = 'Если Вы чувствуете в себе силы изменять мир к лучшему, готовы к интересной и благодарной работе, то мы будем рады видеть вас в нашей команде волонтерского отряда «Добрая воля НХТИ»! ',
+  timeTable = 'С 9:00 до 17:00',
   volCount = 0,
   newsId = 0,
   hostName = '',
-  place = ' ',
-  tgId = '',
-  target = '',
+  place = 'Большое Афанасово ',
+  tgId = 'Добровольческая акция "Осенняя неделя добра"',
+  target = 'Посетить приют для животных, принести корм и лакомства для питомцев...',
   err = '',
   name = '',
 }) {
@@ -48,34 +48,39 @@ export default function NewsItemPage({
   const onRegOnIvent = async () => {
     setIsActive(true);
 
-    try {
-      console.log('start registration on event');
+    // try {
+    //   console.log('start registration on event');
 
-      const { data } = await axios.post(
-        `${protocol}${hostName}/api/news/regOnEvent`,
-        {
-          event_id: Number(newsId),
-          user_id: userId,
-        },
-      );
+    //   const { data } = await axios.post(
+    //     `${protocol}${hostName}/api/news/regOnEvent`,
+    //     {
+    //       event_id: Number(newsId),
+    //       user_id: userId,
+    //     },
+    //   );
 
-      if (data === 1) {
-        setAlertText('Вы успешно записались на мероприятие!');
-        setAlert(true);
-      }
-      if (data === 'time is out') {
-        setAlertText('Время на запись уже прошло.');
-        setAlert(true);
-      }
-      if (data === 'U have been registrated on this event yet') {
-        setAlertText('Вы уже записались на мероприятие!');
-        setAlert(true);
-      }
+    //   if (data === 1) {
+    //     setAlertText('Вы успешно записались на мероприятие!');
+    //     setAlert(true);
+    //   }
+    //   if (data === 'time is out') {
+    //     setAlertText('Время на запись уже прошло.');
+    //     setAlert(true);
+    //   }
+    //   if (data === 'U have been registrated on this event yet') {
+    //     setAlertText('Вы уже записались на мероприятие!');
+    //     setAlert(true);
+    //   }
 
-      console.log(data);
-    } catch (err1) {
-      console.log('fail to registration on event', err1);
-    }
+    //   console.log(data);
+    // } catch (err1) {
+    //   console.log('fail to registration on event', err1);
+    // }
+
+    setTimeout(() => {
+      setAlertText('Вы успешно записались на мероприятие!');
+      setAlert(true);
+    }, 3000);
   };
 
   const year = time[0] + time[1] + time[2] + time[3];

@@ -10,7 +10,7 @@ const AuthContext = React.createContext({
 });
 
 export const AuthContextProvider = ({ children }) => {
-  const [isLoggedIn, setIsLoggedIn] = useState(true);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [userData, setUserData] = useState({});
 
   const logoutHandler = () => {
@@ -18,18 +18,20 @@ export const AuthContextProvider = ({ children }) => {
   };
 
   const loginHandler = async (login, password) => {
-    const importantData = await axios.post('/api/user/importantData', {
-      login,
-      password,
-    });
+    // const importantData = await axios.post('/api/user/importantData', {
+    //   login,
+    //   password,
+    // });
 
-    const filteredUserData = {
-      id: importantData.data.data.id,
-      email: importantData.data.data.email,
-      avatar: importantData.data.avatar,
-    };
-    setUserData({ ...filteredUserData });
-    setIsLoggedIn(true);
+    // const filteredUserData = {
+    //   id: importantData.data.data.id,
+    //   email: importantData.data.data.email,
+    //   avatar: importantData.data.avatar,
+    // };
+    // setUserData({ ...filteredUserData });
+    setTimeout(() => {
+      setIsLoggedIn(true);
+    }, 5000);
   };
 
   return (
@@ -51,4 +53,3 @@ AuthContextProvider.propTypes = {
 };
 
 export default AuthContext;
-

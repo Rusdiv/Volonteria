@@ -40,3 +40,4 @@ export default async (req, res) => {
     history: historyData.data,
   });
 };
+

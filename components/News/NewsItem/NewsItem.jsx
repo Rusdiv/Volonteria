@@ -10,7 +10,7 @@ import styles from './NewsItem.module.scss';
 export default function NewsItem({
   title = '',
   href = '',
-  date = '',
+  date = '20220820',
   place = '',
 }) {
   const router = useRouter();
@@ -71,3 +71,4 @@ export default function NewsItem({
     </button>
   );
 }
+
